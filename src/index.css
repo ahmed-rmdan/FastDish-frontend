@@ -1,0 +1,148 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+  width: 100%;
+}
+
+
+
+nav{  
+  display: flex;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+flex-direction: row;
+
+}
+.name{
+  color: orange;
+  font-weight: bolder;
+  margin-left: 30px;
+  font-size:50px;
+}
+.nav{
+display: flex;
+width: 50%;
+flex-direction: row;
+align-items: center;
+gap: 100px;
+}
+.search-form{
+  display: flex;
+  gap:35px;
+}
+.nav button{
+  border: none;
+  background-color: #242424;
+  transform: scale(1.6);
+  color: orange;
+    cursor: pointer;
+}
+.search-form button{
+  border: 1px solid orange;
+  cursor: pointer;
+  transform: scale(1.3);
+width: 60px;
+height:30px;
+}
+
+.search-form input{
+  height: 30px;
+  
+}
+
+
+.cartlist .listitem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 98%;
+  height: 140px;
+  background-color: #242424;
+}
+.listitem .iteminfo{
+  display: flex;
+  flex-direction: row;
+  height: 70%;
+  width: 100%;
+}
+.maininfo{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+    width: 60%;
+    height:100%;
+}
+.iteminfo img{
+  width: 40%;
+  height:100%;
+}
+.maininfo .name{
+  display: flex;
+font-size: 20px;
+font-weight: bolder;
+height: 20%;
+width: 100%;
+text-align: center;
+justify-content: center;
+margin-left: -5px;
+}
+.maininfo .quntity{
+  display: flex;
+font-size: 17px;
+font-weight: bolder;
+margin-top: -10px;
+height: 20%;
+width: 100%;
+text-align: center;
+justify-content: center;
+}
+.maininfo .price{
+  font-size: 17px;
+  height: 20%;
+width: 100%;
+margin-top: -10px;
+text-align: center;
+
+}
+
+
+
+
+.itembuttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 30%;
+  width: 50%;
+  gap: 40px;
+}
+.itembuttons button{
+  border: none;
+  height: 50%;
+  width: auto;
+  align-self: center;
+}
+.cart-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  height:40px ;
+}
+.cart-buttons button{
+  border-radius: 5px;
+}
