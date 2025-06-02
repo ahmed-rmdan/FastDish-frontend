@@ -170,3 +170,101 @@ text-align: center;
   color: orange;
   font-weight: bolder;
 }
+.second{
+  display: flex;
+align-items: center;
+  width: 100%;
+  height: 1000px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.meanu{
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  width: 15%;
+  height: 95%;
+  border: 1px solid orange;
+  border-radius: 50px;
+}
+.meanu p{
+  text-decoration: underline;
+  font-size: xx-large;
+  font-weight: bolder;
+  color: orange;
+  height: 10px;
+
+}
+.meanu button{
+  border: none;
+  background-color: #242424;
+  color: orange;
+  font-size: larger;
+  cursor: pointer;
+ 
+}
+.meanu button:hover{
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+.meanu .clicked{
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+.second .items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+.second .list{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.second .list .listitem{
+  width:30%;
+  height:40%;
+}
+.second .listitem .itembuttons{
+  width: 100%;
+}
+.second .listitem button{
+  background-color: #242424;
+  border: 1px solid orange;
+  color: orange;
+  width: 50%;
+  cursor: pointer;
+}
+.pages{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+  height: 30%;
+  width: 60%;
+}
+.pages-container{
+  display: flex;
+  justify-content: space-between;
+width: 140px;
+  gap: 10px;
+}
+.pages button{
+  width: 20px;
+  text-align: center;
+  background-color: #242424;
+  border: none;
+  color: orange;
+  font-size: larger;
+  cursor: pointer;
+}
+.pages button:hover{
+text-decoration: underline;
+}

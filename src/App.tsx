@@ -1,5 +1,6 @@
 import { Nav } from "./components/nav/nav"
 import { First } from "./components/firstsection/first"
+import { Second } from "./components/secondsection/second"
 
 function App() {
  
@@ -8,6 +9,7 @@ function App() {
     <>
         <Nav></Nav>
         <First></First>
+        <Second></Second>
 
     </>
   )
