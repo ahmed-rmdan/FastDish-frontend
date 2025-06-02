@@ -37,7 +37,7 @@ display: flex;
 width: 50%;
 flex-direction: row;
 align-items: center;
-gap: 100px;
+gap: 70px;
 }
 .search-form{
   display: flex;
@@ -146,4 +146,27 @@ text-align: center;
 }
 .cart-buttons button{
   border-radius: 5px;
+}
+.first{
+  position: relative;
+  
+}
+.first img{
+ 
+  width: 100%;
+  height: 1000px;
+  filter: blur(3px);
+}
+.first p{
+  position: absolute;
+  font-size: 80px;
+  top:20%;
+  left: 20%;
+  text-align: center;
+  color: orange;
+  font-weight: bolder;
+
+
+  
+
 }

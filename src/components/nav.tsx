@@ -1,7 +1,7 @@
 import React from "react"
 import { Search } from "./srarch"
 import { Cart } from "./cart"
-export const Nav:React.FC<{}>=(props)=>{
+export const Nav:React.FC<{}>=()=>{
     return(
         <nav>
             <div className="name">Food Order</div>
