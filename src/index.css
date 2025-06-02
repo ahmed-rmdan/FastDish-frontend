@@ -49,6 +49,7 @@ gap: 100px;
   transform: scale(1.6);
   color: orange;
     cursor: pointer;
+    width: 60px;
 }
 .search-form button{
   border: 1px solid orange;
