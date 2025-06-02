@@ -268,3 +268,67 @@ width: 140px;
 .pages button:hover{
 text-decoration: underline;
 }
+.third{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 1000px;
+}
+.third p{
+  height: 100px;
+  color: orange;
+  text-decoration: underline;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+.third input{
+  width: 300px;
+  
+}
+.third button{
+ border: 1px solid orange;
+  background-color: #242424;
+  color: orange;
+}
+.third .search-form{
+align-items: center;
+height: 100px;
+margin-top: -30px;
+}
+.third .items{
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.third .list{
+    width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.third .list .listitem{
+  width:30%;
+  height:40%;
+}
+.third .pages{
+  height: 15%;
+}
+.third .pages button{
+  border: none;
+  cursor: pointer;
+}
+.third .listitem .itembuttons{
+  width: 100%;
+  justify-content: center;
+}
+.third .listitem button{
+  cursor: pointer;
+ height: 60%;
+}

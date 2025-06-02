@@ -23,7 +23,41 @@ if(props.type==='menu'){
              </div>
         </li>
     )
-} else{
+}
+if(props.type==='search'){
+
+    return(
+
+        <li className="listitem">
+            <div className="iteminfo">
+                   <img >
+                
+                  
+                   </img>
+                   <div className="maininfo">
+                         <p className="name">{props.name}</p>
+                         <p className="price">price : {props.price*props.quantity} </p>
+                   </div>
+             
+
+             </div>
+             <div className="itembuttons">
+                <button>Add to Cart</button>
+                <button>remove</button>
+
+             </div>
+        </li>
+    )
+
+}
+
+
+
+
+
+
+
+else{
 
 
 return(
