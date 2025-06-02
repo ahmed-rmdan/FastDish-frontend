@@ -1,4 +1,4 @@
-import { Nav } from "./components/nav"
+import { Nav } from "./components/nav/nav"
 import { First } from "./components/firstsection/first"
 
 function App() {

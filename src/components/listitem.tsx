@@ -18,6 +18,7 @@ export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price
              <div className="itembuttons">
                 <button>+</button>
                 <button>-</button>
+                <button>remove</button>
 
              </div>
         </li>
