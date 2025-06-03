@@ -405,3 +405,35 @@ cursor: pointer;
 .taps .clicked{
   background-color: orange;
 }
+.fifth{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fifth p{
+    font-size: 70px;
+  color: orange;
+  text-decoration: underline;
+  font-weight: bolder;
+  align-self: center;
+}
+.fifth .locations{
+  display: flex;
+  flex-direction: column;
+width: 100%;
+}
+.locations .start{
+  width: 50%;
+  justify-content: start;
+   height: 500px;
+}
+.locations .end{
+  display: flex;
+  flex-direction: column;
+    width: 50%;
+    align-self: flex-end;
+    height: 500px;
+}
+.locations p{
+  font-size: 40px;
+}
