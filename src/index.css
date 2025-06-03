@@ -15,9 +15,6 @@
 body{
   width: 100%;
 }
-
-
-
 nav{  
   display: flex;
   top: 0;
@@ -58,13 +55,10 @@ gap: 70px;
 width: 60px;
 height:30px;
 }
-
 .search-form input{
   height: 30px;
   
 }
-
-
 .cartlist .listitem{
   display: flex;
   flex-direction: column;
@@ -184,7 +178,7 @@ align-items: center;
     align-items: center;
     justify-content: space-around;
   width: 15%;
-  height: 95%;
+  height: 90%;
   border: 1px solid orange;
   border-radius: 50px;
 }
@@ -215,6 +209,7 @@ align-items: center;
 .second .items{
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   width: 60%;
   height: 100%;
@@ -247,7 +242,7 @@ align-items: center;
   align-items: start;
   justify-content: center;
   gap: 20px;
-  height: 30%;
+  height: 20%;
   width: 60%;
 }
 .pages-container{
@@ -280,7 +275,7 @@ text-decoration: underline;
   height: 100px;
   color: orange;
   text-decoration: underline;
-  font-size: xx-large;
+  font-size: 60px;
   font-weight: bolder;
 }
 .third input{
@@ -298,7 +293,7 @@ height: 100px;
 margin-top: -30px;
 }
 .third .items{
-  height: 600px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -331,4 +326,82 @@ margin-top: -30px;
 .third .listitem button{
   cursor: pointer;
  height: 60%;
+}
+.fourth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 900px;
+  width: 100%;
+  gap: 100px;
+}
+.fourth p{
+  font-size: 70px;
+  color: orange;
+  text-decoration: underline;
+  font-weight: bolder;
+margin-top: -10px;
+  
+}
+.slider{
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+  width: 85%;
+}
+.slider .items-container{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y:hidden ;
+  flex-direction: row;
+  width: 920px;
+  gap: 40px;
+  height: 300px;
+
+}
+.items-container .listitem{
+  min-width:  200px;
+  height: 80%;
+
+}
+.items-container .listitem .itembuttons{
+  width: 100%;
+}
+.items-container .listitem .itembuttons button{
+  border: 1px solid orange;
+  background-color: #242424;
+  color: orange;
+  height: 60%;
+  cursor: pointer;
+  width: 48%;
+}
+.fourth .next{
+height: 30%;
+align-self: center;
+font-size: 30px;
+margin-left: 30px;
+color: orange;
+font-weight: bold;
+background-color: #242424;
+border: none;
+cursor: pointer;
+}
+.taps{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  height: 100px;
+  margin-top: -20px;
+}
+.taps button{
+  height: 30px;
+  width: 30px;
+  background-color: #242424;
+  border: 1px solid orange;
+  border-radius: 180%;
+}
+.taps .clicked{
+  background-color: orange;
 }

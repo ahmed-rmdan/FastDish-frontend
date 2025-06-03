@@ -24,7 +24,7 @@ if(props.type==='menu'){
         </li>
     )
 }
-if(props.type==='search'){
+if(props.type==='favourite'){
 
     return(
 
