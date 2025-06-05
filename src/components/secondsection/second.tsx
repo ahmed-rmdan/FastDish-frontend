@@ -1,36 +1,59 @@
 import React from "react";
-import { Listitem } from "../listitem";
+
+import { useState } from "react";
+import type { meal } from "../type";
+import { LIST } from "./list";
 export const Second:React.FC<{}>=()=>{
+     const [meals,storemeals]=useState<null|meal[]>(null)
+     const [error,seterror]=useState<null|string>(null)
+     
+    function getmenu(meal:string){
+      async function loadmeals(){
+          try{
+const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${meal}`)  
+        if(!res.ok){
+  throw new Error('somthing went wrong')
+        }
+         const data=await res.json()
+          storemeals(data.data.recipes)
+          seterror(null)   
+          }catch(error){
+               if(error instanceof Error)
+               seterror(error.message)
+          }
+      }
+    loadmeals()
+    }
+let pagesarr=[]
+let numpages=0
+if(meals!==null){
+      numpages=Math.ceil(meals!.length/6)
+for(let i=1; i<=numpages;i++){
+pagesarr.push(i)
+}
+}
+
     return(
          <section className="second">
                   <div className="meanu">
-                       <p>meanu</p>
-                       <button>Pizza</button>
-                       <button>Burger</button>
-                       <button>Pasta</button>
-                       <button>Meat</button>
-                       <button>Chicken</button>
+                       <p>menu</p>
+                       <button onClick={()=>getmenu('pizza')}>Pizza</button>
+                       <button onClick={()=>getmenu('burger')}>Burger</button>
+                       <button onClick={()=>getmenu('pasta')}>Pasta</button>
+                       <button onClick={()=>getmenu('rice')}>rice</button>
+                       <button onClick={()=>getmenu('chicken')}>Chicken</button>
 
                   </div>
                   <div className="items">
-                        <div className="list">
-                                  <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='menu'></Listitem>
-                                            <Listitem name="burger" quantity={4} imgeurl="" price={150} type='menu'></Listitem>
-                                            <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='menu'></Listitem>
-                                            <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='menu'></Listitem>
-                                            <Listitem name="burger" quantity={4} imgeurl="" price={150} type='menu'></Listitem>
-                                            <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='menu'></Listitem>
-                        </div>
+                         <LIST error={error} meals={meals}></LIST>
                         <div className="pages">
                                <div className="pages-container">
-                                <button>1</button>
-                                <button>2</button>
-                                <button>3</button>
-                                <button>4</button>
-                                <button>5</button>
+                                {meals===null?'':pagesarr.map(elm=>{
+                                   return <button key={elm}>{elm}</button>
+                                })}
 
                                </div>
-                               <button className="next">next</button>
+                               {meals!==null&&numpages>5?<button className="next">next</button>:''}
                         </div>
                   </div>
          </section>

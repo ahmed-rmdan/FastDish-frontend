@@ -5,7 +5,7 @@ export const First:React.FC<{}>=()=>{
          <section className="first">
                   <img src={food}>
                   </img>
-                   <p>Welcome to out resturant <br/> Burger-Pizza-Pasta-Meat-Chicken <br/> Order what you like </p>
+                   <p>Welcome to our resturant <br/> Burger-Pizza-Pasta-Meat-Chicken <br/> Order what you like </p>
          </section>
 
 

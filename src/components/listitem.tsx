@@ -5,7 +5,7 @@ if(props.type==='menu'){
 
         <li className="listitem">
             <div className="iteminfo">
-                   <img >
+                   <img src={props.imgeurl}>
                 
                   
                    </img>
@@ -30,7 +30,7 @@ if(props.type==='favourite'){
 
         <li className="listitem">
             <div className="iteminfo">
-                   <img >
+                   <img src={props.imgeurl}>
                 
                   
                    </img>
@@ -52,18 +52,13 @@ if(props.type==='favourite'){
 }
 
 
-
-
-
-
-
 else{
 
 
 return(
         <li className="listitem">
             <div className="iteminfo">
-                   <img >
+                   <img src={props.imgeurl} >
                 
                   
                    </img>
@@ -83,15 +78,6 @@ return(
              </div>
         </li>
     )
-
-
-
-
-
-
-
-
-
 }
     
 }
