@@ -445,3 +445,22 @@ width: 100%;
   font-size: 50px;
   align-self: center;
 }
+.loading{
+  border-radius: 180%;
+  border: none;
+  border-right: 2px solid orange;
+  background-color: #242424;
+  width: 120px;
+  height: 120px;
+  
+ animation-timing-function: linear;
+animation: rotate 1s ease-in-out infinite;
+}
+@keyframes rotate{
+  0%{
+transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

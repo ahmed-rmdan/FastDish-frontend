@@ -3,18 +3,23 @@ import React from "react";
 import { useState } from "react";
 import type { meal } from "../type";
 import { LIST } from "./list";
+import { PAGES } from "./pages";
 export const Second:React.FC<{}>=()=>{
      const [meals,storemeals]=useState<null|meal[]>(null)
      const [error,seterror]=useState<null|string>(null)
-     
+     const [clicked,seclicked]=useState<string>('')
+     const [isloading,setisloading]=useState<boolean>(false)
     function getmenu(meal:string){
       async function loadmeals(){
+          setisloading(true)
           try{
 const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${meal}`)  
         if(!res.ok){
   throw new Error('somthing went wrong')
         }
          const data=await res.json()
+         setisloading(false)
+         seclicked(meal)
           storemeals(data.data.recipes)
           seterror(null)   
           }catch(error){
@@ -37,24 +42,22 @@ pagesarr.push(i)
          <section className="second">
                   <div className="meanu">
                        <p>menu</p>
-                       <button onClick={()=>getmenu('pizza')}>Pizza</button>
-                       <button onClick={()=>getmenu('burger')}>Burger</button>
-                       <button onClick={()=>getmenu('pasta')}>Pasta</button>
-                       <button onClick={()=>getmenu('rice')}>rice</button>
-                       <button onClick={()=>getmenu('chicken')}>Chicken</button>
+                       <button onClick={()=>getmenu('pizza')} className={clicked==='pizza'?'clicked':''}>Pizza</button>
+                       <button onClick={()=>getmenu('burger')}  className={clicked==='burger'?'clicked':''}>Burger</button>
+                       <button onClick={()=>getmenu('pasta')} className={clicked==='pasta'?'clicked':''}>Pasta</button>
+                       <button onClick={()=>getmenu('rice')} className={clicked==='rice'?'clicked':''}>rice</button>
+                       <button onClick={()=>getmenu('chicken')} className={clicked==='chicken'?'clicked':''}>Chicken</button>
 
                   </div>
                   <div className="items">
-                         <LIST error={error} meals={meals}></LIST>
-                        <div className="pages">
-                               <div className="pages-container">
-                                {meals===null?'':pagesarr.map(elm=>{
-                                   return <button key={elm}>{elm}</button>
-                                })}
-
-                               </div>
-                               {meals!==null&&numpages>5?<button className="next">next</button>:''}
-                        </div>
+                    { isloading?<button className="loading"></button>:
+                    <>
+                              <LIST error={error} meals={meals}></LIST>
+               <PAGES meals={meals} pagesarr={pagesarr} numpaes={numpages}></PAGES>
+                    </>     
+                    }
+                    
+              
                   </div>
          </section>
 
