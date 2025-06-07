@@ -1,5 +1,5 @@
 import React from "react"
-import { Search } from "./srarch"
+import { Search } from "../global/srarch"
 import { Cart } from "./cart"
 export const Nav:React.FC<{}>=()=>{
     return(

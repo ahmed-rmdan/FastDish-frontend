@@ -1,0 +1,43 @@
+import React from "react"
+import { use} from "react"
+import { Contextsearch } from "../../store/contextsearch"
+export const Search:React.FC<{}>=()=>{
+const{getsearchmeals,setisloading,seterror}=use(Contextsearch)
+  const searchinputvalue=React.useRef<HTMLInputElement>(null)
+  function submitsearch(ev:React.FormEvent){
+ev.preventDefault()
+const search=searchinputvalue.current?.value
+if(search!==null&&search!==undefined){
+ featchmeals(search)
+}
+  }
+function featchmeals(search:string){
+   async function loadmeals(){
+          setisloading(true)
+        
+          try{
+            
+const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${search}`)  
+if(!res.ok){
+throw new Error('somthing went wrong')
+}
+const data=await res.json()
+seterror(null)
+setisloading(false)
+  getsearchmeals(data.data.recipes)
+          }   catch(error){
+               if(error instanceof Error)
+               seterror(error.message)
+              
+              }                            
+}
+loadmeals()
+
+  }
+    return(
+      <form className="search-form" onSubmit={submitsearch}>
+           <input type="text"  placeholder="YOUR MEAL" ref={searchinputvalue}/>
+           <button > search</button>
+      </form>
+    )
+}

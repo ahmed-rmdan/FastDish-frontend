@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Listitem } from "../listitem";
+import { Listitem } from "../global/listitem";
 export const Cart:React.FC= ()=> {
   const [isOpen, setIsOpen] = useState(false);
 

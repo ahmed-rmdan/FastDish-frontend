@@ -1,17 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 
-import { useState } from "react";
+import { useState} from "react";
 import type { meal } from "../type";
 import { LIST } from "./list";
 import { PAGES } from "./pages";
+import { Contextpage } from "../../store/contextpages";
 export const Second:React.FC<{}>=()=>{
      const [meals,storemeals]=useState<null|meal[]>(null)
      const [error,seterror]=useState<null|string>(null)
      const [clicked,seclicked]=useState<string>('')
      const [isloading,setisloading]=useState<boolean>(false)
+     const{choosemenupg}=use(Contextpage)
     function getmenu(meal:string){
       async function loadmeals(){
           setisloading(true)
+          seclicked(meal)
           try{
 const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${meal}`)  
         if(!res.ok){
@@ -19,9 +22,10 @@ const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${meal
         }
          const data=await res.json()
          setisloading(false)
-         seclicked(meal)
+         
           storemeals(data.data.recipes)
-          seterror(null)   
+          seterror(null)
+          choosemenupg(1)   
           }catch(error){
                if(error instanceof Error)
                seterror(error.message)

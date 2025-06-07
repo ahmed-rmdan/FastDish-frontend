@@ -6,12 +6,14 @@ import { Fourth } from "./components/fourthsection/fourth"
 import { Fifth } from "./components/fifthsection/fifth"
 import { Sixth } from "./components/sixthsection/sixth"
 import { Contextpageprovider } from "./store/contextpages"
+import { Contextsearchprovider } from "./store/contextsearch"
 function App() {
  
 
   return (
     <>
-    <Contextpageprovider>
+    <Contextsearchprovider>
+   <Contextpageprovider>
          <Nav></Nav>
         <First></First>
         <Second></Second>
@@ -19,8 +21,9 @@ function App() {
         <Fourth></Fourth>
         <Fifth></Fifth>
         <Sixth></Sixth>
-
     </Contextpageprovider>
+    </Contextsearchprovider>
+ 
       
 
     </>

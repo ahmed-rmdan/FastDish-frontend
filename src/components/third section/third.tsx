@@ -1,32 +1,32 @@
 
 import React from "react";
-import { Search } from "../nav/srarch";
-import { Listitem } from "../listitem";
+import { Search } from "../global/srarch";
+import { LIST } from "./listshearch";
+import { use } from "react";
+import { Contextsearch } from "../../store/contextsearch";
+import { PAGES } from "./pages";
 export const Third:React.FC<{}>=()=>{
+     const{searchmeals,error,isloading}=use(Contextsearch)
+let pagesarr=[]
+let numpages=0
+if(searchmeals!==null){
+      numpages=Math.ceil(searchmeals!.length/6)
+for(let i=1; i<=numpages;i++){
+pagesarr.push(i)
+}
+}
+
     return(
          <section className="third">
                 <p>Search for your Meals</p>
                  <Search></Search>
                    <div className="items">
-                                         <div className="list">
-                                                   <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='menu'></Listitem>
-                                                             <Listitem name="burger" quantity={4} imgeurl="" price={150} type='menu'></Listitem>
-                                                             <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='menu'></Listitem>
-                                                             <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='menu'></Listitem>
-                                                             <Listitem name="burger" quantity={4} imgeurl="" price={150} type='menu'></Listitem>
-                                                             <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='menu'></Listitem>
-                                         </div>
-                                         <div className="pages">
-                                                <div className="pages-container">
-                                                 <button>1</button>
-                                                 <button>2</button>
-                                                 <button>3</button>
-                                                 <button>4</button>
-                                                 <button>5</button>
-                 
-                                                </div>
-                                                <button className="next">next</button>
-                                         </div>
+                                      
+                                       {isloading?<button className="loading"></button>: <>
+                                                                     <LIST error={error} meals={searchmeals}></LIST>
+                                                      <PAGES meals={searchmeals} pagesarr={pagesarr} numpaes={numpages}></PAGES>
+                                                           </>     }  
+                                          
                                    </div>
                
                   

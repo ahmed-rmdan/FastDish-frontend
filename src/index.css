@@ -291,15 +291,15 @@ text-decoration: underline;
   width: 300px;
   
 }
-.third button{
- border: 1px solid orange;
-  background-color: #242424;
-  color: orange;
-}
 .third .search-form{
 align-items: center;
 height: 100px;
-margin-top: -30px;
+
+}
+.third .search-form button{
+   border: 1px solid orange;
+  background-color: #242424;
+  color: orange;
 }
 .third .items{
   height: 800px;
@@ -333,8 +333,12 @@ margin-top: -30px;
   justify-content: center;
 }
 .third .listitem button{
+    border: 1px solid orange;
+  background-color: #242424;
+  color: orange;
   cursor: pointer;
- height: 60%;
+   height: 60%;
+   width: 40%;
 }
 .fourth{
   display: flex;
@@ -459,8 +463,8 @@ width: 100%;
   align-self: center;
 }
 .loading{
+   border: none;
   border-radius: 180%;
-  border: none;
   border-right: 2px solid orange;
   background-color: #242424;
   width: 120px;

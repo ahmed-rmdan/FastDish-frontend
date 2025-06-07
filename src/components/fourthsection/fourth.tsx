@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Listitem } from "../listitem";
+import { Listitem } from "../global/listitem";
 export const Fourth:React.FC<{}>=()=>{
     return(
          <section className="fourth">
