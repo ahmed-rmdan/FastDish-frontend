@@ -5,18 +5,23 @@ import { Third } from "./components/third section/third"
 import { Fourth } from "./components/fourthsection/fourth"
 import { Fifth } from "./components/fifthsection/fifth"
 import { Sixth } from "./components/sixthsection/sixth"
+import { Contextpageprovider } from "./store/contextpages"
 function App() {
  
 
   return (
     <>
-        <Nav></Nav>
+    <Contextpageprovider>
+         <Nav></Nav>
         <First></First>
         <Second></Second>
         <Third></Third>
         <Fourth></Fourth>
         <Fifth></Fifth>
         <Sixth></Sixth>
+
+    </Contextpageprovider>
+      
 
     </>
   )

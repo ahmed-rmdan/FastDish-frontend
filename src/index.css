@@ -12,6 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   width: 100%;
 }
@@ -244,20 +249,28 @@ align-items: center;
   display: flex;
   justify-content: space-between;
   overflow-x: hidden;
-width: 140px;
+min-width: 140px;
+max-width: 140px;
   gap: 10px;
+  
 }
 .pages button{
-  width: 20px;
+ max-width: 20px;
+ min-width: 20px;
   text-align: center;
   background-color: #242424;
   border: none;
   color: orange;
   font-size: larger;
   cursor: pointer;
+  font-size: 15px;
+
 }
 .pages button:hover{
 text-decoration: underline;
+}
+.pages .clicked{
+  text-decoration: underline;
 }
 .third{
   display: flex;
