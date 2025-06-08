@@ -2,8 +2,8 @@ import React from "react"
 import { use } from "react"
 import { Contextcart } from "../../store/contextcart"
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
-    const {dispatchcartitems,cartitems}=use(Contextcart)
-
+    const {dispatchcartitems}=use(Contextcart)
+console.log(props.id)
 
 if(props.type==='menu'){
     return(
@@ -43,19 +43,16 @@ if(props.type==='favourite'){
                          <p className="name">{props.name}</p>
                          <p className="price">price : {props.price*props.quantity} </p>
                    </div>
-             
-
              </div>
              <div className="itembuttons">
                 <button onClick={()=>dispatchcartitems({type:'add-item',payload:{id:props.id,title:props.name,image_url:props.imgeurl,publisher:props.name}})} >Add to Cart</button>
-                <button>remove</button>
+                <button  >remove</button>
 
              </div>
         </li>
     )
 
 }
-
 
 else{
 
@@ -78,7 +75,7 @@ return(
              <div className="itembuttons">
                 <button>+</button>
                 <button>-</button>
-                <button>remove</button>
+                <button onClick={()=>dispatchcartitems({type:'remove-item',payload:{id:props.id,title:props.name,image_url:props.imgeurl,publisher:props.name}})}>remove</button>
 
              </div>
         </li>

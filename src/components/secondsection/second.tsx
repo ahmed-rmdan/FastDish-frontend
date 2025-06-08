@@ -24,6 +24,7 @@ const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${meal
          setisloading(false)
          
           storemeals(data.data.recipes)
+         
           seterror(null)
           choosemenupg(1)   
           }catch(error){
@@ -41,7 +42,7 @@ for(let i=1; i<=numpages;i++){
 pagesarr.push(i)
 }
 }
-
+console.log(meals)
     return(
          <section className="second">
                   <div className="meanu">

@@ -12,10 +12,19 @@ type actiontype={
 }
 function dispatchfunction(state:{items:cartmeal[]},action:actiontype){
 if(action.type==='add-item'){
+    console.log(action.payload.id)
     const newitem:cartmeal={...action.payload,quantity:1}
 return{
 items:[...state.items,newitem]
 }
+}
+if(action.type==='remove-item'){
+    console.log(action.payload.id)
+    const newcartmeals=[...state.items].filter(elm=>elm.id!==action.payload.id)
+  console.log(newcartmeals)
+    return{
+        items:newcartmeals
+    }
 }
 else{
     return{...state}
