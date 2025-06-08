@@ -1,7 +1,7 @@
 import React, { use } from "react";
 
 import { useState} from "react";
-import type { meal } from "../type";
+import type { meal } from "../global/type";
 import { LIST } from "./list";
 import { PAGES } from "./pages";
 import { Contextpage } from "../../store/contextpages";

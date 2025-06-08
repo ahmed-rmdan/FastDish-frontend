@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { meal } from "../components/type";
+import type { meal } from "../components/global/type";
 
 export const Contextsearch=React.createContext<{searchvalue:string,setsearchvalue:(ev:string)=>void,searchmeals:meal[],
     getsearchmeals:(meals:meal[])=>void,error:null|string ,seterror:(ev:null|string)=>void,isloading:boolean,setisloading:(ev:boolean)=>void}>

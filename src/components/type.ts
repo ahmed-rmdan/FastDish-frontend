@@ -1,1 +1,0 @@
-export type meal={id:string,image_url:string,publisher:string,title:string}

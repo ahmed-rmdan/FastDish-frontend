@@ -1,5 +1,5 @@
 import React from "react";
-import type { meal } from "../type";
+import type { meal } from "../global/type";
 import { useState ,use} from "react";
 import { Contextpage } from "../../store/contextpages";
 export const PAGES:React.FC<{meals:null|meal[],pagesarr:number[],numpaes:number}>=(props)=>{

@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import type { meal } from "../type";
+import type { meal } from "../global/type";
 import { Listitem } from "../global/listitem";
 import { Contextpage } from "../../store/contextpages";
 
