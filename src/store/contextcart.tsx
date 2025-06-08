@@ -12,20 +12,43 @@ type actiontype={
 }
 function dispatchfunction(state:{items:cartmeal[]},action:actiontype){
 if(action.type==='add-item'){
-    console.log(action.payload.id)
+    
     const newitem:cartmeal={...action.payload,quantity:1}
 return{
 items:[...state.items,newitem]
 }
 }
 if(action.type==='remove-item'){
-    console.log(action.payload.id)
+    
     const newcartmeals=[...state.items].filter(elm=>elm.id!==action.payload.id)
-  console.log(newcartmeals)
+ 
     return{
         items:newcartmeals
     }
 }
+if(action.type==='increase'){
+    
+    const newmealsitem=[...state.items]
+    const itemindex:number=newmealsitem.findIndex(elm=>elm.id===action.payload.id)
+  
+    newmealsitem[itemindex].quantity=newmealsitem[itemindex].quantity+1
+    return{
+        items:newmealsitem
+    }
+}if(action.type==='decrease'){
+     const newmealsitem=[...state.items]
+    const itemindex:number=newmealsitem.findIndex(elm=>elm.id===action.payload.id)
+    if(newmealsitem[itemindex].quantity===1){
+        return{
+            items:state.items
+        }
+    }
+      newmealsitem[itemindex].quantity=newmealsitem[itemindex].quantity-1
+    return{
+        items:newmealsitem
+    }
+}
+
 else{
     return{...state}
 }

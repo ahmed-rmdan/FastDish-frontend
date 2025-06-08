@@ -164,6 +164,10 @@ text-align: center;
   color: orange;
   font-weight: bolder;
 }
+nav ul p{
+  font-size: larger;
+  font-weight: bolder;
+}
 .second{
   display: flex;
 align-items: center;

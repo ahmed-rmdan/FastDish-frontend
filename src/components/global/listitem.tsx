@@ -73,8 +73,8 @@ return(
 
              </div>
              <div className="itembuttons">
-                <button>+</button>
-                <button>-</button>
+                <button onClick={()=>dispatchcartitems({type:'increase',payload:{id:props.id,title:props.name,image_url:props.imgeurl,publisher:props.name}})} >+</button>
+                <button onClick={()=>dispatchcartitems({type:'decrease',payload:{id:props.id,title:props.name,image_url:props.imgeurl,publisher:props.name}})}>-</button>
                 <button onClick={()=>dispatchcartitems({type:'remove-item',payload:{id:props.id,title:props.name,image_url:props.imgeurl,publisher:props.name}})}>remove</button>
 
              </div>

@@ -4,6 +4,7 @@ import { Listitem } from "../global/listitem";
 import { use } from "react";
 import { Contextcart } from "../../store/contextcart";
 
+
 export const Cart:React.FC= ()=> {
   const {cartitems}=use(Contextcart)
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ export const Cart:React.FC= ()=> {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
+const empty=<p>no meals yet</p>
   return (
   <div className='cartlist'  style={{ position: "relative", display: "inline-block", color: 'orange' }}>
         <button onClick={toggleDropdown}>
@@ -35,8 +36,9 @@ export const Cart:React.FC= ()=> {
         zIndex: 1000,
         gap:5
       }}>
+         {cartitems.items.length===0?empty:<>
          
-            {cartitems.items.map(elm=>{
+           {cartitems.items.map(elm=>{
               return <Listitem type="" imgeurl={elm.image_url} name={elm.title} price={80} quantity={elm.quantity} id={elm.id}></Listitem>
             })}
          
@@ -45,6 +47,9 @@ export const Cart:React.FC= ()=> {
                 <button onClick={toggleDropdown}>Close</button>
 
           </div>
+         
+         </>
+           }
       </ul>
     )}
   </div>
