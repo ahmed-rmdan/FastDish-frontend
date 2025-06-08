@@ -12,7 +12,7 @@ type actiontype={
 }
 function dispatchfunction(state:{items:cartmeal[]},action:actiontype){
 if(action.type==='add-item'){
-    const newitem:cartmeal={...action.payload,number:1}
+    const newitem:cartmeal={...action.payload,quantity:1}
 return{
 items:[...state.items,newitem]
 }

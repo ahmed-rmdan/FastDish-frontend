@@ -93,9 +93,9 @@ height:30px;
 }
 .maininfo .name{
   display: flex;
-font-size: 20px;
+font-size: 15px;
 font-weight: bolder;
-height: 20%;
+height: 40%;
 width: 100%;
 text-align: center;
 justify-content: center;
@@ -104,7 +104,7 @@ margin-top: -2px;
 }
 .maininfo .quntity{
   display: flex;
-font-size: 17px;
+font-size: 12px;
 font-weight: bolder;
 margin-top: -10px;
 height: 20%;

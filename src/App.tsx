@@ -7,12 +7,14 @@ import { Fifth } from "./components/fifthsection/fifth"
 import { Sixth } from "./components/sixthsection/sixth"
 import { Contextpageprovider } from "./store/contextpages"
 import { Contextsearchprovider } from "./store/contextsearch"
+import { Contextcartprovider } from "./store/contextcart"
 function App() {
  
 
   return (
     <>
-    <Contextsearchprovider>
+    <Contextcartprovider>
+      <Contextsearchprovider>
    <Contextpageprovider>
          <Nav></Nav>
         <First></First>
@@ -23,6 +25,9 @@ function App() {
         <Sixth></Sixth>
     </Contextpageprovider>
     </Contextsearchprovider>
+
+    </Contextcartprovider>
+    
  
       
 

@@ -1,7 +1,11 @@
 
 import React, { useState } from "react";
 import { Listitem } from "../global/listitem";
+import { use } from "react";
+import { Contextcart } from "../../store/contextcart";
+
 export const Cart:React.FC= ()=> {
+  const {cartitems}=use(Contextcart)
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -31,9 +35,12 @@ export const Cart:React.FC= ()=> {
         zIndex: 1000,
         gap:5
       }}>
-            <Listitem name="pizza" quantity={2} imgeurl="" price={120} type="cart"></Listitem>
+            {/* <Listitem name="pizza" quantity={2} imgeurl="" price={120} type="cart"></Listitem>
             <Listitem name="burger" quantity={4} imgeurl="" price={150} type="cart"></Listitem>
-            <Listitem name="pasta" quantity={5} imgeurl="" price={80} type="cart"></Listitem>
+            <Listitem name="pasta" quantity={5} imgeurl="" price={80} type="cart"></Listitem> */}
+            {cartitems.items.map(elm=>{
+              return <Listitem type="" imgeurl={elm.image_url} name={elm.title} price={80} quantity={elm.quantity} id={elm.id}></Listitem>
+            })}
          
            <div className="cart-buttons">
                 <button >Purchase</button>
