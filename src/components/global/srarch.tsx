@@ -1,8 +1,10 @@
 import React from "react"
 import { use} from "react"
 import { Contextsearch } from "../../store/contextsearch"
+import { Contextpage } from "../../store/contextpages"
 export const Search:React.FC<{}>=()=>{
 const{getsearchmeals,setisloading,seterror}=use(Contextsearch)
+const {choosesearchpg}=use(Contextpage)
   const searchinputvalue=React.useRef<HTMLInputElement>(null)
   function submitsearch(ev:React.FormEvent){
 ev.preventDefault()
@@ -24,6 +26,7 @@ throw new Error('somthing went wrong')
 const data=await res.json()
 seterror(null)
 setisloading(false)
+choosesearchpg(1)
   getsearchmeals(data.data.recipes)
           }   catch(error){
                if(error instanceof Error)
