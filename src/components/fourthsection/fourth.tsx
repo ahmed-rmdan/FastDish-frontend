@@ -1,32 +1,31 @@
 
 import React from "react";
-import { Listitem } from "../global/listitem";
+import { LIST } from "./listfavourite";
+import { use } from "react";
+import { Contextfavourite } from "../../store/contextfavorite";
 export const Fourth:React.FC<{}>=()=>{
+    const {favouritetitems}=use(Contextfavourite)
+    const numberofitems=favouritetitems.items.length
     return(
          <section className="fourth">
                 <p>Your favourites Meals</p>
                  
                    <div className="slider">
-                                         <div className="items-container">
-                                                   <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='favourite'></Listitem>
-                                                             <Listitem name="burger" quantity={4} imgeurl="" price={150} type='favourite'></Listitem>
-                                                             <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='favourite'></Listitem>
-                                                             <Listitem name="pizza" quantity={2} imgeurl="" price={120} type='favourite'></Listitem>
-                                                             <Listitem name="burger" quantity={4} imgeurl="" price={150} type='favourite'></Listitem>
-                                                             <Listitem name="pasta" quantity={5} imgeurl="" price={80} type='favourite'></Listitem>
+                                         <div className="items-container">                                                 
+                                                      <LIST meals={favouritetitems.items} error={null} ></LIST>
                                          </div>
                                         
-                                        <button className="next">next</button>
+                                      { numberofitems===0?'' :<button className="next">next</button>}
                                          
                
                     </div>
-                    <div className="taps">
+                   { numberofitems===0?'':<div className="taps">
                           <button></button>
                           <button></button>
                           <button></button>
                           <button></button>
                           <button></button>
-                    </div>
+                    </div>}
          </section>
 
 

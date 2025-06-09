@@ -4,10 +4,10 @@ import { Listitem } from "../global/listitem";
 import { Contextpage } from "../../store/contextpages";
 
 export const LIST:React.FC<{error:null|string,meals:null|meal[]}>=(props)=>{
-const{searchpg}=use(Contextpage)
- let list =props.meals===null?<p>please choose meal from the menu...</p>:props.meals.map(elm=>{
+const{favouritepg}=use(Contextpage)
+ let list =props.meals?.length===0||props.meals===null?<p className="none">no favourite meals has been added...</p>:props.meals.map(elm=>{
                        return <Listitem name={elm.title} quantity={1} imgeurl={elm.image_url} price={80} type='menu' key={elm.id} id={elm.id}></Listitem>
-                       }).slice((searchpg-1)*6,(searchpg)*6)
+                       }).slice((favouritepg-1)*4,(favouritepg)*4)
 
 return(
  <div className="list">

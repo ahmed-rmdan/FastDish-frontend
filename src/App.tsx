@@ -8,12 +8,14 @@ import { Sixth } from "./components/sixthsection/sixth"
 import { Contextpageprovider } from "./store/contextpages"
 import { Contextsearchprovider } from "./store/contextsearch"
 import { Contextcartprovider } from "./store/contextcart"
+import { Contextfavouriteprovider } from "./store/contextfavorite"
 function App() {
  
 
   return (
     <>
-    <Contextcartprovider>
+    <Contextfavouriteprovider>
+          <Contextcartprovider>
       <Contextsearchprovider>
    <Contextpageprovider>
          <Nav></Nav>
@@ -25,8 +27,9 @@ function App() {
         <Sixth></Sixth>
     </Contextpageprovider>
     </Contextsearchprovider>
-
     </Contextcartprovider>
+    </Contextfavouriteprovider>
+
     
  
       
