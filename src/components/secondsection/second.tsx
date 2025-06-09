@@ -42,7 +42,7 @@ for(let i=1; i<=numpages;i++){
 pagesarr.push(i)
 }
 }
-console.log(meals)
+
     return(
          <section className="second">
                   <div className="meanu">

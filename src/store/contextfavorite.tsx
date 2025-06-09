@@ -1,10 +1,12 @@
-import React, { useReducer } from "react";
-import type { meal,cartmeal } from "../components/global/type";
+import React, { useReducer, useState } from "react";
+import type { meal } from "../components/global/type";
 
-export const Contextfavourite=React.createContext<{favouritetitems:{items:meal[]},dispatchfavouriteitems:(action:actiontype)=>void}>
+export const Contextfavourite=React.createContext<{favouritetitems:{items:meal[]},dispatchfavouriteitems:(action:actiontype)=>void 
+}>
 ({ 
      favouritetitems:{items:[]},
-    dispatchfavouriteitems:()=>{}
+    dispatchfavouriteitems:()=>{},
+   
 })
 type actiontype={
     type:string,
@@ -34,6 +36,7 @@ else{
 }
 export const Contextfavouriteprovider:React.FC<{children:React.ReactNode}>=(props)=>{
 const [ favouritetitems,dispatchfavouriteitems]=useReducer(dispatchfunction,{items:[]})
+
 
 const contextvalue={favouritetitems,dispatchfavouriteitems}
     return(
