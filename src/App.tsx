@@ -9,15 +9,19 @@ import { Contextpageprovider } from "./store/contextpages"
 import { Contextsearchprovider } from "./store/contextsearch"
 import { Contextcartprovider } from "./store/contextcart"
 import { Contextfavouriteprovider } from "./store/contextfavorite"
+import { Contextdialogprovider } from "./store/dialogcontext"
+import { Modal } from "./components/dialogs/modal"
 function App() {
  
 
   return (
     <>
-    <Contextfavouriteprovider>
+    <Contextdialogprovider>
+ <Contextfavouriteprovider>
           <Contextcartprovider>
       <Contextsearchprovider>
    <Contextpageprovider>
+    <Modal></Modal>
          <Nav></Nav>
         <First></First>
         <Second></Second>
@@ -29,7 +33,8 @@ function App() {
     </Contextsearchprovider>
     </Contextcartprovider>
     </Contextfavouriteprovider>
-
+    </Contextdialogprovider>
+   
     
  
       

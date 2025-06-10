@@ -515,3 +515,68 @@ transform: rotate(0deg);
     transform: rotate(360deg);
   }
 }
+
+.overlay{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.dialog{
+position: fixed;
+top:25%;
+left: 25%;
+width: 50%;
+height: 50%;
+background-color: #242424;
+z-index: 2000;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+}
+.totalprice{
+font-size: 50px;
+font-weight: bolder;
+color: orange;
+
+text-align: center;
+}
+.button-container{
+  display: flex;
+  flex-direction: row;
+ 
+  width: 100%;
+  justify-content: space-around;
+}
+.button-container button{
+width: 20%;
+height:40px;
+border: 1px solid orange;
+color: orange;
+background-color: #242424;
+font-size: 25px;
+cursor: pointer;
+
+}
+.button-container button:hover{
+  border: 1px solid gray;
+}
+.formdialog{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+gap: 15px;
+}
+.formdialog p{
+  color: orange;
+  font-size: x-large;
+}
+.formdialog input{
+  width: 45%;
+  height: 30px;
+}

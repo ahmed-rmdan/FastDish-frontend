@@ -3,20 +3,23 @@ import React, { useState } from "react";
 import { Listitem } from "../global/listitem";
 import { use } from "react";
 import { Contextcart } from "../../store/contextcart";
+import { Contextdialog } from "../../store/dialogcontext";
 
 
 export const Cart:React.FC= ()=> {
   const {cartitems}=use(Contextcart)
   const [isOpen, setIsOpen] = useState(false);
-
+  const {setdialog}=use(Contextdialog)
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  const numbercartitems=cartitems.items.length
+  
 const empty=<p>no meals yet</p>
   return (
   <div className='cartlist'  style={{ position: "relative", display: "inline-block", color: 'orange' }}>
         <button onClick={toggleDropdown}>
-                 cart 0
+                 cart {numbercartitems}
         </button>
 
     {isOpen && (
@@ -33,7 +36,7 @@ const empty=<p>no meals yet</p>
         listStyle: "none",
         margin: 0,
         padding: 0,
-        zIndex: 1000,
+        zIndex: 100,
         gap:5
       }}>
          {cartitems.items.length===0?empty:<>
@@ -43,7 +46,7 @@ const empty=<p>no meals yet</p>
             })}
          
            <div className="cart-buttons">
-                <button >Purchase</button>
+                <button onClick={()=>setdialog('cartdialoge')}>Purchase</button>
                 <button onClick={toggleDropdown}>Close</button>
 
           </div>
