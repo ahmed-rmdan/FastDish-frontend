@@ -53,6 +53,9 @@ gap: 70px;
     cursor: pointer;
     width: 60px;
 }
+.nav button:hover{
+  color: gray;
+}
 .search-form button{
   border: 1px solid orange;
   cursor: pointer;
@@ -146,6 +149,11 @@ text-align: center;
   font-size: 10px;
   height: 20px;
   font-weight: bold;
+  border: 1px solid orange;
+}
+.cart-buttons button:hover{
+  border: 1px solid gray;
+  color: orange;
 }
 .first{
   position: relative;
@@ -239,6 +247,9 @@ align-items: center;
   color: orange;
   width: 50%;
   cursor: pointer;
+}
+.second .listitem button:hover{
+  border: 1px solid gray;
 }
 .pages{
   display: flex;
@@ -344,6 +355,9 @@ height: 100px;
    height: 60%;
    width: 40%;
 }
+.third .listitem button:hover{
+  border: 1px solid gray;
+}
 .fourth{
   display: flex;
   flex-direction: column;
@@ -409,6 +423,9 @@ justify-content: center;
   height: 60%;
   cursor: pointer;
   width: 48%;
+}
+.items-container .listitem .itembuttons button:hover{
+  border: 1px solid gray;
 }
 .fourth .next{
 height: 30%;
@@ -579,4 +596,8 @@ gap: 15px;
 .formdialog input{
   width: 45%;
   height: 30px;
+}
+.thankyou{
+  color: orange;
+  font-size: 40px;
 }

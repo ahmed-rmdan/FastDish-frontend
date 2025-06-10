@@ -58,12 +58,7 @@ return(
        <dialog open={props.open==='thankyoudialog'} >
        <div className="overlay">
                <div className="dialog">
-                    <form className="formdialog">
-                        <p>your name</p>
-                        <input type="text"></input>
-                        <p>your address</p>
-                        <input type="text"></input>
-                    </form>
+                              <p className="thankyou">thank for your purchasing</p>
                     <div className="button-container">
                         
                         <button onClick={()=>setdialog('')}> close</button>
