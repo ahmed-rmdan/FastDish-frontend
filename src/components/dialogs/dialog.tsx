@@ -70,5 +70,29 @@ return(
        </dialog>
     )
 }
+if(props.open==='contact'){
+    return(
+    <dialog open={props.open==='contact'} >
+       <div className="overlay">
+               <div className="dialog">
+                            <div className="contact">
+                                  <p> E-MAIL : FOOD-ORDER@gmail.com</p>
+                              <p> TELPHONE : 021111000000</p>
+                              <p>HOTLINE : 19088</p>
+                            </div>
+                             
+                              
+                    <div className="button-container">
+                        
+                        <button onClick={()=>setdialog('')}> close</button>
+                    </div>
+
+               </div>
+       </div>
+       
+       </dialog>
+
+    )
+}
    
 }

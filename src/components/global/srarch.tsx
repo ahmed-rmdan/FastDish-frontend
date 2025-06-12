@@ -9,11 +9,13 @@ const {choosesearchpg}=use(Contextpage)
   function submitsearch(ev:React.FormEvent){
 ev.preventDefault()
 const search=searchinputvalue.current?.value
-if(search!==null&&search!==undefined){
+if(search!==null&&search!==undefined&&search!==''){
  featchmeals(search)
 }
   }
 function featchmeals(search:string){
+  const section=document.querySelector('.third')
+  section?.scrollIntoView({behavior:"smooth"})
    async function loadmeals(){
           setisloading(true)
         
