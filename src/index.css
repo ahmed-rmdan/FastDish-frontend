@@ -63,6 +63,10 @@ gap: 70px;
 width: 60px;
 height:30px;
 }
+.search-form button:hover{
+  border:1px solid gray ;
+  color: orange;
+}
 .search-form input{
   height: 30px;
   
@@ -489,24 +493,37 @@ width: 100%;
 .locations .start{
   width: 50%;
   justify-content: start;
-   height: 500px;
+      align-self: flex-start;
+   height: 550px;
 }
 .locations .end{
   display: flex;
   flex-direction: column;
     width: 50%;
     align-self: flex-end;
-    height: 500px;
+    height: 550px;
 }
 .locations p{
   font-size: 40px;
+  text-align: center;
+  height: 100px;
+}
+.locations .location{
+  height: 400px;
+  width: 100%;
+}
+.leaflet-container{
+  height: 100%;
+  width: 100%;
 }
 .sixth{
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-around;
   background-color: rgb(53, 53, 53);
   width: 100%;
+  height: 50px;
 }
 .list p{
   color: orange;
