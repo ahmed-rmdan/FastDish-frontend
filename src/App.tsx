@@ -11,7 +11,10 @@ import { Contextcartprovider } from "./store/contextcart"
 import { Contextfavouriteprovider } from "./store/contextfavorite"
 import { Contextdialogprovider } from "./store/dialogcontext"
 import { Modal } from "./components/dialogs/modal"
+
+ 
 function App() {
+
  
 
   return (

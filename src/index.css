@@ -164,6 +164,7 @@ text-align: center;
 }
 .first{
   position: relative;
+ 
 }
 .first img{
   width: 100%;
@@ -228,7 +229,7 @@ align-items: center;
 .second .items{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+ justify-content: center;
   align-items: center;
   width: 60%;
   height: 100%;
@@ -244,6 +245,7 @@ align-items: center;
 .second .list .listitem{
   width:30%;
   height:40%;
+  list-style: none;
 }
 .second .listitem .itembuttons{
   width: 100%;
@@ -264,7 +266,7 @@ align-items: center;
   align-items: start;
   justify-content: center;
   gap: 20px;
-  height: 20%;
+  height: 10%;
   width: 60%;
 }
 .pages-container{
@@ -342,6 +344,7 @@ height: 100px;
 .third .list .listitem{
   width:30%;
   height:40%;
+  list-style: none;
 }
 .third .pages{
   height: 15%;
@@ -629,4 +632,12 @@ gap: 15px;
   align-items: center;
   justify-content: space-around;
   font-size: x-large;
+}
+.intro{
+  margin-left: -40px;
+  transition: all 2s 0s ease;
+}
+.display{
+  transform: translateX(-100%);
+  opacity: 0%;
 }
