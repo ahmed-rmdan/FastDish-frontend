@@ -1,5 +1,6 @@
 import React from "react"
-import { Search } from "../global/srarch"
+
+import logoimg from '../../images/mainicon.png'
 import { Cart } from "./cart"
 import { Contextdialog } from "../../store/dialogcontext"
 import { use } from "react"
@@ -11,16 +12,32 @@ export const Nav:React.FC<{}>=()=>{
     }
     return(
         <nav>
-            <div className="name">Food Order</div>
-            <div className="nav">  
-              <button onClick={()=>getto('second')}>Menu</button>
-              <button onClick={()=>getto('fourth')}> Favorites</button>
-              <button onClick={()=>getto('fifth')}> Locations</button>
-              <button onClick={()=>setdialog('contact')} > Contact</button>
-              <Cart></Cart>
-              <Search></Search>
-
+          
+                 <div className="name">
+                <img src={logoimg} />
+              <p>Food Order</p>
+                
+                
+                </div>
+                <div className="container">
+                    <div className="nav">  
+                
+                   <button onClick={()=>getto('second')}>Menu</button>
+                    <button onClick={()=>getto('fourth')}> Favorites</button>
+                  <button onClick={()=>getto('fifth')}> Locations</button>
+                   <button onClick={()=>setdialog('contact')} > Contact</button>
+                      <Cart></Cart>
+               
             </div>
+              <div className="log"> 
+                 <button > LogIn</button>
+                 <button >SignUp</button>
+              </div>
+                </div>
+           
+
+           
+           
         </nav>
     )
 }

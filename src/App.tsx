@@ -5,6 +5,7 @@ import { Third } from "./components/third section/third"
 import { Fourth } from "./components/fourthsection/fourth"
 import { Fifth } from "./components/fifthsection/fifth"
 import { Sixth } from "./components/sixthsection/sixth"
+import { Search } from "./components/global/srarch"
 import { Contextpageprovider } from "./store/contextpages"
 import { Contextsearchprovider } from "./store/contextsearch"
 import { Contextcartprovider } from "./store/contextcart"
@@ -26,6 +27,7 @@ function App() {
    <Contextpageprovider>
     <Modal></Modal>
          <Nav></Nav>
+        <Search></Search>
         <First></First>
         <Second></Second>
         <Third></Third>
