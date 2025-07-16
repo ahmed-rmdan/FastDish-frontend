@@ -221,6 +221,7 @@ text-align: center;
   color: orange;
 }
 .first{
+  width: 100%;
   position: relative;
  
 }
@@ -231,9 +232,11 @@ text-align: center;
 }
 .first p{
   position: absolute;
-  font-size: 80px;
-  top:20%;
-  left: 20%;
+  font-size: 5rem;
+  top:25%;
+  left: auto;
+  right: auto;
+  width: 100%;
   text-align: center;
   color: orange;
   font-weight: bolder;
@@ -692,8 +695,12 @@ gap: 15px;
   font-size: x-large;
 }
 .intro{
-  margin-left: -40px;
+position: absolute;
+
+  
+ text-align: center;
   transition: all 2s 0s ease;
+  
 }
 .display{
   transform: translateX(-100%);
@@ -702,7 +709,10 @@ gap: 15px;
 
 @media only screen and (max-width: 1440px) {
  nav{
-    font-size: 7px;
+    font-size: 8px;
+  }
+  .first p{
+    font-size: 4.5rem;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -712,10 +722,13 @@ gap: 15px;
   .search-form{
     font-size: 0.8em;
   }
+    .first p{
+    font-size: 4rem;
+  }
 }
 @media only screen and (max-width: 768px) {
  nav{
-    font-size: 4.5px;
+    font-size: 4.7px;
   }
   .log button{
     height: 20px;
@@ -731,6 +744,10 @@ gap: 15px;
   }
    .search-form input{
     height: 25px;
+  }
+  .first p{
+    top:27%;
+    font-size: 3rem;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -766,5 +783,12 @@ gap: 15px;
   }
    .search-form input{
     height: 20px;
+  }
+  .first img{
+    height: 750px;
+  }
+   .first p{
+    top:32%;
+    font-size: 1.7rem;
   }
 }

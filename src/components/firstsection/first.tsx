@@ -7,7 +7,7 @@ export const First:React.FC<{}>=()=>{
          <section className="first" ref={ref}>
                   <img src={food}>
                   </img>
-                   <p className={inView?"intro":"intro display"}>Welcome to our resturant <br/> We have very Delicious Food for you <br/> Order what you like </p>
+                   <p className={inView?"intro":"intro display"}>Welcome to our resturant <br/> We have very Delicious Food For you <br/> Order what you like </p>
          </section>
 
 
