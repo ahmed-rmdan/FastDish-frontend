@@ -18,7 +18,8 @@ if(props.type==='menu'){
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="price">price : {props.price*props.quantity} </p>
+                         <p className="ingredients">mashrom+chease+onions+katshup+spicy+ </p>
+                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(80)} </p>
                    </div>
              
 
@@ -43,7 +44,7 @@ if(props.type==='favourite'){
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="price">price : {props.price*props.quantity} </p>
+                         <p className="price">price : 80 </p>
                    </div>
              </div>
              <div className="itembuttons">
@@ -69,7 +70,7 @@ return(
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
                          <p className="quntity">quantity : {props.quantity}  </p>
-                         <p className="price">price : {props.price*props.quantity} </p>
+                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
                    </div>
              
 

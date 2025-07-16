@@ -46,7 +46,7 @@ pagesarr.push(i)
     return(
          <section className="second">
                   <div className="meanu">
-                       <p>menu</p>
+                       <p>Menu</p>
                        <button onClick={()=>getmenu('pizza')} className={clicked==='pizza'?'clicked':''}>Pizza</button>
                        <button onClick={()=>getmenu('burger')}  className={clicked==='burger'?'clicked':''}>Burger</button>
                        <button onClick={()=>getmenu('pasta')} className={clicked==='pasta'?'clicked':''}>Pasta</button>
