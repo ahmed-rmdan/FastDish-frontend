@@ -43,24 +43,26 @@ background-color: #242424;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  gap:10px;
 }
 .name p{
   font-size: 5em;
 }
 .name img{
-  height: 50px;
-  width: 5em;
+  height: 60px;
+  width: 5.5em;
 
 }
 .container{
   display: flex;
   width: 70%;
+  height: 50px;
   justify-content: space-between;
   align-items: center;
 }
 .nav{
 display: flex;
-width: 75%;
+width: 70%;
 justify-content: space-between;
 flex-direction: row;
 align-items: center;
@@ -162,7 +164,7 @@ height:25px;
 }
 .maininfo .name{
   display: flex;
-font-size: 1.3em;
+font-size: 1.4em;
 font-weight: bolder;
 
 width: 95%;
@@ -372,42 +374,49 @@ text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
-gap: 50px;
+  font-size: 10px;
+gap:30px;
   width: 100%;
   height: 1000px;
 }
 .third p{
-  height: 100px;
+
   color: orange;
   text-decoration: underline;
-  font-size: 60px;
+  font-size: 6em;
   font-weight: bolder;
 }
-.third input{
-  width: 300px;
-  
-}
+
 .third .search-form{
 align-items: center;
-height: 100px;
+
 
 }
 .third .search-form button{
    border: 1px solid orange;
   background-color: #242424;
   color: orange;
+  font-size: 2em;
+  width: 15%;
+}
+.third .search-form button:hover{
+   border: 1px solid gray;
+}
+.third input{
+  width: 50%;
+  font-size: 1.7em;
 }
 .third .items{
-  height: 800px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  
 }
 .third .list{
     width: 70%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -419,23 +428,29 @@ height: 100px;
   list-style: none;
 }
 .third .pages{
-  height: 15%;
+  height: 10%;
 }
 .third .pages button{
   border: none;
   cursor: pointer;
+  font-size: 2em;
+}
+.third .listitem p{
+  text-decoration: none;
 }
 .third .listitem .itembuttons{
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
+
 }
 .third .listitem button{
     border: 1px solid orange;
   background-color: #242424;
   color: orange;
   cursor: pointer;
+  font-size: 1.5em;
    height: 60%;
-   width: 40%;
+   width: 35%;
 }
 .third .listitem button:hover{
   border: 1px solid gray;
@@ -739,10 +754,14 @@ position: absolute;
   .second{
     font-size: 8px;
   }
+  .third{
+    font-size: 8px;
+  }
+
 }
 @media only screen and (max-width: 768px) {
  nav{
-    font-size: 4.7px;
+    font-size: 4.3px;
   }
   .log button{
     height: 20px;
@@ -761,10 +780,23 @@ position: absolute;
   }
   .first p{
     top:27%;
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+  .first img{
+    height: 650px;
   }
    .second{
     font-size: 7px;
+  }
+  .third{
+    font-size: 7px;
+    height: 700px;
+  }
+  .third .itembuttons button{
+    width: 40%;
+  }
+  .third .search-form input{
+    width: 60%;
   }
  
 }
@@ -803,14 +835,15 @@ position: absolute;
     height: 20px;
   }
   .first img{
-    height: 650px;
+    height: 450px;
   }
    .first p{
     top:32%;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
   }
     .second{
     font-size: 6px;
+    height: 800px;
   }
   .second .list .listitem{
     width: 40%;
@@ -818,12 +851,41 @@ position: absolute;
   }
   .second .meanu{
     width: 20%;
+    align-self: self-start;
+    height: 85%;
   }
+
   .second .list{
-    height: 80%;
+    height: 90%;
+    align-self: self-start;
   }
   .second .pages{
+   height: 5%;
+  }
+  .second .pages button{
     height: 10%;
     font-size: 10px;
+  }
+
+  .third{
+    font-size: 5px;
+    height: 550px;
+    justify-content: space-around;
+    gap: 0px;
+  }
+  .third .list{
+    width: 90%;
+  }
+  
+    .third .search-form button{
+    font-size: 2.7em;
+   
+  }
+  .third .items{
+    height: 500px;
+  }
+  .third .listitem{
+    min-width:40%;
+    max-height: 30%;
   }
 }

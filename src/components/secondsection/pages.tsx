@@ -14,7 +14,7 @@ function handleprev(){
 
 return(
                          <div className="pages">
-                              <div style={{alignSelf:"center",marginTop:'-5px'}}>
+                              <div style={{alignSelf:"center"}}>
                                { props.meals!==null&&pagenum!==0&&<button className="prev" onClick={handleprev}>prev</button>}
                               </div>
                            
@@ -26,7 +26,7 @@ return(
                                 })}
 
                                </div>
-                               <div style={{alignSelf:"center",marginTop:'-5px'}}>
+                               <div style={{alignSelf:"center"}}>
                                 {props.meals!==null&&props.numpaes>5&&pagenum<props.numpaes-5?<button className="next" onClick={handlenext}>next</button>:''}
                                </div>
                                
