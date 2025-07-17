@@ -15,7 +15,7 @@ export const Cart:React.FC= ()=> {
   };
   const numbercartitems=cartitems.items.length
   
-const empty=<p>no meals yet</p>
+const empty=<p>no meals added yet</p>
   return (
   <div className='cartlist'  style={{ position: "relative", display: "inline-block", color: 'orange' }}>
         <button onClick={toggleDropdown}>
@@ -26,14 +26,13 @@ const empty=<p>no meals yet</p>
       <ul style={{
         position: "absolute",
         display: "flex",
-        width: '300px',
         flexDirection: "column",
         alignItems: "center",
         top: "130%",
         left: -100,
         backgroundColor: "rgb(53, 53, 53)",
         // border: "1px solid #ccc",
-        listStyle: "none",
+        listStyle:  "none",
         margin: 0,
         padding: 0,
         zIndex: 100,

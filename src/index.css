@@ -134,6 +134,12 @@ height:25px;
   width: 40%;
   font-size: 1em;
 }
+.cartlist p{
+  font-size: 1.7em;
+}
+.cartlist ul{
+    width: 300px;
+  }
 .cartlist .listitem{
   display: flex;
   flex-direction: column;
@@ -164,7 +170,7 @@ height:25px;
 }
 .maininfo .name{
   display: flex;
-font-size: 1.4em;
+font-size: 1.3em;
 font-weight: bolder;
 
 width: 95%;
@@ -182,7 +188,7 @@ overflow-wrap: break-word;
 }
 .maininfo .quntity{
   display: flex;
-font-size: 1.2em;
+font-size: 1.3em;
 font-weight: bolder;
 margin-top: -10px;
 height: 20%;
@@ -191,7 +197,7 @@ text-align: center;
 justify-content: center;
 }
 .maininfo .price{
-  font-size: 1.7em;
+  font-size: 1.6em;
   height: 20%;
 width: 100%;
 margin-top: -10px;
@@ -202,8 +208,9 @@ text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   height: 30%;
-  width: 40%;
+  width: 80%;
   
 }
 .itembuttons button{
@@ -211,17 +218,19 @@ text-align: center;
   height: 50%;
   width: auto;
   align-self: center;
+  ;
 }
 .cart-buttons{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-around;
+width: 100%;
   height:40px ;
 }
 .cart-buttons button{
-  font-size: 10px;
+  font-size: 1.2em;
+  width: 25%;
   height: 20px;
   font-weight: bold;
   border: 1px solid orange;
@@ -492,10 +501,10 @@ justify-content: center;
 }
 .slider .none{
   text-decoration: none;
-   font-size: 50px;
+   font-size: 3.5em;
    align-self: center;
-   margin-left: 20px;
-   margin-top: 20px;
+   
+   width: 90%;
 }
 .items-container ul{
   display: flex;
@@ -731,11 +740,8 @@ gap: 15px;
 }
 .intro{
 position: absolute;
-
-  
  text-align: center;
-  transition: all 2s 0s ease;
-  
+  transition: all 2s 0s ease; 
 }
 .display{
   transform: translateX(-100%);
@@ -774,6 +780,9 @@ position: absolute;
   }
   .fourth .next{
     margin-left: 10px;
+  }
+  .cartlist ul{
+    width: 200px;
   }
 
 }
@@ -830,6 +839,16 @@ position: absolute;
   }
   .fifth{
     font-size: 8px;
+  }
+    .cartlist ul{
+    width: 180px;
+  }
+  .cartlist .listitem{
+    height: 100px;
+  }
+  .cartlist .cart-buttons button{
+    height: 15px;
+    width: 20%;
   }
  
 }
@@ -926,6 +945,7 @@ position: absolute;
     font-size: 5px;
    gap:20px;
   }
+
    .fourth .items-container{
     font-size: 8px;
     width: 200px;
@@ -958,6 +978,20 @@ position: absolute;
     height: 350px;
   }
   .sixth p{
+    font-size: 8px;
+  }
+      .cartlist ul{
+    width: 150px;
+  }
+  .contact{
     font-size: 10px;
+  }
+  .dialog .button-container button{
+    
+    width: 30%;
+  }
+  .dialog{
+    height: 45%;
+    width: 55%;
   }
 }
