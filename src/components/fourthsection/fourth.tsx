@@ -1,20 +1,45 @@
 
 import React from "react";
 import { LIST } from "./listfavourite";
-import { use } from "react";
+import { use,useState,useEffect } from "react";
 import { Contextfavourite } from "../../store/contextfavorite";
 import { Contextpage } from "../../store/contextpages";
 import { Taps } from "./taps";
+import { ChevronsRight } from 'lucide-react';
+import { ChevronsLeft } from 'lucide-react';
+
 
 export const Fourth:React.FC<{}>=()=>{
+  const [numberslider,setnuberslider]=useState<number>(4)
     const {favouritetitems}=use(Contextfavourite)
     const {choosefavouritepg,favouritepg}=use(Contextpage)
+
+   useEffect(()=>{
+        window.addEventListener('resize',()=>{
+          if(window.innerWidth<=1024){
+               setnuberslider(3)
+          }
+          if(window.innerWidth<=768){
+            setnuberslider(2)
+          }
+          if(window.innerWidth<=425){
+           setnuberslider(1)
+          }
+            else{
+              setnuberslider(4)
+            }
+          
+        })
+
+   })
+
+
     const numberofitems=favouritetitems.items.length
 
     let pagesarr:number[]=[]
 let numpages=0
 if(favouritetitems.items!==null){
-      numpages=Math.ceil(favouritetitems.items!.length/4)
+      numpages=Math.ceil(favouritetitems.items!.length/numberslider)
 for(let i=1; i<=numpages;i++){
 pagesarr.push(i)
 }
@@ -35,12 +60,12 @@ function handleprevslider(){
                 <p>Your favourites Meals</p>
                  
                    <div className="slider">
-                                      { favouritepg>1&&<button className="prev" onClick={handleprevslider}>prev</button>}
+                                      { favouritepg>1&&<button className="prev" onClick={handleprevslider}><ChevronsLeft size={'1.5em'}/></button>}
                                          <div className="items-container">                                                 
-                                                      <LIST meals={favouritetitems.items} error={null} ></LIST>
+                                                      <LIST meals={favouritetitems.items} error={null} numberslice={numberslider} ></LIST>
                                          </div>
                                         
-                                      { favouritepg<numpages&&<button className="next" onClick={handlenextslider} >next</button>}
+                                      { favouritepg<numpages&&<button className="next" onClick={handlenextslider} ><ChevronsRight size={'1.5em'}/></button>}
                                          
                
                     </div>

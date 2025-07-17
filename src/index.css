@@ -460,12 +460,13 @@ align-items: center;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  height: 900px;
+  height: 750px;
   width: 100%;
   gap: 100px;
+  font-size: 10px;
 }
 .fourth p{
-  font-size: 70px;
+  font-size: 6em;
   color: orange;
   text-decoration: underline;
   font-weight: bolder;
@@ -486,7 +487,7 @@ justify-content: center;
   flex-direction: row;
   width: 920px;
   gap: 40px;
-  height: 300px;
+  height: 350px;
 
 }
 .slider .none{
@@ -508,7 +509,11 @@ justify-content: center;
   min-width:  200px;
   max-width: 200px;
   height: 80%;
-
+  list-style: none;
+ 
+}
+.items-container .listitem p{
+  text-decoration:none;
 }
 .items-container .listitem .itembuttons{
   width: 100%;
@@ -517,9 +522,9 @@ justify-content: center;
   border: 1px solid orange;
   background-color: #242424;
   color: orange;
-  height: 60%;
+  height: 40%;
   cursor: pointer;
-  width: 48%;
+  width: 40%;
 }
 .items-container .listitem .itembuttons button:hover{
   border: 1px solid gray;
@@ -527,7 +532,7 @@ justify-content: center;
 .fourth .next{
 height: 30%;
 align-self: center;
-font-size: 30px;
+font-size: 3em;
 margin-left: 50px;
 color: orange;
 font-weight: bold;
@@ -538,7 +543,7 @@ cursor: pointer;
 .fourth .prev{
   height: 30%;
 align-self: center;
-font-size: 30px;
+font-size: 3em;
 margin-right: 50px;
 color: orange;
 font-weight: bold;
@@ -550,11 +555,11 @@ cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: 40px;
-  height: 100px;
+  height: 80px;
   margin-top: -20px;
 }
 .taps button{
-  height: 30px;
+  height: 25px;
   width: 30px;
   background-color: #242424;
   border: 1px solid orange;
@@ -749,7 +754,10 @@ position: absolute;
     font-size: 0.8em;
   }
     .first p{
-    font-size: 4rem;
+    font-size: 3.5rem;
+  }
+  .first img{
+    height: 600px;;
   }
   .second{
     font-size: 8px;
@@ -757,17 +765,24 @@ position: absolute;
   .third{
     font-size: 8px;
   }
+  .fourth .items-container{
+    width: 720px;
+  }
+  .fourth .next{
+    margin-left: 10px;
+  }
 
 }
 @media only screen and (max-width: 768px) {
  nav{
-    font-size: 4.3px;
+    font-size: 4.6px;
   }
   .log button{
     height: 20px;
   }
   .name img{
     height: 35px;
+    width: 20px;
   }
   .search-form{
     font-size: 0.6em;
@@ -798,12 +813,23 @@ position: absolute;
   .third .search-form input{
     width: 60%;
   }
+    .fourth .items-container{
+    width: 440px;
+  }
+  .fourth{
+    height: 600px;
+    font-size: 8px;
+    gap: 60px;
+  }
+  .fourth .next{
+   margin-left: 0px;
+  }
  
 }
 @media only screen and (max-width: 425px) {
  nav{
     flex-direction: column;
-    gap: 10px;
+    
   }
   .name{
     width: 100%;
@@ -887,5 +913,25 @@ position: absolute;
   .third .listitem{
     min-width:40%;
     max-height: 30%;
+  }
+   .fourth{
+    height: 500px;
+    font-size: 5px;
+   gap:20px;
+  }
+   .fourth .items-container{
+    font-size: 8px;
+    width: 200px;
+    
+  }
+  .fourth .prev{
+    margin-right:10px;
+  }
+  .taps{
+    height: 40px;
+  }
+  .taps button{
+    height: 9px;
+    width: 12px;
   }
 }

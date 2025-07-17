@@ -44,7 +44,8 @@ if(props.type==='favourite'){
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="price">price : 80 </p>
+                         <p className="ingredients">mashrom+chease+onions+katshup+spicy+ </p>
+                         <p className="price"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(80)} </p>
                    </div>
              </div>
              <div className="itembuttons">
