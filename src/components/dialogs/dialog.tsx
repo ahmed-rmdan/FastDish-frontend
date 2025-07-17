@@ -2,6 +2,7 @@ import React from "react";
 import { Contextcart } from "../../store/contextcart";
 import { use } from "react";
 import { Contextdialog } from "../../store/dialogcontext";
+import { Listitem } from "../global/listitem";
 export const Dialog:React.FC<{open:string}>=(props)=>{
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
@@ -14,7 +15,12 @@ if(props.open==='cartdialoge'){
        <dialog open={props.open==='cartdialoge'} >
        <div className="overlay">
                <div className="dialog">
-                    <p className="totalprice"> your totalprice : {totalprice} </p>
+                    <div className="dialogitems">
+                           {cartitems.items.map(elm=>{
+                           return <Listitem type="dialog" imgeurl={elm.image_url} name={elm.title} price={80} quantity={elm.quantity} id={elm.id}></Listitem>
+                           })}
+                    </div>
+                    <p className="totalprice"> Your TotalPrice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(totalprice)} </p>
                     <div className="button-container">
                         <button onClick={()=>setdialog('formdialog')}> proceed</button>
                         <button onClick={()=>setdialog('')}> close</button>

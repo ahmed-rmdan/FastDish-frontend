@@ -57,6 +57,25 @@ if(props.type==='favourite'){
     )
 
 }
+if(props.type==='dialog'){
+    return(
+        <li className="listitem">
+            <div className="iteminfo">
+                   <img src={props.imgeurl} >
+                
+                  
+                   </img>
+                   <div className="maininfo">
+                         <p className="name">{props.name}</p>
+                         <p className="quntity">quantity : {props.quantity}  </p>
+                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
+                   </div>
+             
+
+             </div>
+        </li>
+    )
+}
 
 else{
 
