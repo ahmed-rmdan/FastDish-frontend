@@ -575,9 +575,13 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .fifth p{
-    font-size: 70px;
+    font-size: 7em;
   color: orange;
   text-decoration: underline;
   font-weight: bolder;
@@ -602,7 +606,7 @@ width: 100%;
     height: 550px;
 }
 .locations p{
-  font-size: 40px;
+  font-size: 4em;
   text-align: center;
   height: 100px;
 }
@@ -766,7 +770,7 @@ position: absolute;
     font-size: 8px;
   }
   .fourth .items-container{
-    width: 720px;
+    width: 680px;
   }
   .fourth .next{
     margin-left: 10px;
@@ -823,6 +827,9 @@ position: absolute;
   }
   .fourth .next{
    margin-left: 0px;
+  }
+  .fifth{
+    font-size: 8px;
   }
  
 }
@@ -933,5 +940,24 @@ position: absolute;
   .taps button{
     height: 9px;
     width: 12px;
+  }
+  .fifth{
+    font-size: 6px;
+    gap: 20px;
+  }
+  .fifth p{
+    height: 50px;
+  }
+  .fifth .location{
+    height: 250px;
+  }
+  .fifth .start{
+    height: 350px;
+  }
+  .fifth .end{
+    height: 350px;
+  }
+  .sixth p{
+    font-size: 10px;
   }
 }

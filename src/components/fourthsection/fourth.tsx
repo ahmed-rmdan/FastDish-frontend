@@ -13,17 +13,21 @@ export const Fourth:React.FC<{}>=()=>{
   const [numberslider,setnuberslider]=useState<number>(4)
     const {favouritetitems}=use(Contextfavourite)
     const {choosefavouritepg,favouritepg}=use(Contextpage)
-
+console.log(numberslider)
    useEffect(()=>{
         window.addEventListener('resize',()=>{
-          if(window.innerWidth<=1024){
+          if(window.innerWidth<=1024&&window.innerWidth>768){
+            console.log(window.innerWidth)
                setnuberslider(3)
+               return;
           }
-          if(window.innerWidth<=768){
+          if(window.innerWidth<=768&&window.innerWidth>430){
             setnuberslider(2)
+            return;
           }
-          if(window.innerWidth<=425){
+          if(window.innerWidth<=430){
            setnuberslider(1)
+           return
           }
             else{
               setnuberslider(4)
