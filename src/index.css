@@ -654,6 +654,7 @@ width: 100%;
  animation-timing-function: linear;
 animation: rotate 1s ease-in-out infinite;
 }
+
 @keyframes rotate{
   0%{
 transform: rotate(0deg);
@@ -902,7 +903,7 @@ cursor: pointer;
   width: 45%;
   height: 55px;
 }
- .dialog p{
+.signupdialog div p{
   font-size: 2.5em;
 }
 .delivry{
@@ -914,6 +915,12 @@ cursor: pointer;
 }
 .delivry:hover{
 text-decoration: underline;
+}
+.admin .container p{
+  font-size: 3.7em;
+  font-weight: bolder;
+ width: 60%;
+ text-align: center;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -1245,5 +1252,9 @@ text-decoration: underline;
 
 .third input{
   font-size: 3.5em;
+}
+.admin .container p{
+  margin-left: 10px;
+  width: 100%;
 }
 }

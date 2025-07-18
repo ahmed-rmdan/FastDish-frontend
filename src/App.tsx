@@ -1,26 +1,25 @@
-import { Nav } from "./components/nav/nav"
-import { First } from "./components/firstsection/first"
-import { Second } from "./components/secondsection/second"
-import { Third } from "./components/third section/third"
-import { Fourth } from "./components/fourthsection/fourth"
-import { Fifth } from "./components/fifthsection/fifth"
-import { Sixth } from "./components/sixthsection/sixth"
-import { Search } from "./components/global/srarch"
-import { Contextpageprovider } from "./store/contextpages"
-import { Contextsearchprovider } from "./store/contextsearch"
-import { Contextcartprovider } from "./store/contextcart"
-import { Contextfavouriteprovider } from "./store/contextfavorite"
-import { Contextdialogprovider } from "./store/dialogcontext"
-import { Modal } from "./components/dialogs/modal"
 
- 
+import { Userpage } from "./pages/userpage"
+ import { createBrowserRouter } from "react-router"
+import { RouterProvider } from "react-router"
+import { Admin } from "./components/admin/admin"
+const router=createBrowserRouter([
+  {index:true,element:<Userpage></Userpage>},
+  {path:'/admin',element:<Admin></Admin>,children:[
+    
+  ]}
+]
+  
+)
+
+
 function App() {
 
  
 
   return (
     <>
-    <Contextdialogprovider>
+    {/* <Contextdialogprovider>
  <Contextfavouriteprovider>
           <Contextcartprovider>
       <Contextsearchprovider>
@@ -38,8 +37,8 @@ function App() {
     </Contextsearchprovider>
     </Contextcartprovider>
     </Contextfavouriteprovider>
-    </Contextdialogprovider>
-   
+    </Contextdialogprovider> */}
+   <RouterProvider router={router}></RouterProvider>
     
  
       
