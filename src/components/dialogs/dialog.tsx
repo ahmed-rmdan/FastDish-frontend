@@ -114,7 +114,7 @@ if(props.open==='signin'){
                         </div>
                         <div>
                               <p>Your PassWord</p>
-                        <input type="text"></input>
+                        <input type='password'></input>
                         </div>
                            <div className="logincontainer">
                               <button className="login">login</button>
@@ -135,5 +135,54 @@ if(props.open==='signin'){
 
 
 }
-   
+   if(props.open==='signup'){
+
+
+ return(
+       <dialog open={props.open==='signup'} >
+       <div className="overlay">
+               <div className="dialog">
+                     <button className="close" onClick={()=>setdialog('')}> X</button>
+                    <form className="signupdialog">
+                        <div>
+                             <p>Your UserName</p>
+                        <input type="text"></input>
+                        </div>
+                        <div>
+                              <p>Your PassWord</p>
+                        <input type='password'></input>
+                        </div>
+                    
+                        <div>
+                              <p>Confirm PassWord</p>
+                        <input type='password'></input>
+                        </div>
+                        <div>
+                              <p>Email</p>
+                        <input type='email'></input>
+                        </div>
+                        <div>
+                              <p>Home Adress</p>
+                        <input type='text'></input>
+                        </div>
+                        <div>
+                              <p>Telphone Number</p>
+                        <input type='number'></input>
+                        </div>
+                          
+                           
+                              <button className="signup">SignUp</button>
+                          
+                           
+                    </form>
+                    
+
+               </div>
+       </div>
+       
+       </dialog>
+    )
+
+
+}
 }

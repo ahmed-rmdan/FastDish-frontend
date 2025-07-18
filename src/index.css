@@ -761,8 +761,8 @@ text-align: center;
   justify-content: space-around;
 }
 .button-container button{
-width: 16%;
-height:40px;
+width: 13%;
+height:35px;
 border: 1px solid orange;
 color: orange;
 background-color: #242424;
@@ -825,6 +825,57 @@ cursor: pointer;
 .reset:hover{
  text-decoration: underline;
 }
+
+.signupdialog{
+  display: flex;
+  flex-direction: column;
+  height: 92%;
+  width: 70%;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.signupdialog div{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+
+
+}
+.signupdialog p{
+     font-size: 1.7em;
+}
+.signupdialog input{
+     width: 100%;
+     height: 25px;
+     font-size: 1.5em;
+}
+.signup{
+width: 17%;
+height:37px;
+border: 1px solid orange;
+color: orange;
+background-color: #242424;
+font-size: 2em;
+cursor: pointer;
+}
+.signup:hover{
+  border: 1px solid gray;
+}
+.close{
+  
+  display: flex;
+ align-self: flex-end;
+  justify-content: end;
+ font-size: 2.5em;
+  height: 5%;
+  color: orange;
+  border: none;
+  background-color: #242424;
+  cursor: pointer;
+  margin-right: 5px;
+
+}
 @media only screen and (max-width: 1440px) {
  nav{
     font-size: 8px;
@@ -832,6 +883,14 @@ cursor: pointer;
   .first p{
     font-size: 4.5rem;
   }
+  .dialog{
+    height: 53%;
+  }
+  .signupdialog input{
+   
+     height: 22px;
+    
+}
 }
 @media only screen and (max-width: 1024px) {
  nav{
@@ -943,6 +1002,9 @@ cursor: pointer;
   }
   .dialog .totalprice{
   font-size: 3.5em;
+}
+.signup{
+  width: 20%;
 }
  
 }
@@ -1110,5 +1172,9 @@ cursor: pointer;
 }
 .reset{
   width: 50%;
+}
+.signup{
+  width: 25%;
+  height: 27px;
 }
 }

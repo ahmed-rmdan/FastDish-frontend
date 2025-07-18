@@ -31,7 +31,7 @@ export const Nav:React.FC<{}>=()=>{
             </div>
               <div className="log"> 
                  <button onClick={()=>setdialog('signin')} > LogIn</button>
-                 <button >SignUp</button>
+                 <button onClick={()=>setdialog('signup')}>SignUp</button>
               </div>
                 </div>
            
