@@ -100,5 +100,40 @@ if(props.open==='contact'){
 
     )
 }
+if(props.open==='signin'){
+
+
+ return(
+       <dialog open={props.open==='signin'} >
+       <div className="overlay">
+               <div className="dialog">
+                    <form className="signindialog">
+                        <div>
+                             <p>Your UserName</p>
+                        <input type="text"></input>
+                        </div>
+                        <div>
+                              <p>Your PassWord</p>
+                        <input type="text"></input>
+                        </div>
+                           <div className="logincontainer">
+                              <button className="login">login</button>
+                              <button className="reset">reset your password</button>
+                           </div>
+                           
+                    </form>
+                    <div className="button-container">
+                        <button onClick={()=>setdialog('signup')}> SignUp </button>
+                        <button onClick={()=>setdialog('')}> close</button>
+                    </div>
+
+               </div>
+       </div>
+       
+       </dialog>
+    )
+
+
+}
    
 }
