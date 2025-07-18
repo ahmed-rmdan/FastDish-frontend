@@ -3,6 +3,7 @@ import { Contextcart } from "../../store/contextcart";
 import { use } from "react";
 import { Contextdialog } from "../../store/dialogcontext";
 import { Listitem } from "../global/listitem";
+import stripelogo from '../../images/stripeLogo.svg'
 export const Dialog:React.FC<{open:string}>=(props)=>{
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
@@ -41,13 +42,26 @@ if(props.open==='formdialog'){
        <div className="overlay">
                <div className="dialog">
                     <form className="formdialog">
-                        <p>your name</p>
+                        <div>
+                             <p>Your Name</p>
                         <input type="text"></input>
-                        <p>your address</p>
-                        <input type="text"></input>
+                        </div>
+                      
+                        <div>
+                              <p>Email</p>
+                        <input type='email'></input>
+                        </div>
+                        <div>
+                              <p>Home Adress</p>
+                        <input type='text'></input>
+                        </div>
+                        <div>
+                              <p>Telphone Number</p>
+                        <input type='number'></input>
+                        </div>
                     </form>
                     <div className="button-container">
-                        <button onClick={()=>setdialog('thankyoudialog')}> confirm </button>
+                        <button onClick={()=>setdialog('payment')}> confirm </button>
                         <button onClick={()=>setdialog('')}> close</button>
                     </div>
 
@@ -184,5 +198,30 @@ if(props.open==='signin'){
     )
 
 
+}
+if(props.open==='payment'){
+    return(
+    <dialog open={props.open==='payment'} >
+       <div className="overlay">
+               <div className="dialog">
+                            <button className="stripe">
+                                <img src={stripelogo} className="stripeimg"></img>
+                                Pay by using stripe
+                            </button>
+                            <p>OR</p>
+                            <button className="delivry" onClick={()=>setdialog('thankyoudialog')}> Pay on Delivery</button>
+                             
+                              
+                    <div className="button-container">
+                        
+                        <button onClick={()=>setdialog('')}> close</button>
+                    </div>
+
+               </div>
+       </div>
+       
+       </dialog>
+
+    )
 }
 }

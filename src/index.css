@@ -379,6 +379,7 @@ text-decoration: underline;
 .pages .clicked{
   text-decoration: underline;
 }
+
 .third{
   display: flex;
   flex-direction: column;
@@ -413,7 +414,7 @@ align-items: center;
 }
 .third input{
   width: 50%;
-  font-size: 1.7em;
+  font-size: 2.5em;
 }
 .third .items{
   height: 700px;
@@ -639,7 +640,7 @@ width: 100%;
 }
 .list p{
   color: orange;
-  font-size: 50px;
+  font-size: 5em;
   align-self: center;
 }
 .loading{
@@ -663,24 +664,35 @@ transform: rotate(0deg);
 }
 
 
-.formdialog{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-gap: 15px;
-}
+
 .formdialog p{
   color: orange;
   font-size: x-large;
 }
+.formdialog{
+  display: flex;
+  height: 85%;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+.formdialog div{
+  width: 70%;
+ height: 20%;
+}
 .formdialog input{
-  width: 45%;
-  height: 30px;
+  width: 100%;
+  height: 27px;
+}
+.formdialog p{
+  font-size: 2.7em;
 }
 .thankyou{
   color: orange;
-  font-size: 40px;
+  font-size: 4em;
 }
 .contact{
   display: flex;
@@ -833,7 +845,7 @@ cursor: pointer;
   width: 70%;
   align-items: center;
   justify-content: space-around;
-  gap: 10px;
+  gap: 5px;
 }
 .signupdialog div{
   display: flex;
@@ -843,11 +855,11 @@ cursor: pointer;
 
 }
 .signupdialog p{
-     font-size: 1.7em;
+     font-size: 1em;
 }
 .signupdialog input{
      width: 100%;
-     height: 25px;
+     height: 22px;
      font-size: 1.5em;
 }
 .signup{
@@ -876,6 +888,34 @@ cursor: pointer;
   margin-right: 5px;
 
 }
+.stripe{
+  display: flex;
+  width: 50%;
+  color: blue;
+  align-items: center;
+height: 20%;
+font-size: 2em;
+justify-content: center;
+cursor: pointer;
+}
+.stripeimg{
+  width: 45%;
+  height: 55px;
+}
+ .dialog p{
+  font-size: 2.5em;
+}
+.delivry{
+  color: orange;
+  border: none;
+  background-color: #242424;
+  font-size: 2.2em;
+  cursor: pointer;
+}
+.delivry:hover{
+text-decoration: underline;
+}
+
 @media only screen and (max-width: 1440px) {
  nav{
     font-size: 8px;
@@ -1006,7 +1046,16 @@ cursor: pointer;
 .signup{
   width: 20%;
 }
+ .third .search-form button{
+  
+  font-size: 3em;
  
+}
+
+.third input{
+ 
+  font-size: 3em;
+}
 }
 @media only screen and (max-width: 425px) {
  nav{
@@ -1176,5 +1225,25 @@ cursor: pointer;
 .signup{
   width: 25%;
   height: 27px;
+}
+.formdialog input{
+  width: 100%;
+  height: 20px;
+}
+.thankyou{
+  color: orange;
+  font-size: 3em;
+}
+.stripe{
+  
+  width: 60%;
+
+}
+ .third .search-form button{
+  font-size: 3.5em;
+}
+
+.third input{
+  font-size: 3.5em;
 }
 }
