@@ -11,14 +11,8 @@ export const Dashboard:React.FC<{}>=()=>{
                    <button >Products</button>
                     <button > AddProduct</button>
                   <button > Orders</button>
-                   <button  > Contact</button>
-                 <button  > LogIn</button>
-                 <button >LogOut</button>
-              
-           
 
-           
-           
+                 <button >LogOut</button>
         </div>
     )
 }

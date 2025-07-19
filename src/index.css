@@ -916,12 +916,87 @@ cursor: pointer;
 .delivry:hover{
 text-decoration: underline;
 }
+
 .admin .container p{
   font-size: 3.7em;
   font-weight: bolder;
  width: 60%;
  text-align: center;
 }
+.admin .body{
+  display: flex;
+  font-size: 10px;
+  width: 100%;
+  height: 850px;
+}
+.admin .dashboard{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  margin-top: 7%;
+  gap: 100px;
+ 
+}
+.admin .dashboard button{
+  color: orange;
+  font-size: 2em;
+  border: none;
+  background-color: #242424;
+  cursor: pointer;
+}
+.admin .dashboard button:hover{
+  text-decoration: underline;
+}
+.admin .dashboard .clicked button{
+  text-decoration: underline;
+}
+.admin .outlet{
+  display: flex;
+  width: 80%;
+  height: 850px;
+  background-color: rgb(53, 53, 53);
+}
+.admin .logincontainer{
+display: flex;
+width: 100%;
+/* background-color: rgb(53, 53, 53); */
+background-color: #242424;
+height: 100%;
+justify-content: center;
+align-items: center;
+
+}
+.admin .logincontainer .login{
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  width: 50%;
+  height: 50%;
+  border: none;
+  gap: 5%;
+}
+.admin .logincontainer .login input{
+  width: 60%;
+  height: 30px;
+  font-size: 1.2em;
+}
+.admin .logincontainer .login p{
+  font-size: 1.2em;
+}
+.admin .logincontainer .login button{
+  font-size: 1.3em;
+  border: 1px solid orange;
+  width: 13%;
+  height: 1.3em;
+  margin-left: 25%;
+  cursor: pointer;
+}
+.admin .logincontainer .login button:hover{
+  border: 1px solid gray;
+}
+
+
 
 @media only screen and (max-width: 1440px) {
  nav{
