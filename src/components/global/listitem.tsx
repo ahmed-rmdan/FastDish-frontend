@@ -62,24 +62,44 @@ if(props.type==='dialog'){
         <li className="listitem">
             <div className="iteminfo">
                    <img src={props.imgeurl} >
-                
-                  
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
                          <p className="quntity">quantity : {props.quantity}  </p>
+                         
                          <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
                    </div>
-             
+                     
 
              </div>
         </li>
     )
 }
+if(props.type==='admin'){
+    return(
+        <li className="listitem">
+            <div className="iteminfo">
+                   <img src={props.imgeurl} >
+                   </img>
+                   <div className="maininfo">
+                         <p className="name">{props.name}</p>
+                         <p className="type">Type : burger</p>
+                         <p className="ingredients">mashrom+chease+onions+katshup+spicy </p>
+                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
+                   </div>
+                    
+
+             </div>
+              <div className="itembuttons">
+                         <button >Delete</button>
+                        <button  >Edit</button>
+
+                    </div>
+        </li>
+    )
+}
 
 else{
-
-
 return(
         <li className="listitem">
             <div className="iteminfo">

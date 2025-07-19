@@ -953,9 +953,10 @@ text-decoration: underline;
 }
 .admin .outlet{
   display: flex;
+  flex-direction: column;
   width: 80%;
   height: 850px;
-  background-color: rgb(53, 53, 53);
+  background-color:#242424
 }
 .admin .logincontainer{
 display: flex;
@@ -995,7 +996,42 @@ align-items: center;
 .admin .logincontainer .login button:hover{
   border: 1px solid gray;
 }
+.admin .products{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 5%;
+width: 100%;
+height: 80%;
+overflow: auto;
+gap: 50px;
+}
+.admin .products .listitem{
+  width: 60%;
+  flex-direction: column;
+  color: orange;
+}
+.admin .products .listitem .type{
+font-size: 1.3em;
+}
 
+.admin .products .listitem button{
+  font-size: 2em;
+  width: 20%;
+  height: 27px;
+  font-weight: bold;
+  border: 1px solid orange;
+  color: orange;
+  background-color:#242424;
+  cursor: pointer;
+}
+.admin .products .listitem button:hover{
+  border: 1px solid gray;
+}
+.admin .outlet .logincontainer .addcontainer{
+  height: 80% ;
+  font-size: 1.5em;
+}
 
 
 @media only screen and (max-width: 1440px) {
