@@ -999,6 +999,7 @@ align-items: center;
 .admin .products{
 display: flex;
 flex-direction: column;
+
 align-items: center;
 margin-top: 5%;
 width: 100%;
@@ -1032,6 +1033,16 @@ font-size: 1.3em;
   height: 80% ;
   font-size: 1.5em;
 }
+.orderitem{
+ justify-content: space-between;
+  min-height: 250px;
+  border: 1px solid orange;
+}
+.orderitem .maininfo{
+width: 100%;
+font-size: 1.5em;
+}
+
 
 
 @media only screen and (max-width: 1440px) {

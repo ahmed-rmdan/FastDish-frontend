@@ -6,6 +6,7 @@ import { Admin } from "./components/admin/admin"
 import { Adminlogin } from "./components/admin/login"
 import { AdminProducts } from "./components/admin/products"
 import { Addproduct } from "./components/admin/addproduct"
+import { Orders } from "./components/admin/orders"
 const router=createBrowserRouter([
   {index:true,element:<Userpage></Userpage>},
   {path:'/admin',element:<Admin></Admin>,children:[
@@ -13,7 +14,7 @@ const router=createBrowserRouter([
     {path:'products',element:<AdminProducts></AdminProducts>},
     {path:'addproduct',element:<Addproduct type="add"></Addproduct>},
     {path:'editproduct/:productid',element:<Addproduct type=""></Addproduct>},
-    {path:'orders'}
+    {path:'orders',element:<Orders/>}
   ]}
 ]
   

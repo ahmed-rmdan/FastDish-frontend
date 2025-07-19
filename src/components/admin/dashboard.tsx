@@ -1,5 +1,5 @@
 import React from "react"
-
+import { NavLink } from "react-router"
 
 export const Dashboard:React.FC<{}>=()=>{
 
@@ -8,10 +8,10 @@ export const Dashboard:React.FC<{}>=()=>{
        
                 
                 
-                   <button >Products</button>
-                    <button > AddProduct</button>
-                  <button > Orders</button>
-
+                  <NavLink to={'/admin/products'} className={({isActive})=>{return isActive?'clicked':''}} > <button >Products</button></NavLink> 
+                  <NavLink to={'/admin/addproduct'} className={({isActive})=>{return isActive?'clicked':''}}><button > AddProduct</button></NavLink>  
+                <NavLink to={'/admin/orders'} className={({isActive})=>{return isActive?'clicked':''}}> <button > Orders</button></NavLink>  
+                 
                  <button >LogOut</button>
         </div>
     )

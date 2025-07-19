@@ -3,25 +3,27 @@ import React from "react"
 
 
 
-export const Orderitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
+export const Orderitem:React.FC<{name:string,quantity:number,price:number,address:string,id:string,telphone:number}>=(props)=>{
 
-return <li className="listitem">
+return (<li className="listitem orderitem">
             <div className="iteminfo">
-                   <img src={props.imgeurl} >
-                   </img>
+                  
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="ingredients">mashrom+chease+onions+katshup+spicy </p>
-                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
+                         <p className="address"> 1xburger + 2pizza + 2chease burger</p>
+                         <p className="address">{props.address} </p>
+                         <p className="address">{props.telphone} </p>
+                         
+                         <p className="price">Totlaprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
                    </div>
                     
 
              </div>
               <div className="itembuttons">
-                         <button >Delete</button>
-                        <button  >Edit</button>
+                         <button >Done</button>
+                        <button  >Cancel</button>
 
                     </div>
-        </li>
+        </li>)
 
 }
