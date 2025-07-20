@@ -1026,6 +1026,8 @@ font-size: 1.3em;
   background-color:#242424;
   cursor: pointer;
 }
+
+
 .admin .products .listitem button:hover{
   border: 1px solid gray;
 }

@@ -2,10 +2,15 @@ import React from "react"
 import { use } from "react"
 import { Contextcart } from "../../store/contextcart"
 import { Contextfavourite } from "../../store/contextfavorite"
+import { useNavigate } from "react-router"
 
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
     const {dispatchcartitems}=use(Contextcart)
     const {dispatchfavouriteitems }=use(Contextfavourite)
+    let navigate=useNavigate()
+function editproduct(){
+    navigate(`/admin/editproduct/${props.id}`)
+}
 if(props.type==='menu'){
    
     return(
@@ -92,7 +97,8 @@ if(props.type==='admin'){
              </div>
               <div className="itembuttons">
                          <button >Delete</button>
-                        <button  >Edit</button>
+                        
+                        <button onClick={editproduct}> Edit  </button>
 
                     </div>
         </li>
