@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import type { meal,cartmeal } from "../components/global/type";
 
-export const Contextcart=React.createContext<{cartitems:{items:cartmeal[]},dispatchcartitems:(action:actiontype)=>void}>
+export const Contextcart=React.createContext<{cartitems:{items:meal[]},dispatchcartitems:(action:actiontype)=>void}>
 ({ 
     cartitems:{items:[]},
     dispatchcartitems:()=>{}
@@ -10,17 +10,17 @@ type actiontype={
     type:string,
     payload:meal
 }
-function dispatchfunction(state:{items:cartmeal[]},action:actiontype){
+function dispatchfunction(state:{items:meal[]},action:actiontype){
 if(action.type==='add-item'){
     
-    const newitem:cartmeal={...action.payload,quantity:1}
+    const newitem:meal={...action.payload}
 return{
 items:[...state.items,newitem]
 }
 }
 if(action.type==='remove-item'){
     
-    const newcartmeals=[...state.items].filter(elm=>elm.id!==action.payload.id)
+    const newcartmeals=[...state.items].filter(elm=>elm._id!==action.payload._id)
  
     return{
         items:newcartmeals
@@ -29,7 +29,7 @@ if(action.type==='remove-item'){
 if(action.type==='increase'){
     
     const newmealsitem=[...state.items]
-    const itemindex:number=newmealsitem.findIndex(elm=>elm.id===action.payload.id)
+    const itemindex:number=newmealsitem.findIndex(elm=>elm._id===action.payload._id)
   
     newmealsitem[itemindex].quantity=newmealsitem[itemindex].quantity+1
     return{
@@ -37,7 +37,7 @@ if(action.type==='increase'){
     }
 }if(action.type==='decrease'){
      const newmealsitem=[...state.items]
-    const itemindex:number=newmealsitem.findIndex(elm=>elm.id===action.payload.id)
+    const itemindex:number=newmealsitem.findIndex(elm=>elm._id===action.payload._id)
     if(newmealsitem[itemindex].quantity===1){
         return{
             items:state.items

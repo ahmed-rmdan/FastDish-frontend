@@ -8,7 +8,7 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
 const totalprice=cartitems.items.reduce((curr,elm)=>{
-    return  curr+(elm.quantity*80)
+    return  curr+(elm.quantity*elm.price)
 },0)
 
 if(props.open==='cartdialoge'){
@@ -18,7 +18,7 @@ if(props.open==='cartdialoge'){
                <div className="dialog">
                     <div className="dialogitems">
                            {cartitems.items.map(elm=>{
-                           return <Listitem type="dialog" imgeurl={elm.image_url} name={elm.title} price={80} quantity={elm.quantity} id={elm.id}></Listitem>
+                            return <Listitem name={elm.name} quantity={elm.quantity} imgeurl={elm.imgeurl} ingredients={elm.ingredients} price={elm.price} type='dialog' id={elm._id} key={elm._id }></Listitem>
                            })}
                     </div>
                     <p className="totalprice"> Your TotalPrice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(totalprice)} </p>

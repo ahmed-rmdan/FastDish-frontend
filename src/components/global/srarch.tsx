@@ -1,27 +1,35 @@
 import React from "react"
-import { use} from "react"
+import { use,useEffect} from "react"
 import { Contextsearch } from "../../store/contextsearch"
 import { Contextpage } from "../../store/contextpages"
 export const Search:React.FC<{}>=()=>{
 const{getsearchmeals,setisloading,seterror}=use(Contextsearch)
 const {choosesearchpg}=use(Contextpage)
   const searchinputvalue=React.useRef<HTMLInputElement>(null)
+useEffect(()=>{
+featchmeals('burger',false)
+},[])
+
   function submitsearch(ev:React.FormEvent){
 ev.preventDefault()
 const search=searchinputvalue.current?.value
 if(search!==null&&search!==undefined&&search!==''){
- featchmeals(search)
+ featchmeals(search,true)
 }
   }
-function featchmeals(search:string){
+
+
+function featchmeals(search:string,togo:boolean){
   const section=document.querySelector('.third')
+  if(togo)
   section?.scrollIntoView({behavior:"smooth"})
+
    async function loadmeals(){
           setisloading(true)
         
           try{
             
-const res=await fetch(`https://forkify-api.jonas.io/api/v2/recipes?search=${search}`)  
+const res=await fetch(`http://localhost:3000/admin/getsearchproducts?search=${search}`)  
 if(!res.ok){
 throw new Error('somthing went wrong')
 }
@@ -29,7 +37,7 @@ const data=await res.json()
 seterror(null)
 setisloading(false)
 choosesearchpg(1)
-  getsearchmeals(data.data.recipes)
+  getsearchmeals(data)
           }   catch(error){
                if(error instanceof Error)
                seterror(error.message)

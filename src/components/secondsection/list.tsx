@@ -8,7 +8,7 @@ const{menupg}=use(Contextpage)
 
  let list =props.meals===null?<p  className="none">please choose from the menu...</p>:props.meals.map(elm=>{
    
-                       return <Listitem name={elm.title} quantity={1} imgeurl={elm.image_url} price={80} type='menu' id={elm.id} key={elm.id}></Listitem>
+                       return <Listitem name={elm.name} quantity={1} imgeurl={elm.imgeurl} ingredients={elm.ingredients} price={elm.price} type='menu' id={elm._id} key={elm._id }></Listitem>
                        }).slice((menupg-1)*6,(menupg)*6)
 
 return(

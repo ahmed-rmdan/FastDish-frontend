@@ -1,7 +1,7 @@
 import React from "react";
 import { MapContainer, TileLayer,Marker,Popup} from 'react-leaflet'
 
-export const Location:React.FC<{location:[number,number]}>=(props)=>{
+export const Location:React.FC<{location:[number,number],capital:string}>=(props)=>{
 
 return(
     <div className="location">
@@ -12,7 +12,7 @@ return(
     />
     <Marker position={props.location}>
       <Popup>
-        FOOD ORDER BRANCH
+        Food Order {props.capital} Branch
       </Popup>
     </Marker>
   </MapContainer>

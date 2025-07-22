@@ -22,7 +22,7 @@ items:[...state.items,action.payload]
 }
 if(action.type==='remove-item'){
     
-    const newcartmeals=[...state.items].filter(elm=>elm.id!==action.payload.id)
+    const newcartmeals=[...state.items].filter(elm=>elm._id!==action.payload._id)
  
     return{
         items:newcartmeals

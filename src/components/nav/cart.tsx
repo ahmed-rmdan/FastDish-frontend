@@ -41,7 +41,7 @@ const empty=<p>no meals added yet</p>
          {cartitems.items.length===0?empty:<>
          
            {cartitems.items.map(elm=>{
-              return <Listitem type="" imgeurl={elm.image_url} name={elm.title} price={80} quantity={elm.quantity} id={elm.id}></Listitem>
+                return <Listitem name={elm.name} quantity={elm.quantity} imgeurl={elm.imgeurl} ingredients={elm.ingredients} price={elm.price} type='' id={elm._id} key={elm._id }></Listitem>
             })}
          
            <div className="cart-buttons">
