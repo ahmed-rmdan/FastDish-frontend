@@ -256,6 +256,11 @@ align-items: center;
   font-size: 10px;
   flex-direction: row;
   justify-content: space-around;
+  opacity: 0;
+  transition: all 2s 0s ease-in-out;
+}
+.seconddisplay{
+  opacity: 100;
 }
 .meanu{
   display: flex;
@@ -376,6 +381,11 @@ text-decoration: underline;
 gap:30px;
   width: 100%;
   height: 1000px;
+    opacity: 0;
+  transition: all 2s 0s ease-in-out;
+}
+.thirddisplay{
+  opacity: 100;
 }
 .third p{
 
@@ -448,7 +458,7 @@ align-items: center;
   cursor: pointer;
   font-size: 1.5em;
    height: 60%;
-   width: 35%;
+   width: 32%;
 }
 .third .listitem button:hover{
   border: 1px solid gray;
@@ -462,6 +472,11 @@ align-items: center;
   width: 100%;
   gap: 100px;
   font-size: 10px;
+  opacity: 0;
+  transition: all 2s 0s ease-in-out;
+}
+.fourthdisplay{
+  opacity: 100;
 }
 .fourth p{
   font-size: 6em;
@@ -486,6 +501,7 @@ justify-content: center;
   width: 920px;
   gap: 40px;
   height: 350px;
+ 
 
 }
 .slider .none{
@@ -503,6 +519,7 @@ margin-left: 5%;
   width: 100%;
   align-items: center;
   overflow-x: hidden;
+   transition: all 0s 1s ease-in-out;
 }
 .items-container .listitem{
   min-width:  200px;
@@ -619,6 +636,11 @@ cursor: pointer;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  transition: all 3s 0s ease-in-out;
+}
+.fifthdisplay{
+  opacity: 100;
 }
 .fifth p{
     font-size: 7em;
@@ -666,6 +688,11 @@ width: 100%;
   background-color: rgb(53, 53, 53);
   width: 100%;
   height: 50px;
+  opacity: 0;
+  transition: all 2s 0s ease-in-out;
+}
+.sixthdisplay{
+  opacity: 100;
 }
 .list p{
   color: orange;
@@ -702,6 +729,21 @@ cursor: pointer;
 .signedin .signout {
   color: red;
 }
+.third .listitem .name{
+  color: darkorange;
+}
+.second .listitem .name{
+  color: darkorange;
+  font-size: 1.5em;
+}
+.fourth .listitem .name{
+  color: darkorange;
+}
+.name{
+  color: darkorange;
+  
+}
+
 
 
 @keyframes rotate{
@@ -791,7 +833,7 @@ height: 100%;
 }
 .dialog{
 position: fixed;
-top:25%;
+top:100%;
 left: 25%;
 width: 50%;
 height: 60%;
@@ -801,6 +843,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
+opacity: 0;
+transition: all 1s 0s ease-in-out;
+}
+.dialogdisplay{
+  top: 20%;
+  opacity: 100;
 }
 .totalprice{
 font-size: 4.5em;
@@ -1086,6 +1134,7 @@ font-size: 1.5em;
   font-size: 1.5em;
   color: red;
 }
+
 
 @media only screen and (max-width: 1440px) {
  nav{

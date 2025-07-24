@@ -57,7 +57,7 @@ if(props.type==='favourite'){
 
     return(
 
-        <li className="listitem" >
+        <li className="listitem"  key={props.id} >
             <div className="iteminfo">
                    <img src={props.imgeurl}>
                 
@@ -80,7 +80,7 @@ if(props.type==='favourite'){
 }
 if(props.type==='dialog'){
     return(
-        <li className="listitem">
+        <li className="listitem"  key={props.id}>
             <div className="iteminfo">
                    <img src={props.imgeurl} >
                    </img>
@@ -98,7 +98,7 @@ if(props.type==='dialog'){
 }
 if(props.type==='admin'){
     return(
-        <li className="listitem">
+        <li className="listitem" key={props.id}>
             <div className="iteminfo">
                    <img src={props.imgeurl} >
                    </img>
@@ -122,7 +122,7 @@ if(props.type==='admin'){
 
 else{
 return(
-        <li className="listitem">
+        <li className="listitem" key={props.id}>
             <div className="iteminfo">
                    <img src={props.imgeurl} >
                 
@@ -130,7 +130,7 @@ return(
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="quntity">{props.quantity}  </p>
+                         <p className="quntity">Quantity: {props.quantity}  </p>
                          <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
                    </div>
              

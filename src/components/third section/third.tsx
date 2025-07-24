@@ -2,11 +2,24 @@
 import React from "react";
 import { Search } from "../global/srarch";
 import { LIST } from "./listshearch";
-import { use } from "react";
+import { use,useState } from "react";
 import { Contextsearch } from "../../store/contextsearch";
 import { PAGES } from "./pages";
+import { useInView  } from "react-intersection-observer";
+import { viewanimistion } from "../global/animistion";
 export const Third:React.FC<{}>=()=>{
      const{searchmeals,error,isloading}=use(Contextsearch)
+       const [className,setclassname]=useState('')
+      
+const{ref,inView}=useInView({threshold:0.5})
+
+
+viewanimistion(inView,setclassname,'thirddisplay')
+
+
+
+
+
 let pagesarr=[]
 let numpages=0
 if(searchmeals!==null){
@@ -17,7 +30,7 @@ pagesarr.push(i)
 }
 
     return(
-         <section className="third">
+         <section className={`third ${className}`} ref={ref}>
                 <p>Search for your Meals</p>
                  <Search></Search>
                    <div className="items">

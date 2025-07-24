@@ -1,11 +1,17 @@
 
 import React from "react";
 import {Location} from "./location";
+  import { useInView } from "react-intersection-observer";
+import { viewanimistion } from "../global/animistion";
+import { useState } from "react";
 
 export const Fifth:React.FC<{}>=()=>{
-   
+ 
+const [className,setclassname]=useState('')
+ const{ref,inView}=useInView({threshold:0.3})
+    viewanimistion(inView,setclassname,'fifthdisplay')
     return(
-         <section className="fifth">
+         <section className={`fifth ${className}`}  ref={ref}>
                 <p>Branch Locations</p>
                 <div className="locations">
                      <div className="start">

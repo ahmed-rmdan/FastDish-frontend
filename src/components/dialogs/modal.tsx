@@ -6,8 +6,9 @@ import { Contextdialog } from "../../store/dialogcontext";
 export const Modal:React.FC<{}>=()=>{
     const {dialog}=use(Contextdialog)
     const elemnt=document.getElementById('dialog')
-if(elemnt===null)
+if(elemnt===null||dialog==='')
     return;
+
 else{
   return createPortal(
     <Dialog open={dialog}></Dialog>

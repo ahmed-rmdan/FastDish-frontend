@@ -5,13 +5,22 @@ import type { meal } from "../global/type";
 import { LIST } from "./list";
 import { PAGES } from "./pages";
 import { Contextpage } from "../../store/contextpages";
+import { useInView  } from "react-intersection-observer";
+import { viewanimistion } from "../global/animistion";
+
 export const Second:React.FC<{}>=()=>{
      const [meals,storemeals]=useState<null|meal[]>(null)
      const [error,seterror]=useState<null|string>(null)
      const [clicked,seclicked]=useState<string>('')
      const [isloading,setisloading]=useState<boolean>(false)
      const{choosemenupg}=use(Contextpage)
+      const{ref,inView}=useInView({threshold:0.5})
+       const [className,setclassname]=useState('')
+
+    viewanimistion(inView,setclassname,'seconddisplay')
+
 useEffect(()=>{
+
      async function getallmeals(){
           console.log('start')
           setisloading(true)
@@ -46,8 +55,10 @@ const res=await fetch(`http://localhost:3000/admin/selectproducts?type=${meal}`)
                if(error instanceof Error)
                seterror(error.message)
           }
+ 
       }
     loadmeals()
+   
     }
 let pagesarr=[]
 let numpages=0
@@ -59,7 +70,7 @@ pagesarr.push(i)
 }
 
     return(
-         <section className="second">
+         <section className={`second ${className}`} ref={ref} >
                   <div className="meanu">
                        <p>Menu</p>
                        <button onClick={()=>getmenu('pizza')} className={clicked==='pizza'?'clicked':''}>Pizza</button>

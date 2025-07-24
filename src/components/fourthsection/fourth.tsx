@@ -9,6 +9,9 @@ import { ChevronsRight } from 'lucide-react';
 import { ChevronsLeft } from 'lucide-react';
 import { Contexttoken } from "../../store/contexttoken";
 import { Contextdialog } from "../../store/dialogcontext";
+import { useInView } from "react-intersection-observer";
+import { viewanimistion } from "../global/animistion";
+
 
 export const Fourth:React.FC<{}>=()=>{
   const [numberslider,setnuberslider]=useState<number>(4)
@@ -16,6 +19,10 @@ export const Fourth:React.FC<{}>=()=>{
     const {choosefavouritepg,favouritepg}=use(Contextpage)
     const {token}=use(Contexttoken)
     const {setdialog}=use(Contextdialog)
+    const{ref,inView}=useInView({threshold:0.5})
+    const [className,setclassname]=useState('')
+
+    viewanimistion(inView,setclassname,'fourthdisplay')
 
    useEffect(()=>{
         window.addEventListener('resize',()=>{
@@ -62,7 +69,7 @@ function handleprevslider(){
 }
 
     return(
-         <section className="fourth">
+         <section className={`fourth ${className}`} ref={ref}>
                 <p>Your favourites Meals</p>
                  
                 {token===''?<div className="loginfavourite">

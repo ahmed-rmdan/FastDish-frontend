@@ -1,6 +1,6 @@
 import React from "react"
+import logoburger from '../../images/Gerald_G_Fast_Food_Lunch_Dinner_(FF_Menu)_6.svg'
 
-import logoimg from '../../images/mainicon.png'
 import { Cart } from "./cart"
 import { Contextdialog } from "../../store/dialogcontext"
 import { Contexttoken } from "../../store/contexttoken"
@@ -17,7 +17,7 @@ export const Nav:React.FC<{}>=()=>{
         <nav>
           
                  <div className="name">
-                <img src={logoimg} />
+                <img src={logoburger} />
               <p>Food Order</p>
                 
                 

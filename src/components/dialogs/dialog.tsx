@@ -1,16 +1,33 @@
 import React from "react";
 import { Contextcart } from "../../store/contextcart";
-import { use ,useState} from "react";
+import { use ,useState,useEffect} from "react";
 import { Contextdialog } from "../../store/dialogcontext";
 import { Listitem } from "../global/listitem";
 import stripelogo from '../../images/stripeLogo.svg'
 import { Contexttoken } from "../../store/contexttoken";
 
 export const Dialog:React.FC<{open:string}>=(props)=>{
+    const [classname,setclassname]=useState('')
+    console.log(classname)
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
    const {settoken}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
+
+      useEffect(()=>{
+ 
+    setclassname('dialogdisplay')
+
+    return ()=>{
+        setclassname('')
+    }
+   },[props.open])
+   
+   console.log(classname)
+   
+
+  
+console.log(classname)
 async function handlesignup(e:React.FormEvent<HTMLFormElement>){
          e.preventDefault()
       const data = new FormData(e.currentTarget);
@@ -83,7 +100,7 @@ if(props.open==='cartdialoge'){
  return(
        <dialog open={props.open==='cartdialoge'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                     <div className="dialogitems">
                            {cartitems.items.map(elm=>{
                             return <Listitem name={elm.name} quantity={elm.quantity} imgeurl={elm.imgeurl} ingredients={elm.ingredients} price={elm.price} type='dialog' id={elm._id} key={elm._id }></Listitem>
@@ -108,7 +125,7 @@ if(props.open==='formdialog'){
  return(
        <dialog open={props.open==='formdialog'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                     <form className="formdialog">
                         <div>
                              <p>Your Name</p>
@@ -145,7 +162,7 @@ if(props.open==='thankyoudialog'){
 return(
        <dialog open={props.open==='thankyoudialog'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                               <p className="thankyou">thank for your purchasing</p>
                     <div className="button-container">
                         
@@ -162,7 +179,7 @@ if(props.open==='contact'){
     return(
     <dialog open={props.open==='contact'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                             <div className="contact">
                                   <p> E-MAIL : FOOD-ORDER@gmail.com</p>
                               <p> TELPHONE : 021111000000</p>
@@ -188,7 +205,7 @@ if(props.open==='signin'){
  return(
        <dialog open={props.open==='signin'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                     <form className="signindialog" onSubmit={handlesignin}>
                         <div>
                              <p>Your UserName</p>
@@ -224,7 +241,7 @@ if(props.open==='signin'){
  return(
        <dialog open={props.open==='signup'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                      <button className="close" onClick={()=>setdialog('')}> X</button>
                     <form className="signupdialog" onSubmit={handlesignup}>
                         <div>
@@ -273,7 +290,7 @@ if(props.open==='payment'){
     return(
     <dialog open={props.open==='payment'} >
        <div className="overlay">
-               <div className="dialog">
+               <div className={`dialog ${classname}`}>
                             <button className="stripe">
                                 <img src={stripelogo} className="stripeimg"></img>
                                 Pay by using stripe

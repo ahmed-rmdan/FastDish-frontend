@@ -4,4 +4,4 @@ export type user={  username:string,
     password:string,
     email:string,
     adress:string,
-    telphone:number}
+    telphone:number,confirmpassword:string}
