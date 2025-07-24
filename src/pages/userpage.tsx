@@ -11,6 +11,7 @@ import { Contextsearchprovider } from "../store/contextsearch"
 import { Contextcartprovider } from "../store/contextcart"
 import { Contextfavouriteprovider } from "../store/contextfavorite"
 import { Contextdialogprovider } from "../store/dialogcontext"
+import { Contexttokenprovider } from "../store/contexttoken"
 import { Modal } from "../components/dialogs/modal"
 
  
@@ -20,7 +21,8 @@ export const Userpage=function Userpage() {
 
   return (
     <>
-    <Contextdialogprovider>
+    <Contexttokenprovider>
+<Contextdialogprovider>
  <Contextfavouriteprovider>
           <Contextcartprovider>
       <Contextsearchprovider>
@@ -39,6 +41,8 @@ export const Userpage=function Userpage() {
     </Contextcartprovider>
     </Contextfavouriteprovider>
     </Contextdialogprovider>
+    </Contexttokenprovider>
+    
    
     
  

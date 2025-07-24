@@ -1,12 +1,80 @@
 import React from "react";
 import { Contextcart } from "../../store/contextcart";
-import { use } from "react";
+import { use ,useState} from "react";
 import { Contextdialog } from "../../store/dialogcontext";
 import { Listitem } from "../global/listitem";
 import stripelogo from '../../images/stripeLogo.svg'
+import { Contexttoken } from "../../store/contexttoken";
+
 export const Dialog:React.FC<{open:string}>=(props)=>{
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
+   const {settoken}=use(Contexttoken)
+   const [signuperr,setsignuperr]=useState('')
+async function handlesignup(e:React.FormEvent<HTMLFormElement>){
+         e.preventDefault()
+      const data = new FormData(e.currentTarget);
+const formdata=Object.fromEntries(data.entries())
+if(formdata.password!==formdata.confirmpassword){
+    setsignuperr('Password Are Not Similiar')
+return;
+}
+
+ fetch('http://localhost:3000/user/signup',{
+    method:'POST',
+     headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json'},
+       body:JSON.stringify(formdata)
+}).then(res=>{
+    return res.json()
+}).then(data=>{
+    if(data.message=='signup succed'){
+           window.location.reload(); 
+           return;
+    }
+     setsignuperr(data.message) 
+     return
+})
+
+
+}
+
+
+
+async function handlesignin(e:React.FormEvent<HTMLFormElement>){
+    console.log('sign in')
+         e.preventDefault()
+      const data = new FormData(e.currentTarget);
+const formdata=Object.fromEntries(data.entries())
+console.log(formdata)
+
+
+ fetch('http://localhost:3000/user/signin',{
+    method:'POST',
+     headers:{ 'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                },
+                    
+       body:JSON.stringify(formdata)
+}).then(res=>{
+    return res.json()
+}).then(data=>{
+    if(data.message=='signin succed'){
+           
+           settoken(data.token)
+           setdialog('')
+          
+           return;
+    }
+    console.log('failed')
+     setsignuperr(data.message) 
+     return
+})
+
+
+}
+
+
 const totalprice=cartitems.items.reduce((curr,elm)=>{
     return  curr+(elm.quantity*elm.price)
 },0)
@@ -121,18 +189,19 @@ if(props.open==='signin'){
        <dialog open={props.open==='signin'} >
        <div className="overlay">
                <div className="dialog">
-                    <form className="signindialog">
+                    <form className="signindialog" onSubmit={handlesignin}>
                         <div>
                              <p>Your UserName</p>
-                        <input type="text"></input>
+                        <input type="text" name="username"></input>
                         </div>
                         <div>
                               <p>Your PassWord</p>
-                        <input type='password'></input>
+                        <input type='password' name='password'></input>
                         </div>
                            <div className="logincontainer">
-                              <button className="login">login</button>
-                              <button className="reset">reset your password</button>
+                              <button className="login" >login</button>
+                              {signuperr===''?'':<p className="err">{signuperr}</p>}
+                             
                            </div>
                            
                     </form>
@@ -157,35 +226,36 @@ if(props.open==='signin'){
        <div className="overlay">
                <div className="dialog">
                      <button className="close" onClick={()=>setdialog('')}> X</button>
-                    <form className="signupdialog">
+                    <form className="signupdialog" onSubmit={handlesignup}>
                         <div>
                              <p>Your UserName</p>
-                        <input type="text"></input>
+                        <input type="text" name="username" required></input>
                         </div>
                         <div>
                               <p>Your PassWord</p>
-                        <input type='password'></input>
+                        <input type='password' name="password" required ></input>
                         </div>
                     
                         <div>
                               <p>Confirm PassWord</p>
-                        <input type='password'></input>
+                        <input type='password' name="confirmpassword" required></input>
                         </div>
                         <div>
                               <p>Email</p>
-                        <input type='email'></input>
+                        <input type='email' name="email" required></input>
                         </div>
                         <div>
                               <p>Home Adress</p>
-                        <input type='text'></input>
+                        <input type='text' name="adress" required></input>
                         </div>
                         <div>
                               <p>Telphone Number</p>
-                        <input type='number'></input>
+                        <input type='number' name="telphone" required></input>
                         </div>
+                       {signuperr===''?'': <p className="err"> {signuperr}</p>}
                           
                            
-                              <button className="signup">SignUp</button>
+                              <button className="signup" >SignUp</button>
                           
                            
                     </form>

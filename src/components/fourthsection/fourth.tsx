@@ -7,13 +7,16 @@ import { Contextpage } from "../../store/contextpages";
 import { Taps } from "./taps";
 import { ChevronsRight } from 'lucide-react';
 import { ChevronsLeft } from 'lucide-react';
-
+import { Contexttoken } from "../../store/contexttoken";
+import { Contextdialog } from "../../store/dialogcontext";
 
 export const Fourth:React.FC<{}>=()=>{
   const [numberslider,setnuberslider]=useState<number>(4)
     const {favouritetitems}=use(Contextfavourite)
     const {choosefavouritepg,favouritepg}=use(Contextpage)
-console.log(numberslider)
+    const {token}=use(Contexttoken)
+    const {setdialog}=use(Contextdialog)
+
    useEffect(()=>{
         window.addEventListener('resize',()=>{
           if(window.innerWidth<=1024&&window.innerWidth>768){
@@ -36,7 +39,6 @@ console.log(numberslider)
         })
 
    })
-
 
     const numberofitems=favouritetitems.items.length
 
@@ -63,7 +65,11 @@ function handleprevslider(){
          <section className="fourth">
                 <p>Your favourites Meals</p>
                  
-                   <div className="slider">
+                {token===''?<div className="loginfavourite">
+                  <p>Please LogIn First to See Favourites !</p>
+                    <button onClick={()=>setdialog('signin')}>logIn</button>
+
+                 </div>:<><div className="slider">
                                       { favouritepg>1&&<button className="prev" onClick={handleprevslider}><ChevronsLeft size={'1.5em'}/></button>}
                                          <div className="items-container">                                                 
                                                       <LIST meals={favouritetitems.items} error={null} numberslice={numberslider} ></LIST>
@@ -73,9 +79,14 @@ function handleprevslider(){
                                          
                
                     </div>
-                  <Taps numberofitems={numberofitems} pagesarr={pagesarr} ></Taps>
+                  <Taps numberofitems={numberofitems} pagesarr={pagesarr} ></Taps></>
+                  } 
+
+                  
+                     
          </section>
 
 
     )
 }
+

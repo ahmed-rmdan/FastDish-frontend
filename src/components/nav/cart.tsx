@@ -4,7 +4,7 @@ import { Listitem } from "../global/listitem";
 import { use } from "react";
 import { Contextcart } from "../../store/contextcart";
 import { Contextdialog } from "../../store/dialogcontext";
-
+import { ShoppingCart } from 'lucide-react';
 
 export const Cart:React.FC= ()=> {
   const {cartitems}=use(Contextcart)
@@ -17,9 +17,9 @@ export const Cart:React.FC= ()=> {
   
 const empty=<p>no meals added yet</p>
   return (
-  <div className='cartlist'  style={{ position: "relative", display: "inline-block", color: 'orange' }}>
+  <div className='cartlist'  style={{ position: "relative", display: "flex", color: 'orange',alignItems:"center" }}>
         <button onClick={toggleDropdown}>
-                 cart {numbercartitems}
+              <ShoppingCart size={'0.9em'}></ShoppingCart>   cart {numbercartitems}
         </button>
 
     {isOpen && (

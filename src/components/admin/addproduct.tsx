@@ -7,7 +7,6 @@ let navigate=useNavigate()
 let params=useParams()
 
 
-
 async function onsubmit(e:React.FormEvent<HTMLFormElement>){
      e.preventDefault()
       const data = new FormData(e.currentTarget);

@@ -10,7 +10,7 @@ export const Taps:React.FC<{numberofitems:number,pagesarr:number[]}>=(props)=>{
       <>
         { props.numberofitems===0?'':<div className="taps">
                           {props.pagesarr.map((elm,i)=>{
-                            return <button onClick={()=>choosefavouritepg(i+1)} className={favouritepg===i+1?'clicked':''} ></button>
+                            return <button onClick={()=>choosefavouritepg(i+1)} className={favouritepg===i+1?'clicked':''} key={i} ></button>
                           })}
                     </div>}
       </>

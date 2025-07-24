@@ -18,7 +18,7 @@ fetch(`http://localhost:3000/admin/deleteproduct/${props.id}`,{
                     'Accept': 'application/json'}
                      
     
-}).then((res)=>{
+}).then(()=>{
     console.log('deleted')
     window.location.reload()
 }).catch(error=>{
@@ -31,7 +31,7 @@ if(props.type==='menu'){
    
     return(
 
-        <li className="listitem" >
+        <li className="listitem" key={props.id}>
             <div className="iteminfo">
                    <img src={props.imgeurl}>
                 
@@ -46,7 +46,7 @@ if(props.type==='menu'){
 
              </div>
              <div className="itembuttons">
-                <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})}><ShoppingCart size={'1.5em'}></ShoppingCart>Add to Cart</button>
+                <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})}><ShoppingCart size={'1.4em'}></ShoppingCart>Add to Cart</button>
                 <button onClick={()=>dispatchfavouriteitems({type:'add-item',payload:mealdata})}>Add to favourite</button>
 
              </div>
@@ -65,12 +65,12 @@ if(props.type==='favourite'){
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="ingredients">mashrom+chease+onions+katshup+spicy+ </p>
-                         <p className="price"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(80)} </p>
+                         <p className="ingredients">{props.ingredients} </p>
+                         <p className="price"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
                    </div>
              </div>
              <div className="itembuttons">
-                <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})} >Add to Cart</button>
+                <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})} ><ShoppingCart size={'1.3em'}></ShoppingCart>Add to Cart</button>
                 <button   onClick={()=>dispatchfavouriteitems({type:'remove-item',payload:mealdata})} >remove</button>
 
              </div>
