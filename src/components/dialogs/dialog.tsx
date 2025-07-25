@@ -11,7 +11,7 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
     console.log(classname)
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
-   const {settoken}=use(Contexttoken)
+   const {settoken,getfavourites}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
 
       useEffect(()=>{
@@ -79,6 +79,7 @@ console.log(formdata)
     if(data.message=='signin succed'){
            
            settoken(data.token)
+           getfavourites(data.token)
            setdialog('')
           
            return;

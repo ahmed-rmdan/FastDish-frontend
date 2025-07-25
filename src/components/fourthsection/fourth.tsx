@@ -2,7 +2,6 @@
 import React from "react";
 import { LIST } from "./listfavourite";
 import { use,useState,useEffect } from "react";
-import { Contextfavourite } from "../../store/contextfavorite";
 import { Contextpage } from "../../store/contextpages";
 import { Taps } from "./taps";
 import { ChevronsRight } from 'lucide-react';
@@ -15,9 +14,9 @@ import { viewanimistion } from "../global/animistion";
 
 export const Fourth:React.FC<{}>=()=>{
   const [numberslider,setnuberslider]=useState<number>(4)
-    const {favouritetitems}=use(Contextfavourite)
+  
     const {choosefavouritepg,favouritepg}=use(Contextpage)
-    const {token}=use(Contexttoken)
+    const {token,favourites}=use(Contexttoken)
     const {setdialog}=use(Contextdialog)
     const{ref,inView}=useInView({threshold:0.5})
     const [className,setclassname]=useState('')
@@ -47,12 +46,12 @@ export const Fourth:React.FC<{}>=()=>{
 
    })
 
-    const numberofitems=favouritetitems.items.length
+    const numberofitems=favourites.length
 
     let pagesarr:number[]=[]
 let numpages=0
-if(favouritetitems.items!==null){
-      numpages=Math.ceil(favouritetitems.items!.length/numberslider)
+if(favourites!==null){
+      numpages=Math.ceil(favourites!.length/numberslider)
 for(let i=1; i<=numpages;i++){
 pagesarr.push(i)
 }
@@ -78,8 +77,11 @@ function handleprevslider(){
 
                  </div>:<><div className="slider">
                                       { favouritepg>1&&<button className="prev" onClick={handleprevslider}><ChevronsLeft size={'1.5em'}/></button>}
-                                         <div className="items-container">                                                 
-                                                      <LIST meals={favouritetitems.items} error={null} numberslice={numberslider} ></LIST>
+                                         <div className="items-container">
+                                        
+                                            <LIST meals={favourites} error={null} numberslice={numberslider} ></LIST>
+                                                                                           
+                                                      
                                          </div>
                                         
                                       { favouritepg<numpages&&<button className="next" onClick={handlenextslider} ><ChevronsRight size={'1.5em'}/></button>}

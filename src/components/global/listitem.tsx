@@ -1,12 +1,18 @@
 import React from "react"
 import { use } from "react"
 import { Contextcart } from "../../store/contextcart"
-import { Contextfavourite } from "../../store/contextfavorite"
+
 import { useNavigate } from "react-router-dom"
 import { ShoppingCart } from 'lucide-react';
+import { Contexttoken } from "../../store/contexttoken"
+import { Contextdialog } from "../../store/dialogcontext"
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string,ingredients:string}>=(props)=>{
     const {dispatchcartitems}=use(Contextcart)
-    const {dispatchfavouriteitems }=use(Contextfavourite)
+    
+    const {token,setfavourites}=use(Contexttoken)
+    const {setdialog}=use(Contextdialog)
+
+
     let navigate=useNavigate()
 function editproduct(){
     navigate(`/admin/editproduct/${props.id}`)
@@ -24,8 +30,60 @@ fetch(`http://localhost:3000/admin/deleteproduct/${props.id}`,{
 }).catch(error=>{
     console.log(error)
 })
+}
+
+async function addfafourite(){
+
+    try{
+   const res=await fetch(`http://localhost:3000/user/addfavourite/${props.id}`,{
+    method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }                       
+})                         
+if(!res.ok){
+    return
+}
+if(res.status===409){
+                throw new Error('already exisit')
+                
+            }
+    const data=await res.json()
+          if(data.message==='not loggedin'){
+            setdialog('signin')
+          }
+          
+          setfavourites(data.favourites)
+    }catch(err){
+    console.log(err)
+}
 
 }
+
+async function deletefavourite(){
+console.log('deletestart')
+
+ const res= await fetch(`http://localhost:3000/user/deletefavourite/${props.id}`,{
+    method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }                       
+})     
+if(!res.ok) return;
+console.log('deleted')
+const data=await res.json()
+setfavourites(data.favourites)
+
+
+}
+
+
+
+
+
+
 const mealdata={_id:props.id,name:props.name,imgeurl:props.imgeurl,price:props.price,ingredients:props.ingredients,type:props.type,quantity:1}
 if(props.type==='menu'){
    
@@ -47,7 +105,7 @@ if(props.type==='menu'){
              </div>
              <div className="itembuttons">
                 <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})}><ShoppingCart size={'1.4em'}></ShoppingCart>Add to Cart</button>
-                <button onClick={()=>dispatchfavouriteitems({type:'add-item',payload:mealdata})}>Add to favourite</button>
+                <button onClick={addfafourite}>Add to favourite</button>
 
              </div>
         </li>
@@ -71,7 +129,7 @@ if(props.type==='favourite'){
              </div>
              <div className="itembuttons">
                 <button onClick={()=>dispatchcartitems({type:'add-item',payload:mealdata})} ><ShoppingCart size={'1.3em'}></ShoppingCart>Add to Cart</button>
-                <button   onClick={()=>dispatchfavouriteitems({type:'remove-item',payload:mealdata})} >remove</button>
+                <button   onClick={deletefavourite} >remove</button>
 
              </div>
         </li>
@@ -108,8 +166,6 @@ if(props.type==='admin'){
                          <p className="ingredients">mashrom+chease+onions+katshup+spicy </p>
                          <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
                    </div>
-                    
-
              </div>
               <div className="itembuttons">
                          <button onClick={deletemeal} >Delete</button>
@@ -125,8 +181,6 @@ return(
         <li className="listitem" key={props.id}>
             <div className="iteminfo">
                    <img src={props.imgeurl} >
-                
-                  
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>

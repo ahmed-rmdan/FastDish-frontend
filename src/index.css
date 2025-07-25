@@ -14,9 +14,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 body{
   width: 100%;
+  
 }
 nav{  
   display: flex;
@@ -588,13 +590,15 @@ cursor: pointer;
 .taps{
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   gap: 40px;
+  flex-wrap: wrap;
   height: 80px;
   margin-top: -20px;
 }
 .taps button{
-  height: 25px;
-  width: 30px;
+  height: 20px;
+  width: 25px;
   background-color: #242424;
   border: 1px solid orange;
   border-radius: 180%;
@@ -1267,6 +1271,7 @@ font-size: 1.5em;
   }
   .taps button{
     height: 17px;
+ 
   }
   .fifth{
     font-size: 8px;
@@ -1424,6 +1429,7 @@ font-size: 1.5em;
   }
   .taps{
     height: 40px;
+    gap: 20px;
   }
   .taps button{
     height: 9px;

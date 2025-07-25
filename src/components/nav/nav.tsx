@@ -8,11 +8,17 @@ import { use } from "react"
 
 export const Nav:React.FC<{}>=()=>{
     const {setdialog}=use(Contextdialog)
-    const {token}=use(Contexttoken)
+    const {token,settoken}=use(Contexttoken)
     function getto(name:string){
         const section=document.querySelector<HTMLDivElement>(`.${name}`)
     section?.scrollIntoView({behavior:"smooth"})
     }
+
+   async function signouthandle(){
+   const alert=await window.confirm('you are loggingOut are you sure')
+    if(alert)
+    settoken('')
+   }
     return(
         <nav>
           
@@ -33,11 +39,11 @@ export const Nav:React.FC<{}>=()=>{
                
             </div>
             {token===''?<div className="log"> 
-                 <button onClick={()=>setdialog('signin')} > LogIn</button>
+                 <button onClick={()=>setdialog('signin')} > SignIn</button>
                  <button onClick={()=>setdialog('signup')}>SignUp</button>
               </div>:<div className="signedin"> 
                  <button  > My Orders</button>
-                 <button className="signout" >SignOut</button>
+                 <button className="signout" onClick={signouthandle}>SignOut</button>
               </div>}
               
                 </div>
