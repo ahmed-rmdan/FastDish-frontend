@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type FormEvent } from "react";
 import { Contextcart } from "../../store/contextcart";
 import { use ,useState,useEffect} from "react";
 import { Contextdialog } from "../../store/dialogcontext";
@@ -13,7 +13,8 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
    const{setdialog}=use(Contextdialog)
    const {settoken,getfavourites}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
-
+   const [deliveryaddress,setdeliveryaddress]=useState('')
+   const address=React.useRef<null|HTMLInputElement>(null)
       useEffect(()=>{
  
     setclassname('dialogdisplay')
@@ -81,7 +82,6 @@ console.log(formdata)
            settoken(data.token)
            getfavourites(data.token)
            setdialog('')
-          
            return;
     }
     console.log('failed')
@@ -89,8 +89,32 @@ console.log(formdata)
      return
 })
 
+}
+
+function topayment(){
+    
+    if(!address.current?.value) return;
+
+ const addressvalue:string=address.current.value
+setdeliveryaddress(addressvalue)
+setdialog('payment')
 
 }
+
+async function createorder(e:React.FormEvent<HTMLFormElement>){
+   
+         e.preventDefault()
+      const data = new FormData(e.currentTarget);
+const formdata=Object.fromEntries(data.entries())
+
+
+
+}
+
+
+
+
+
 
 
 const totalprice=cartitems.items.reduce((curr,elm)=>{
@@ -108,9 +132,13 @@ if(props.open==='cartdialoge'){
                            })}
                     </div>
                     <p className="totalprice"> Your TotalPrice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(totalprice)} </p>
-                    <div className="button-container">
-                        <button onClick={()=>setdialog('formdialog')}> proceed</button>
-                        <button onClick={()=>setdialog('')}> close</button>
+                      <div className="deliveryadress">
+                              <p> Delivery Adress</p>
+                        <input type='text' required ref={address} ></input>
+                        </div>
+                    <div className="button-container button-container-cartitems">
+                        <button onClick={topayment} className="ContinuetoPayment"> Continue to Payment</button>
+                        <button onClick={()=>setdialog('')} className="close"> close</button>
                     </div>
 
                </div>
@@ -120,45 +148,46 @@ if(props.open==='cartdialoge'){
     )
 
 }
-if(props.open==='formdialog'){
+// if(props.open==='formdialog'){
 
 
- return(
-       <dialog open={props.open==='formdialog'} >
-       <div className="overlay">
-               <div className={`dialog ${classname}`}>
-                    <form className="formdialog">
-                        <div>
-                             <p>Your Name</p>
-                        <input type="text"></input>
-                        </div>
+//  return(
+//        <dialog open={props.open==='formdialog'} >
+//        <div className="overlay">
+//                <div className={`dialog ${classname}`}>
+//                     <form className="formdialog" onSubmit={createorder}>
+//                         <div>
+//                              <p>Your Name</p>
+//                         <input type="text" required></input>
+//                         </div>
                       
-                        <div>
-                              <p>Email</p>
-                        <input type='email'></input>
-                        </div>
-                        <div>
-                              <p>Home Adress</p>
-                        <input type='text'></input>
-                        </div>
-                        <div>
-                              <p>Telphone Number</p>
-                        <input type='number'></input>
-                        </div>
-                    </form>
-                    <div className="button-container">
-                        <button onClick={()=>setdialog('payment')}> confirm </button>
-                        <button onClick={()=>setdialog('')}> close</button>
-                    </div>
+//                         <div>
+//                               <p>Email</p>
+//                         <input type='email' required></input>
+//                         </div>
+//                         <div>
+//                               <p> Delivery Adress</p>
+//                         <input type='text' required></input>
+//                         </div>
+//                         <div>
+//                               <p>Telphone Number</p>
+//                         <input type='number' required></input>
+//                         </div>
+//                         <div className="button-container">
+//                         <button   type="submit"  > confirm </button>
+//                         <button onClick={()=>setdialog('')}> close</button>
+//                     </div>
+//                     </form>
+                    
 
-               </div>
-       </div>
+//                </div>
+//        </div>
        
-       </dialog>
-    )
+//        </dialog>
+//     )
 
 
-}
+// }
 if(props.open==='thankyoudialog'){
 return(
        <dialog open={props.open==='thankyoudialog'} >
@@ -209,11 +238,11 @@ if(props.open==='signin'){
                <div className={`dialog ${classname}`}>
                     <form className="signindialog" onSubmit={handlesignin}>
                         <div>
-                             <p>Your UserName</p>
+                             <p>UserName</p>
                         <input type="text" name="username"></input>
                         </div>
                         <div>
-                              <p>Your PassWord</p>
+                              <p>PassWord</p>
                         <input type='password' name='password'></input>
                         </div>
                            <div className="logincontainer">
@@ -296,7 +325,7 @@ if(props.open==='payment'){
                                 <img src={stripelogo} className="stripeimg"></img>
                                 Pay by using stripe
                             </button>
-                            <p>OR</p>
+                            <p style={{fontSize:'2.5em'}}>OR</p>
                             <button className="delivry" onClick={()=>setdialog('thankyoudialog')}> Pay on Delivery</button>
                              
                               

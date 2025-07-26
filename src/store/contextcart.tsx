@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import type { meal,cartmeal } from "../components/global/type";
+import type { meal} from "../components/global/type";
 
 export const Contextcart=React.createContext<{cartitems:{items:meal[]},dispatchcartitems:(action:actiontype)=>void}>
 ({ 
@@ -12,12 +12,23 @@ type actiontype={
 }
 function dispatchfunction(state:{items:meal[]},action:actiontype){
 if(action.type==='add-item'){
+    const curritems=[...state.items]
+    const ifexisit=curritems.findIndex(elm=>{
+       return elm._id===action.payload._id
+    })
     
-    const newitem:meal={...action.payload}
+    console.log(ifexisit)
+    if(ifexisit>-1){
+return {items:[...state.items]};
+    } 
+    else{
+            const newitem:meal={...action.payload}
 return{
 items:[...state.items,newitem]
 }
 }
+  }
+
 if(action.type==='remove-item'){
     
     const newcartmeals=[...state.items].filter(elm=>elm._id!==action.payload._id)

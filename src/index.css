@@ -135,8 +135,11 @@ height:25px;
   flex-direction: column;
   align-items: center;
   width: 98%;
-  height: 140px;
+ height: 140px;
   background-color: #242424;
+}
+.cartlist .listitem{
+  min-height: 140px;
 }
 .listitem .iteminfo{
   display: flex;
@@ -855,7 +858,7 @@ transition: all 1s 0s ease-in-out;
   opacity: 100;
 }
 .totalprice{
-font-size: 4.5em;
+font-size: 3.8em;
 font-weight: bolder;
 color: orange;
 
@@ -867,14 +870,15 @@ text-align: center;
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
 }
 .button-container button{
-width: 13%;
+width: 25%;
 height:35px;
 border: 1px solid orange;
 color: orange;
 background-color: #242424;
-font-size: 2.6em;
+font-size: 2em;
 cursor: pointer;
 }
 .button-container button:hover{
@@ -1002,8 +1006,9 @@ cursor: pointer;
   color: orange;
   border: none;
   background-color: #242424;
-  font-size: 2.2em;
+  font-size: 2.5em;
   cursor: pointer;
+  font-weight: bolder;
 }
 .delivry:hover{
 text-decoration: underline;
@@ -1138,8 +1143,49 @@ font-size: 1.5em;
   font-size: 1.5em;
   color: red;
 }
+.button-container{
+  width: 70%;
+}
+.button-container button{
+  font-size: 2.3em;
+}
+.button-container-cartitems{
+  width: 70%;
+ 
+}
+.button-container-cartitems button{
+  width: 25%;
+  font-size: 2em;
+    height: 47px;
+}
 
+.button-container-cartitems .close{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 2.5em;
+}
 
+.deliveryadress{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+width: 60%;
+}
+.deliveryadress p{
+  width: 100%;
+  font-size: 2em;
+}
+.deliveryadress input{
+width: 100%;
+height: 30px;
+font-size: 2em;
+}
+.signindialog p{
+  font-size: 2.5em;
+}
 @media only screen and (max-width: 1440px) {
  nav{
     font-size: 8px;
@@ -1214,6 +1260,9 @@ font-size: 1.5em;
   .dialog .button-container button{
     width: 18%;
   }
+   .dialog .button-container-cartitems button{
+    width: 25%;
+   }
   .admin .body{
     font-size: 9px;
   }
@@ -1286,6 +1335,7 @@ font-size: 1.5em;
     height: 15px;
     width: 20%;
   }
+  
   .dialog{
     font-size: 7px;
     height: 45%;
@@ -1294,8 +1344,14 @@ font-size: 1.5em;
     width: 20%;
     height: 35px;
   }
+  .dialog .button-container-cartitems button{
+    width: 27%;
+  }
+   .dialog .button-container-cartitems .ContinuetoPayment{
+    font-size: 1.55em;
+   }
   .dialog .totalprice{
-  font-size: 3.5em;
+  font-size: 3em;
 }
 .signup{
   width: 20%;
@@ -1476,11 +1532,14 @@ font-size: 1.5em;
     height: 40%;
   }
   .dialog .totalprice{
-    font-size: 2.8em;
+    font-size: 2.6em;
   }
   .dialog .button-container button{
-    height: 26px;
+    height: 27px;
     width: 27%;
+  }
+ .dialog .deliveryadress input{
+height: 20px;
   }
   .signindialog input{
      width: 85%;

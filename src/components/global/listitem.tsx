@@ -43,6 +43,7 @@ async function addfafourite(){
                 }                       
 })                         
 if(!res.ok){
+    setdialog('signin')
     return
 }
 if(res.status===409){
