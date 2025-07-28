@@ -1,6 +1,6 @@
 import React from "react"
 import logoburger from '../../images/Gerald_G_Fast_Food_Lunch_Dinner_(FF_Menu)_6.svg'
-
+import { Myorders } from "./myorders"
 import { Cart } from "./cart"
 import { Contextdialog } from "../../store/dialogcontext"
 import { Contexttoken } from "../../store/contexttoken"
@@ -42,7 +42,7 @@ export const Nav:React.FC<{}>=()=>{
                  <button onClick={()=>setdialog('signin')} > SignIn</button>
                  <button onClick={()=>setdialog('signup')}>SignUp</button>
               </div>:<div className="signedin"> 
-                 <button  > My Orders</button>
+                 <Myorders></Myorders>
                  <button className="signout" onClick={signouthandle}>SignOut</button>
               </div>}
               

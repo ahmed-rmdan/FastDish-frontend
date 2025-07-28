@@ -5,3 +5,6 @@ export type user={  username:string,
     email:string,
     adress:string,
     telphone:number,confirmpassword:string}
+
+export type order={address:string,details:string,totalprice:number,state:string,_id:string}
+

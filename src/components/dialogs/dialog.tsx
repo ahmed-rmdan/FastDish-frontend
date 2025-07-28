@@ -1,20 +1,33 @@
-import React, { type FormEvent } from "react";
+import React from "react";
 import { Contextcart } from "../../store/contextcart";
 import { use ,useState,useEffect} from "react";
 import { Contextdialog } from "../../store/dialogcontext";
 import { Listitem } from "../global/listitem";
 import stripelogo from '../../images/stripeLogo.svg'
 import { Contexttoken } from "../../store/contexttoken";
+import { Contextorders } from "../../store/contextorders";
 
 export const Dialog:React.FC<{open:string}>=(props)=>{
     const [classname,setclassname]=useState('')
     console.log(classname)
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
-   const {settoken,getfavourites}=use(Contexttoken)
+   const {settoken,getfavourites,token}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
    const [deliveryaddress,setdeliveryaddress]=useState('')
+    const {getorders}=use(Contextorders)
+
+
    const address=React.useRef<null|HTMLInputElement>(null)
+
+
+   const totalprice=cartitems.items.reduce((curr,elm)=>{
+    return  curr+(elm.quantity*elm.price)
+},0)
+
+
+
+
       useEffect(()=>{
  
     setclassname('dialogdisplay')
@@ -81,6 +94,7 @@ console.log(formdata)
            
            settoken(data.token)
            getfavourites(data.token)
+           getorders(data.token)
            setdialog('')
            return;
     }
@@ -91,22 +105,48 @@ console.log(formdata)
 
 }
 
-function topayment(){
-    
+async function topayment(){
     if(!address.current?.value) return;
+
+const res=await fetch('http://localhost:3000/user/continuepayment',{
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }   
+})
+if (!res.ok){
+    setdeliveryaddress('')
+     setdialog('signin')
+      return;
+}
+   
 
  const addressvalue:string=address.current.value
 setdeliveryaddress(addressvalue)
 setdialog('payment')
-
 }
 
-async function createorder(e:React.FormEvent<HTMLFormElement>){
+
+
+
+
+async function ondeliveryhandle(){
    
-         e.preventDefault()
-      const data = new FormData(e.currentTarget);
-const formdata=Object.fromEntries(data.entries())
-
+const res=await fetch('http://localhost:3000/user/createorder',{
+          method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                } ,
+                body:JSON.stringify({items:cartitems.items,address:deliveryaddress,totalprice})
+})
+    if(!res.ok){
+        setdialog('')
+        return
+    }    
+    setdialog('thankyoudialog')
+    setdeliveryaddress('')
+     getorders(token)
 
 
 }
@@ -117,9 +157,7 @@ const formdata=Object.fromEntries(data.entries())
 
 
 
-const totalprice=cartitems.items.reduce((curr,elm)=>{
-    return  curr+(elm.quantity*elm.price)
-},0)
+
 
 if(props.open==='cartdialoge'){
  return(
@@ -148,46 +186,7 @@ if(props.open==='cartdialoge'){
     )
 
 }
-// if(props.open==='formdialog'){
 
-
-//  return(
-//        <dialog open={props.open==='formdialog'} >
-//        <div className="overlay">
-//                <div className={`dialog ${classname}`}>
-//                     <form className="formdialog" onSubmit={createorder}>
-//                         <div>
-//                              <p>Your Name</p>
-//                         <input type="text" required></input>
-//                         </div>
-                      
-//                         <div>
-//                               <p>Email</p>
-//                         <input type='email' required></input>
-//                         </div>
-//                         <div>
-//                               <p> Delivery Adress</p>
-//                         <input type='text' required></input>
-//                         </div>
-//                         <div>
-//                               <p>Telphone Number</p>
-//                         <input type='number' required></input>
-//                         </div>
-//                         <div className="button-container">
-//                         <button   type="submit"  > confirm </button>
-//                         <button onClick={()=>setdialog('')}> close</button>
-//                     </div>
-//                     </form>
-                    
-
-//                </div>
-//        </div>
-       
-//        </dialog>
-//     )
-
-
-// }
 if(props.open==='thankyoudialog'){
 return(
        <dialog open={props.open==='thankyoudialog'} >
@@ -326,7 +325,7 @@ if(props.open==='payment'){
                                 Pay by using stripe
                             </button>
                             <p style={{fontSize:'2.5em'}}>OR</p>
-                            <button className="delivry" onClick={()=>setdialog('thankyoudialog')}> Pay on Delivery</button>
+                            <button className="delivry" onClick={ondeliveryhandle}> Pay on Delivery</button>
                              
                               
                     <div className="button-container">

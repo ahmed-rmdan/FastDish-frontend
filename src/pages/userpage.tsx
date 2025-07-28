@@ -12,6 +12,7 @@ import { Contextcartprovider } from "../store/contextcart"
 import { Contextfavouriteprovider } from "../store/contextfavorite"
 import { Contextdialogprovider } from "../store/dialogcontext"
 import { Contexttokenprovider } from "../store/contexttoken"
+import { Contextordersprovider } from "../store/contextorders"
 import { Modal } from "../components/dialogs/modal"
 
  
@@ -21,7 +22,8 @@ export const Userpage=function Userpage() {
 
   return (
     <>
-    <Contexttokenprovider>
+    <Contextordersprovider>
+<Contexttokenprovider>
 <Contextdialogprovider>
  <Contextfavouriteprovider>
           <Contextcartprovider>
@@ -42,12 +44,9 @@ export const Userpage=function Userpage() {
     </Contextfavouriteprovider>
     </Contextdialogprovider>
     </Contexttokenprovider>
-    
-   
-    
+    </Contextordersprovider>
  
-      
-
+    
     </>
   )
 }
