@@ -60,7 +60,10 @@ return;
     return res.json()
 }).then(data=>{
     if(data.message=='signup succed'){
-           window.location.reload(); 
+           settoken(data.token)
+           getfavourites(data.token)
+           getorders(data.token)
+           setdialog('')
            return;
     }
      setsignuperr(data.message) 

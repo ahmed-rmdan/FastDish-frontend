@@ -1,8 +1,27 @@
 import React from "react"
 import { NavLink } from "react-router"
-
+import { use } from "react"
+import { Contexttoken } from "../../store/contexttoken"
 export const Dashboard:React.FC<{}>=()=>{
-
+    const {settoken,token}=use(Contexttoken)
+async function logouthandle(){
+   
+const res=await fetch('http://localhost:3000/admin/isadmin',{
+    method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }   
+})
+if (!res.ok){
+   
+      return;
+}
+ const confirm= window.confirm('you are logging out are you sure ?')
+ if(confirm)
+settoken('')
+ else return;
+}
     return(
         <div className="dashboard">
          
@@ -10,7 +29,7 @@ export const Dashboard:React.FC<{}>=()=>{
                   <NavLink to={'/admin/addproduct'} className={({isActive})=>{return isActive?'clicked':''}}><button > AddProduct</button></NavLink>  
                 <NavLink to={'/admin/orders'} className={({isActive})=>{return isActive?'clicked':''}}> <button > Orders</button></NavLink>  
                  
-                 <button >LogOut</button>
+                 <button onClick={logouthandle} style={{color:'red'}}>LogOut</button>
         </div>
     )
 }

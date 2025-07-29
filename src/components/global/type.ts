@@ -8,3 +8,9 @@ export type user={  username:string,
 
 export type order={address:string,details:string,totalprice:number,state:string,_id:string}
 
+export type oderadmin={address:string,details:string,totalprice:number,state:string,_id:string,username:string,
+                          payment:string,telphone:number     
+                          }
+
+
+

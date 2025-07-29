@@ -2,13 +2,13 @@ import React from "react";
 
 
 export const Orderitem:React.FC<{details:string,address:string,totalprice:number,state:string}>=(props)=>{
-    let style
-    if(props.state==='cancel')
+    let style={color:'darkorange'}
+    if(props.state==='Canceled')
      style={color:'red'}
     if(props.state==='Done')
         style={color:'green'}
-    else 
-        style={color:'darkorange'}
+   
+        
     return(
       <div className="orderitem">
         <p className="details"> {props.details} </p>

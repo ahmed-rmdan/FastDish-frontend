@@ -1,11 +1,34 @@
 import React from "react"
 import { useParams } from "react-router"
 import { useNavigate } from "react-router"
+import { Contexttoken } from "../../store/contexttoken"
+import { useEffect,use } from "react"
 
 export const Addproduct:React.FC<{type:string}>=(props)=>{
 let navigate=useNavigate()
 let params=useParams()
+const {token}=use(Contexttoken)
 
+    
+
+useEffect(()=>{
+    async function adminloader(){
+const res=await fetch('http://localhost:3000/admin/isadmin',{
+     method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }   
+})
+if (!res.ok){
+    navigate('/admin/login')
+      return;
+}
+
+}
+ adminloader()
+
+},[token])
 
 async function onsubmit(e:React.FormEvent<HTMLFormElement>){
      e.preventDefault()

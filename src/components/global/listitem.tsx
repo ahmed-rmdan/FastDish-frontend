@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { ShoppingCart } from 'lucide-react';
 import { Contexttoken } from "../../store/contexttoken"
 import { Contextdialog } from "../../store/dialogcontext"
-export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string,ingredients:string}>=(props)=>{
+export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string,ingredients:string,typemeal?:string}>=(props)=>{
     const {dispatchcartitems}=use(Contextcart)
     
     const {token,setfavourites}=use(Contexttoken)
@@ -163,9 +163,9 @@ if(props.type==='admin'){
                    </img>
                    <div className="maininfo">
                          <p className="name">{props.name}</p>
-                         <p className="type">Type : burger</p>
-                         <p className="ingredients">mashrom+chease+onions+katshup+spicy </p>
-                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)}  </p>
+                         <p className="type">Type : {props.typemeal}</p>
+                         <p className="ingredients">{props.ingredients} </p>
+                         <p className="price">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}  </p>
                    </div>
              </div>
               <div className="itembuttons">

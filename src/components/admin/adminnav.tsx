@@ -1,6 +1,6 @@
 import React from "react"
 
-import logoimg from '../../images/mainicon.png'
+import logoimg from '../../images/Gerald_G_Fast_Food_Lunch_Dinner_(FF_Menu)_6.svg'
 
 export const AdminNav:React.FC<{}>=()=>{
 

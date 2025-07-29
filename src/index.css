@@ -1075,18 +1075,18 @@ align-items: center;
   gap: 5%;
 }
 .admin .logincontainer .login input{
-  width: 60%;
+  width: 65%;
   height: 30px;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 .admin .logincontainer .login p{
   font-size: 1.2em;
 }
 .admin .logincontainer .login button{
-  font-size: 1.3em;
+  font-size: 1.1em;
   border: 1px solid orange;
   width: 13%;
-  height: 1.3em;
+  height: 1.2em;
   margin-left: 25%;
   cursor: pointer;
 }
@@ -1099,7 +1099,7 @@ flex-direction: column;
 align-items: center;
 margin-top: 5%;
 width: 100%;
-height: 80%;
+height: 90%;
 overflow: auto;
 gap: 50px;
 }
@@ -1107,11 +1107,17 @@ gap: 50px;
   width: 60%;
   flex-direction: column;
   color: orange;
-  min-height: 200px;
+  min-height: 250px;
   font-size: 1.2em;
 }
 .admin .products .listitem .type{
 font-size: 1.4em;
+}
+.admin .outlet .price{
+font-size: 1.2em;
+}
+.admin .products .itembuttons{
+  height: 20%;
 }
 .admin .products .listitem button{
   font-size: 2em;
@@ -1221,6 +1227,26 @@ border: 1px solid orange;
 border: 1px solid gray;
 text-decoration: none;
 }
+.admin .products .orderitem .iteminfo{
+  height: 75%;
+}
+.admin .products .orderitem .itembuttons{
+  height: 10%;
+}
+.admin .products .orderitem .delete{
+  height: 8%;
+}
+.orderitem{
+justify-content: space-around;
+}
+
+
+.admin .products .listitem p{
+  text-align: center;
+}
+.admin .products .orderitem{
+  min-height: 350px;
+}
 
 @media only screen and (max-width: 1440px) {
  nav{
@@ -1305,6 +1331,15 @@ text-decoration: none;
   .admin .body{
     font-size: 9px;
   }
+  .admin .logincontainer .login{
+    font-size: 2.2em;
+  }
+    .admin .logincontainer .login button{
+    margin-left: 35%;
+  }
+   .admin .logincontainer .login input{
+    width: 70%;
+   }
   .myorders-list .orderitem{
     min-height: 160px;
     font-size: 1.35em;
@@ -1391,8 +1426,13 @@ text-decoration: none;
     height: 45%;
   }
   .dialog .button-container button{
-    width: 20%;
+    width: 25%;
     height: 35px;
+  }
+  .admin .logincontainer .login button{
+    margin-left: 28%;
+    width: 22%;
+    font-size: 1.2em;
   }
   .dialog .button-container-cartitems button{
     width: 27%;
@@ -1528,6 +1568,7 @@ text-decoration: none;
     font-size: 9.5px;
     width: 200px;  
   }
+
   .fourth .items-container .listitem .itembuttons button {
     font-size: 1.2em;
   }
@@ -1638,6 +1679,13 @@ height: 20px;
 .admin .body{
   font-size: 6px;
 }
+    .admin .logincontainer .login input{
+      width: 100%;
+    }
+    .admin .logincontainer .login button{
+      width: 32%;
+      margin-left: 35%;
+    }
 .admin .products .listitem button{
   width: 32%;
 }
@@ -1647,4 +1695,13 @@ height: 20px;
 .myorders-list{
   width: 165px;
 }
+.admin .products .orderitem{
+  min-height: 250px;
+  font-size: 0.9em;
+}
+.admin .products .orderitem button{
+width: 27%;
+font-size: 1em;
+}
+
 }
