@@ -22,9 +22,7 @@ function setsearchvalue(ev:string){
 setsearch(ev)
 }
 function getsearchmeals(meals:meal[]){
- 
-    setsearchmeals(meals)
-       
+    setsearchmeals(meals)    
 }
 const contextvalue={setsearchvalue,searchvalue,searchmeals,getsearchmeals,error,seterror,isloading,setisloading}
     return(
