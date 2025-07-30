@@ -7,12 +7,13 @@ import { useEffect,use } from "react"
 export const Addproduct:React.FC<{type:string}>=(props)=>{
 let navigate=useNavigate()
 let params=useParams()
-const {token}=use(Contexttoken)
+const {gettoken,token}=use(Contexttoken)
 
     
 
 useEffect(()=>{
     async function adminloader(){
+     gettoken()
 const res=await fetch('http://localhost:3000/admin/isadmin',{
      method:'POST',
        headers:{    'Content-Type': 'application/json', 
@@ -52,7 +53,7 @@ try{
 if(!res.ok){
      throw new Error('post failed')
 }
-console.log('asdsadsadsa')
+
 navigate('/admin/products')
 }catch(error){
      console.log(error)

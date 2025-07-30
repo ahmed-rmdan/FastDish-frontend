@@ -3,10 +3,11 @@ import { NavLink } from "react-router"
 import { use } from "react"
 import { Contexttoken } from "../../store/contexttoken"
 export const Dashboard:React.FC<{}>=()=>{
-    const {settoken,token}=use(Contexttoken)
+    const {cleartoken,gettoken,token}=use(Contexttoken)
 async function logouthandle(){
-   
+   gettoken()
 const res=await fetch('http://localhost:3000/admin/isadmin',{
+    
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -19,7 +20,7 @@ if (!res.ok){
 }
  const confirm= window.confirm('you are logging out are you sure ?')
  if(confirm)
-settoken('')
+cleartoken()
  else return;
 }
     return(

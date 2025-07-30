@@ -16,11 +16,12 @@ export const AdminProducts:React.FC<{}>=()=>{
   const [meals,setmeals]=useState<meal[]>([])
   console.log(meals)
     const navigate=useNavigate()
-const {token}=use(Contexttoken)
+const {gettoken,token}=use(Contexttoken)
 
 
 useEffect(()=>{
       async function adminloader(){
+        gettoken()
         console.log(token)
 const res=await fetch('http://localhost:3000/admin/isadmin',{
           method:'POST',

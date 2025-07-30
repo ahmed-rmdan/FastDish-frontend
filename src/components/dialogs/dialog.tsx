@@ -12,7 +12,7 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
     console.log(classname)
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
-   const {settoken,getfavourites,token}=use(Contexttoken)
+   const {settoken,getfavourites,gettoken,token}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
    const [deliveryaddress,setdeliveryaddress]=useState('')
     const {getorders}=use(Contextorders)
@@ -76,11 +76,11 @@ return;
 
 
 async function handlesignin(e:React.FormEvent<HTMLFormElement>){
-    console.log('sign in')
+    
          e.preventDefault()
       const data = new FormData(e.currentTarget);
 const formdata=Object.fromEntries(data.entries())
-console.log(formdata)
+
 
 
  fetch('http://localhost:3000/user/signin',{
@@ -96,12 +96,13 @@ console.log(formdata)
     if(data.message=='signin succed'){
            
            settoken(data.token)
+           
            getfavourites(data.token)
            getorders(data.token)
            setdialog('')
            return;
     }
-    console.log('failed')
+    
      setsignuperr(data.message) 
      return
 })
@@ -110,6 +111,7 @@ console.log(formdata)
 
 async function topayment(){
     if(!address.current?.value) return;
+gettoken()
 
 const res=await fetch('http://localhost:3000/user/continuepayment',{
        headers:{    'Content-Type': 'application/json', 
@@ -134,7 +136,7 @@ setdialog('payment')
 
 
 async function ondeliveryhandle(){
-   
+   gettoken()
 const res=await fetch('http://localhost:3000/user/createorder',{
           method:'POST',
        headers:{    'Content-Type': 'application/json', 
@@ -153,12 +155,22 @@ const res=await fetch('http://localhost:3000/user/createorder',{
 
 
 }
+async function handlestripechecout(){
+    const res=await fetch('http://localhost:3000/user/stripecheckout',{
+          method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                } ,
+                body:JSON.stringify(cartitems.items)
+})
+console.log(cartitems.items)
+if(!res.ok) return;
+const data=await res.json()
+if(!data.url) return;
+window.location.href=data.url
 
-
-
-
-
-
+}
 
 
 
@@ -249,7 +261,8 @@ if(props.open==='signin'){
                         </div>
                            <div className="logincontainer">
                               <button className="login" >login</button>
-                              {signuperr===''?'':<p className="err">{signuperr}</p>}
+                           
+                              <p className="err" style={{height:'30px'}}>{signuperr} </p>
                              
                            </div>
                            
@@ -278,16 +291,16 @@ if(props.open==='signin'){
                     <form className="signupdialog" onSubmit={handlesignup}>
                         <div>
                              <p>Your UserName</p>
-                        <input type="text" name="username" required></input>
+                        <input type="text" name="username" required minLength={5} maxLength={15}></input>
                         </div>
                         <div>
                               <p>Your PassWord</p>
-                        <input type='password' name="password" required ></input>
+                        <input type='password' name="password" required minLength={6} maxLength={15}></input>
                         </div>
                     
                         <div>
                               <p>Confirm PassWord</p>
-                        <input type='password' name="confirmpassword" required></input>
+                        <input type='password' name="confirmpassword" required minLength={6} maxLength={15}></input>
                         </div>
                         <div>
                               <p>Email</p>
@@ -295,11 +308,11 @@ if(props.open==='signin'){
                         </div>
                         <div>
                               <p>Home Adress</p>
-                        <input type='text' name="adress" required></input>
+                        <input type='text' name="adress" required minLength={6}></input>
                         </div>
                         <div>
                               <p>Telphone Number</p>
-                        <input type='number' name="telphone" required></input>
+                        <input type='number' name="telphone" required minLength={11}></input>
                         </div>
                        {signuperr===''?'': <p className="err"> {signuperr}</p>}
                           
@@ -323,7 +336,7 @@ if(props.open==='payment'){
     <dialog open={props.open==='payment'} >
        <div className="overlay">
                <div className={`dialog ${classname}`}>
-                            <button className="stripe">
+                            <button className="stripe" onClick={handlestripechecout}>
                                 <img src={stripelogo} className="stripeimg"></img>
                                 Pay by using stripe
                             </button>

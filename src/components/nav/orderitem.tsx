@@ -17,7 +17,5 @@ export const Orderitem:React.FC<{details:string,address:string,totalprice:number
          <p className="price">Total price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.totalprice)} </p>
 
        </div>
-
-
     )
 }

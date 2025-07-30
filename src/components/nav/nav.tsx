@@ -4,11 +4,27 @@ import { Myorders } from "./myorders"
 import { Cart } from "./cart"
 import { Contextdialog } from "../../store/dialogcontext"
 import { Contexttoken } from "../../store/contexttoken"
-import { use } from "react"
-
+import { use,useEffect } from "react"
+import { Contextorders } from "../../store/contextorders"
 export const Nav:React.FC<{}>=()=>{
     const {setdialog}=use(Contextdialog)
-    const {token,settoken}=use(Contexttoken)
+    const {token,cleartoken,gettoken,getfavourites}=use(Contexttoken)
+    const {getorders}=use(Contextorders)
+   useEffect(()=>{
+    async function init(){
+         await gettoken()
+          console.log(token)
+          if(token==='') return;
+     await getfavourites(token)
+   await  getorders(token)
+
+    }
+   init()
+    
+   },[token])
+
+
+
     function getto(name:string){
         const section=document.querySelector<HTMLDivElement>(`.${name}`)
     section?.scrollIntoView({behavior:"smooth"})
@@ -17,14 +33,15 @@ export const Nav:React.FC<{}>=()=>{
    async function signouthandle(){
    const alert=await window.confirm('you are loggingOut are you sure')
     if(alert)
-    settoken('')
+   cleartoken()
+ 
    }
     return(
         <nav>
           
                  <div className="name">
                 <img src={logoburger} />
-              <p>Food Order</p>
+              <p>FastDish</p>
                 
                 
                 </div>

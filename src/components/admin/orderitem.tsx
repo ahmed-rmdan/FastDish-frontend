@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 
 
 export const Orderitem:React.FC<{name:string,details:string,price:number,address:string,id:string,telphone:number,state:string,payment:string}>=(props)=>{
-      const {token}=use(Contexttoken)
+      const {gettoken,token}=use(Contexttoken)
       const navigate=useNavigate()
 
    let style={color:'darkorange'}
@@ -19,6 +19,7 @@ export const Orderitem:React.FC<{name:string,details:string,price:number,address
        
 
     async function deleteorder(){
+      gettoken()
       const res=await fetch(`http://localhost:3000/admin/deleteorder/${props.id}`,{
             method:'DELETE',
        headers:{    'Content-Type': 'application/json', 
@@ -31,15 +32,13 @@ if(!res){
       console.log('deleteproblem')
       return
 }
-console.log('hasbeen deleted')
-navigate('/admin')
-navigate('/admin/orders')
+window.location.reload()
 
 
     }
 
 async function updateorder(value:string){
-
+gettoken()
    console.log(props.id)
       const res=await fetch(`http://localhost:3000/admin/updateorder/${props.id}`,{
             method:'POST',
@@ -52,6 +51,8 @@ async function updateorder(value:string){
       })
 
       if(!res.ok) return;
+      window.location.reload()
+      navigate('/admin/orders')
 
 }
 

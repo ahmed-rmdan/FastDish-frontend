@@ -19,6 +19,7 @@ async function getorders(tokenvalue:string){
                 }                       
     })
     const data=await res.json()
+    if(!res.ok) return
     const orderdata:order[]=data.data
     setorders(orderdata)
 }

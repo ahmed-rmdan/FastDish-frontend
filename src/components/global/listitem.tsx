@@ -9,7 +9,7 @@ import { Contextdialog } from "../../store/dialogcontext"
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string,ingredients:string,typemeal?:string}>=(props)=>{
     const {dispatchcartitems}=use(Contextcart)
     
-    const {token,setfavourites}=use(Contexttoken)
+    const {token,gettoken,setfavourites}=use(Contexttoken)
     const {setdialog}=use(Contextdialog)
 
 
@@ -33,7 +33,7 @@ fetch(`http://localhost:3000/admin/deleteproduct/${props.id}`,{
 }
 
 async function addfafourite(){
-
+gettoken()
     try{
    const res=await fetch(`http://localhost:3000/user/addfavourite/${props.id}`,{
     method:'POST',
@@ -41,15 +41,16 @@ async function addfafourite(){
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + token
                 }                       
-})                         
+}) 
+if(res.status===406){
+                throw new Error('already exisit')
+                
+            }                        
 if(!res.ok){
     setdialog('signin')
     return
 }
-if(res.status===409){
-                throw new Error('already exisit')
-                
-            }
+
     const data=await res.json()
           if(data.message==='not loggedin'){
             setdialog('signin')
@@ -63,8 +64,8 @@ if(res.status===409){
 }
 
 async function deletefavourite(){
-console.log('deletestart')
 
+gettoken()
  const res= await fetch(`http://localhost:3000/user/deletefavourite/${props.id}`,{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 

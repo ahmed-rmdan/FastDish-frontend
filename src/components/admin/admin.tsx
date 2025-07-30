@@ -8,11 +8,13 @@ import { use ,useEffect} from "react"
 
 export const Admin:React.FC<{}>=()=>{
 
-const {token}=use(Contexttoken)
+const {gettoken,token}=use(Contexttoken)
 const navigate=useNavigate()
 
 useEffect(()=>{
     async function adminloader(){
+       await gettoken()
+       console.log(token)
 const res=await fetch('http://localhost:3000/admin/isadmin',{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
@@ -24,7 +26,7 @@ if (!res.ok){
     navigate('/admin/login')
       return;
 }
-navigate('/admin/products')
+
 }
  adminloader()
 

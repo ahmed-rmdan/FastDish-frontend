@@ -9,7 +9,7 @@ export const AdminNav:React.FC<{}>=()=>{
           
                  <div className="name">
                 <img src={logoimg} />
-              <p>Food Order</p>
+              <p>FastDish</p>
                 
                 
                 </div>
