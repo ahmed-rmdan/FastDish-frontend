@@ -6,7 +6,6 @@ export const Contextfavourite=React.createContext<{favouritetitems:{items:meal[]
 ({ 
      favouritetitems:{items:[]},
     dispatchfavouriteitems:()=>{},
-   
 })
 type actiontype={
     type:string,
