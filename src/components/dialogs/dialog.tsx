@@ -186,7 +186,7 @@ if(props.open==='cartdialoge'){
                     </div>
                     <p className="totalprice"> Your TotalPrice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(totalprice)} </p>
                       <div className="deliveryadress">
-                              <p> Delivery Adress</p>
+                              <p> Delivery Address</p>
                         <input type='text' required ref={address} ></input>
                         </div>
                     <div className="button-container button-container-cartitems">
@@ -207,7 +207,7 @@ return(
        <dialog open={props.open==='thankyoudialog'} >
        <div className="overlay">
                <div className={`dialog ${classname}`}>
-                              <p className="thankyou">thank for your purchasing</p>
+                              <p className="thankyou" style={{display:'flex' ,textAlign:'center' }}>thank you for ordering  <br/> you can track your orders state in MyOrders</p>
                     <div className="button-container">
                         
                         <button onClick={()=>setdialog('')}> close</button>
@@ -307,7 +307,7 @@ if(props.open==='signin'){
                         <input type='email' name="email" required></input>
                         </div>
                         <div>
-                              <p>Home Adress</p>
+                              <p>Home Address</p>
                         <input type='text' name="adress" required minLength={6}></input>
                         </div>
                         <div>

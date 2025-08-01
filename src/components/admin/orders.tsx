@@ -19,8 +19,7 @@ const res=await fetch('http://localhost:3000/admin/isadmin',{
                 }   
 })
 if (!res.ok){
-    console.log('lllllllllllll')
-    navigate('/admin/login')
+ 
       return;
 }
     }

@@ -24,11 +24,23 @@ useEffect(()=>{
      async function getallmeals(){
           console.log('start')
           setisloading(true)
-          const featchmeals=await fetch('http://localhost:3000/admin/products')
+          try{
+const featchmeals=await fetch('http://localhost:3000/admin/products')
+if(!featchmeals.ok){
+     throw new Error('error');
+}
    const getmeals=await featchmeals.json()
    console.log(getmeals)
    setisloading(false)
    storemeals(getmeals)
+          }catch(error){
+              if(error instanceof Error){
+               setisloading(false)
+               seterror(error.message)
+              }
+          }
+          
+
      }
    getallmeals()
 
@@ -52,8 +64,12 @@ const res=await fetch(`http://localhost:3000/admin/selectproducts?type=${meal}`)
           seterror(null)
           choosemenupg(1)   
           }catch(error){
-               if(error instanceof Error)
+               if(error instanceof Error){
+               console.log(error.message)
+               setisloading(false)
                seterror(error.message)
+               }
+             
           }
  
       }

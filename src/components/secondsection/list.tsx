@@ -10,7 +10,7 @@ const{menupg}=use(Contextpage)
    
                        return <Listitem name={elm.name} quantity={1} imgeurl={elm.imgeurl} ingredients={elm.ingredients} price={elm.price} type='menu' id={elm._id} key={elm._id }></Listitem>
                        }).slice((menupg-1)*6,(menupg)*6)
-
+console.log(props.error)
 return(
  <div className="list">
                        {props.error===null?list:<p style={{color:"red"}}>somthing went wrong!!!!!</p>}

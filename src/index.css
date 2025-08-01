@@ -422,6 +422,7 @@ align-items: center;
   flex-direction: column;
   width: 100%;
   align-items: center;
+  justify-content: center;
   
 }
 .third .list{
@@ -711,8 +712,8 @@ width: 100%;
   border-radius: 180%;
   border-right: 2px solid orange;
   background-color: #242424;
-  width: 120px;
-  height: 120px;
+  width: 12em;
+  height: 12em;
  animation-timing-function: linear;
 animation: rotate 1s ease-in-out infinite;
 }

@@ -39,8 +39,11 @@ setisloading(false)
 choosesearchpg(1)
   getsearchmeals(data)
           }   catch(error){
-               if(error instanceof Error)
+               if(error instanceof Error){
+                    setisloading(false)
                seterror(error.message)
+               }
+              
               
               }                            
 }
