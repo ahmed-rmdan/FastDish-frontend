@@ -13,7 +13,7 @@ const [orders,setorders]=useState<order[]>([])
 async function getorders(tokenvalue:string){
 
     
-    const res=await fetch('http://localhost:3000/user/getorders',{ headers:{ 'Content-Type': 'application/json', 
+    const res=await fetch('https://fastdish-backend-production.up.railway.app/user/getorders',{ headers:{ 'Content-Type': 'application/json', 
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + tokenvalue
                 }                       

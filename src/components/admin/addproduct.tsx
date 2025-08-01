@@ -14,7 +14,7 @@ const {gettoken,token}=use(Contexttoken)
 useEffect(()=>{
     async function adminloader(){
      gettoken()
-const res=await fetch('http://localhost:3000/admin/isadmin',{
+const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/isadmin',{
      method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -38,9 +38,9 @@ const formdata=Object.fromEntries(data.entries())
 
 let url:string;
 if(props.type==='add'){
-     url='http://localhost:3000/admin/addproduct'
+     url='https://fastdish-backend-production.up.railway.app/admin/addproduct'
 }else{
-     url=`http://localhost:3000/admin/editproduct/${params.productid}`
+     url=`https://fastdish-backend-production.up.railway.app/admin/editproduct/${params.productid}`
 }
 try{
  const res= await fetch(url,{

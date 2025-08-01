@@ -20,7 +20,7 @@ export const Orderitem:React.FC<{name:string,details:string,price:number,address
 
     async function deleteorder(){
       gettoken()
-      const res=await fetch(`http://localhost:3000/admin/deleteorder/${props.id}`,{
+      const res=await fetch(`https://fastdish-backend-production.up.railway.app/admin/deleteorder/${props.id}`,{
             method:'DELETE',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -40,7 +40,7 @@ window.location.reload()
 async function updateorder(value:string){
 gettoken()
    console.log(props.id)
-      const res=await fetch(`http://localhost:3000/admin/updateorder/${props.id}`,{
+      const res=await fetch(`https://fastdish-backend-production.up.railway.app/admin/updateorder/${props.id}`,{
             method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',

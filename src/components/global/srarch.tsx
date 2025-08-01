@@ -29,7 +29,7 @@ function featchmeals(search:string,togo:boolean){
         
           try{
             
-const res=await fetch(`http://localhost:3000/admin/getsearchproducts?search=${search}`)  
+const res=await fetch(`https://fastdish-backend-production.up.railway.app/admin/getsearchproducts?search=${search}`)  
 if(!res.ok){
 throw new Error('somthing went wrong')
 }

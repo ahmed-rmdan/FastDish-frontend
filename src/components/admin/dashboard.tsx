@@ -6,7 +6,7 @@ export const Dashboard:React.FC<{}>=()=>{
     const {cleartoken,gettoken,token}=use(Contexttoken)
 async function logouthandle(){
    gettoken()
-const res=await fetch('http://localhost:3000/admin/isadmin',{
+const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/isadmin',{
     
     method:'POST',
        headers:{    'Content-Type': 'application/json', 

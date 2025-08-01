@@ -29,7 +29,7 @@ const empty=<p>no meals added yet</p>
         flexDirection: "column",
         alignItems: "center",
         top: "130%",
-        left: -100,
+       
         backgroundColor: "rgb(53, 53, 53)",
         // border: "1px solid #ccc",
         listStyle:  "none",

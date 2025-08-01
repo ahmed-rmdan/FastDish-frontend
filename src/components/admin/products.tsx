@@ -23,7 +23,7 @@ useEffect(()=>{
       async function adminloader(){
         gettoken()
         console.log(token)
-const res=await fetch('http://localhost:3000/admin/isadmin',{
+const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/isadmin',{
           method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -40,7 +40,7 @@ if (!res.ok){
  adminloader()
   
   async function getmeals(){
- const featchmeals=await fetch('http://localhost:3000/admin/products')
+ const featchmeals=await fetch('https://fastdish-backend-production.up.railway.app/admin/products')
    const getmeals=await featchmeals.json()
    setmeals(getmeals)
 }

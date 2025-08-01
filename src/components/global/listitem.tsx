@@ -18,7 +18,7 @@ function editproduct(){
     navigate(`/admin/editproduct/${props.id}`)
 }
 async function deletemeal(){
-fetch(`http://localhost:3000/admin/deleteproduct/${props.id}`,{
+fetch(`https://fastdish-backend-production.up.railway.app/admin/deleteproduct/${props.id}`,{
     method:'DELETE',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json'}
@@ -35,7 +35,7 @@ fetch(`http://localhost:3000/admin/deleteproduct/${props.id}`,{
 async function addfafourite(){
 gettoken()
     try{
-   const res=await fetch(`http://localhost:3000/user/addfavourite/${props.id}`,{
+   const res=await fetch(`https://fastdish-backend-production.up.railway.app/user/addfavourite/${props.id}`,{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -66,7 +66,7 @@ if(!res.ok){
 async function deletefavourite(){
 
 gettoken()
- const res= await fetch(`http://localhost:3000/user/deletefavourite/${props.id}`,{
+ const res= await fetch(`https://fastdish-backend-production.up.railway.app/user/deletefavourite/${props.id}`,{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
