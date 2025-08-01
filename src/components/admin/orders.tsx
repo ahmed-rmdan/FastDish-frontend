@@ -2,10 +2,10 @@ import React, { use,useState } from "react"
 import { Orderitem } from "./orderitem"
 import { useEffect } from "react"
 import { Contexttoken } from "../../store/contexttoken"
-
+import { useNavigate } from "react-router"
 import type  {oderadmin} from '../global/type'
 export const Orders:React.FC<{}>=()=>{
-   
+    const navigate=useNavigate()
 const {gettoken,token}=use(Contexttoken)
 const [adminorders,setadminorders]=useState<oderadmin[]>([])
 useEffect(()=>{
@@ -19,7 +19,7 @@ const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/
                 }   
 })
 if (!res.ok){
- 
+   navigate('/admin/login')
       return;
 }
     }
