@@ -1509,12 +1509,18 @@ justify-content: space-around;
   }
     .second{
     font-size: 5.6px;
-    height: 750px;
+    height: 720px;
   }
   .second .maininfo .price{
     font-size: 1.3em;
   }
+.second .items{
+  width: 72%;
+}
 
+ .second .iteminfo img {
+  height: 80%;
+ }
   .second .list .listitem{
     width: 40%;
     height: 32%;
