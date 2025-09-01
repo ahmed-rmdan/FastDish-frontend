@@ -1,11 +1,11 @@
 # FastDish App
 
 **FastDish App** is a full-stack Food Order web app with an integrated **Admin Dashboard**.  
-It provides a seamless  experience for users and full control for admins.
+It provides a seamless experience for users and full control for admins.
 ## Features ✨
 ### 👤 User
 - Responsive UI (desktop, tablet, mobile)
-- Browse and shop Meals by categories
+- Browse and shop Meals by Types
 - Meals search
 - Dynamic cart
 - Signup & Signin
