@@ -124,6 +124,10 @@ height:25px;
   width: 40%;
   font-size: 1em;
 }
+.search-form input:focus{
+ border: 1px solid orange;
+}
+
 .cartlist p{
   font-size: 1.7em;
 }
@@ -384,7 +388,7 @@ text-decoration: underline;
   flex-direction: column;
   align-items: center;
   font-size: 10px;
-gap:30px;
+gap:50px;
   width: 100%;
   height: 1000px;
     opacity: 0;
@@ -408,7 +412,8 @@ align-items: center;
   background-color: #242424;
   color: orange;
   font-size: 2em;
-  width: 13%;
+  width: 11%;
+  height: 30px;
 }
 .third .search-form button:hover{
    border: 1px solid gray;
@@ -416,6 +421,13 @@ align-items: center;
 .third input{
   width: 50%;
   font-size: 2.5em;
+  height: 40px;
+}
+.third input:focus{
+  width: 50%;
+  font-size: 2.5em;
+  height: 40px;
+    border: 1px solid orange;
 }
 .third .items{
   height: 700px;
@@ -427,8 +439,8 @@ align-items: center;
   
 }
 .third .list{
-    width: 70%;
-  height: 80%;
+    width: 75%;
+  height: 85%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -441,6 +453,7 @@ align-items: center;
 }
 .third .pages{
   height: 10%;
+  align-items: start;
 }
 .third .pages button{
   border: none;
@@ -617,7 +630,7 @@ cursor: pointer;
 .loginfavourite{
   display: flex;
   flex-direction: column;
-  gap:60px;
+  gap:90px;
   align-items: center;
   margin-top: 100px;
 }
@@ -628,11 +641,13 @@ cursor: pointer;
 }
 .loginfavourite button{
 width: 5.5em;
-font-size: 2.6em;
+font-weight: bold;
+font-size: 2.9em;
 color: orange;
 background-color: #242424;
 border: 1px solid orange;
 cursor: pointer;
+height: 1.9em;
 }
 .loginfavourite button:hover{
   border: 1px solid gray;
@@ -838,13 +853,13 @@ height: 100%;
   width: 100%;
   height: 100%;
   z-index: 10000;
-  background: rgba(0, 0, 0, 0.5);
+  background: #00000080;
 }
 .dialog{
 position: fixed;
 top:100%;
-left: 25%;
-width: 50%;
+left: 22.5%;
+width: 55%;
 height: 60%;
 background-color: #242424;
 z-index: 15000;
@@ -890,7 +905,7 @@ cursor: pointer;
 .signindialog{
   display: flex;
   flex-direction: column;
-  height: 65%;
+  height: 70%;
   width: 70%;
   align-items: center;
   justify-content: center;
@@ -903,6 +918,7 @@ cursor: pointer;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  height: 25%;
 
 }
 .signindialog p{
@@ -910,7 +926,7 @@ cursor: pointer;
 }
 .signindialog input{
      width: 85%;
-     height: 35px;
+     height: 40px;
      font-size: 2em;
 }
 .logincontainer{
@@ -919,11 +935,12 @@ cursor: pointer;
 }
 .login{
   width: 20%;
- font-size: 2.5em;
+ font-size: 2.8em;
  color: orange;
  background-color: #242424;
  border: 1px solid orange;
  cursor: pointer;
+ height: 45px;
 }
 .login:hover{
  
@@ -958,8 +975,11 @@ cursor: pointer;
 
 .signupdialog input{
      width: 100%;
-     height: 22px;
-     font-size: 1.5em;
+     height: 30px;
+     font-size: 2em;
+}
+.signupdialog div p{
+  font-size: 2.3em;
 }
 .signup{
 width: 17%;
@@ -1001,9 +1021,7 @@ cursor: pointer;
   width: 45%;
   height: 55px;
 }
-.signupdialog div p{
-  font-size: 2.5em;
-}
+
 .delivry{
   color: orange;
   border: none;
@@ -1152,7 +1170,7 @@ font-size: 1.5em;
   color: red;
 }
 .button-container{
-  width: 70%;
+  width: 60%;
 }
 .button-container button{
   font-size: 2.3em;
@@ -1267,12 +1285,14 @@ justify-content: space-around;
     width: 36%;
 
   }
+   .third .list{
+    height: 88%;
+    width: 82%;
+  }
   .dialog{
     height: 53%;
   }
-  .signupdialog input{
-     height: 22px;
-}
+
 .admin .products .listitem button{
       font-size: 1.7em;
     }
@@ -1288,8 +1308,21 @@ justify-content: space-around;
  nav{
     font-size: 6px;
   }
+  .log{
+    width: 20%;
+  }
+  .log button{
+    font-size: 2.4em;
+  }
   .search-form{
-    font-size: 0.8em;
+    font-size: 0.85em;
+  }
+  .search-form button{
+    width: 15%;
+  }
+
+   .search-form input{
+    width: 50%;
   }
     .first p{
     font-size: 3.5rem;
@@ -1308,6 +1341,10 @@ justify-content: space-around;
     font-size: 8px;
     height: 800px;
   }
+  .third .list{
+    width: 85%;
+  }
+ 
   .fourth .items-container{
     width: 680px;
   }
@@ -1322,6 +1359,8 @@ justify-content: space-around;
     width: 200px;
   }
   .dialog{
+    width: 65%;
+  left: 17.5%;
     font-size: 8px;
   }
   .dialog .button-container button{
@@ -1363,13 +1402,15 @@ justify-content: space-around;
     width: 20px;
   }
   .search-form{
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
   .search-form button{
-    height: 20px;
+    height: 19px;
   }
    .search-form input{
-    height: 25px;
+    height: 27px;
+    width: 55%;
+      font-size: 1.2em;
   }
   .first p{
     top:27%;
@@ -1380,9 +1421,13 @@ justify-content: space-around;
   }
    .second{
     font-size: 7.5px;
+    height: 850px;
+  }
+  .second .meanu{
+    width: 20%;
   }
   .second .items{
-    width: 67%;
+    width: 70%;
   }
   .third{
     font-size: 7px;
@@ -1391,8 +1436,12 @@ justify-content: space-around;
   .third .itembuttons button{
     width: 40%;
   }
+  .third .search-form button{
+    width: 18%;
+  }
   .third .search-form input{
-    width: 60%;
+    width: 65%;
+    height: 40px;
   }
     .fourth .items-container{
     width: 440px;
@@ -1425,7 +1474,7 @@ justify-content: space-around;
   
   .dialog{
     font-size: 7px;
-    height: 45%;
+    height: 50%;
   }
   .dialog .button-container button{
     width: 25%;
@@ -1487,18 +1536,22 @@ justify-content: space-around;
   .log button{
     height: 15px;
     width: 35%;
+    font-size: 1.9em;
   }
-  .search-form{
+
+  .search-form {
     width: 78%;
-    font-size: 0.46em;
-    height:45px
+    font-size: 0.55em;
+    height:45px;
+    gap : 16px;
   }
   .search-form button{
-    height: 17px;
-
-  }
+    height: 16px;
+    font-weight: bold;
+   }
    .search-form input{
-    height: 20px;
+    height: 25px;
+    width: 45%;
   }
   .first img{
     height: 450px;
@@ -1509,13 +1562,13 @@ justify-content: space-around;
   }
     .second{
     font-size: 5.6px;
-    height: 720px;
+    height: 600px;
   }
   .second .maininfo .price{
     font-size: 1.3em;
   }
 .second .items{
-  width: 72%;
+  width: 77%;
 }
 
  .second .iteminfo img {
@@ -1541,12 +1594,12 @@ font-size: 1.2em;
   height: auto;
  }
   .second .meanu{
-    width: 20%;
+    width: 22%;
     align-self: self-start;
     height: 85%;
   }
   .second .list{
-    height: 93%;
+    height: 84%;
     align-self: self-start;
   }
   .second .pages{
@@ -1560,7 +1613,7 @@ font-size: 1.2em;
     font-size: 5px;
     height: 650px;
     justify-content: space-around;
-    gap: 0px;
+    gap: 20px;
   }
   .third p{
     font-size: 5em;
@@ -1570,7 +1623,14 @@ font-size: 1.2em;
     height: 90%;
   }
     .third .search-form button{
-    font-size: 2.7em;
+    font-size: 2.5em;
+    width: 15%;
+    height: 22px;
+  }
+
+ .third .search-form input{
+       font-size: 3.5em;
+    height: 29px;
   }
   .third .items{
     height: 600px;
@@ -1580,9 +1640,9 @@ font-size: 1.2em;
     max-height: 30%;
   }
    .fourth{
-    height: 400px;
+    height: 420px;
     font-size: 5px;
-   gap:20px;
+   gap:15px;
   }
   .fourth .listitem{
     height: 65%;
@@ -1648,31 +1708,37 @@ font-size: 1.2em;
     width: 30%;
   }
   .dialog{
-    height: 45%;
+    height: 50%;
     width: 60%;
   }
    .dialog{
-    font-size: 5px;
+    font-size: 7px;
+    width: 90%;
     height: 50%;
+    left: 5%;
   }
   .dialog .totalprice{
     font-size: 2.6em;
   }
   .dialog .button-container button{
-    height: 27px;
-    width: 27%;
+    height: 30px;
+    width: 35%;
   }
  .dialog .deliveryadress input{
-height: 20px;
+height: 25px;
   }
   .signindialog input{
      width: 100%;
-     height: 25px;
+     height: 30px;
      font-size: 2em;
 }
+.signindialog .err{
+  font-size: 2em;
+  text-align: center;
+}
 .login{
-  width: 30%;
-  height: 25px;
+  width: 32%;
+  height: 30px;
 }
 .reset{
   width: 50%;
@@ -1685,6 +1751,7 @@ height: 20px;
   width: 100%;
   height: 20px;
 }
+
 .thankyou{
   color: orange;
   font-size: 3em;

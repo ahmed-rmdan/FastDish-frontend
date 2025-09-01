@@ -13,7 +13,7 @@ const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + token
                 }   
-})
+})  
 if (!res.ok){
    
       return;

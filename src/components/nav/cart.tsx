@@ -37,11 +37,8 @@ const empty=<p>no meals added yet</p>
         padding: 0,
         zIndex: 100,
         gap:5,
-        maxHeight:'800px',
-        overflow:'auto'
-     
-       
-        
+        maxHeight:'600px',
+        overflow:'auto'     
       }}>
          {cartitems.items.length===0?empty:<>
          
