@@ -559,14 +559,14 @@ margin-left: 5%;
   text-decoration:none;
 }
 .items-container .listitem .maininfo .name{
-  font-size: 1.3em;
+  font-size: 1.15em;
 }
 .items-container .listitem .maininfo .ingredients{
-  font-size: 1.05em;
+  font-size: 0.95em;
   font-weight: normal;
 }
 .items-container .listitem .maininfo .price{
-  font-size: 1.3em;
+  font-size: 1.15em;
 }
 .items-container .listitem .itembuttons{
   width: 100%;
@@ -813,7 +813,11 @@ transform: rotate(0deg);
   color: orange;
   align-items: center;
   justify-content: space-around;
-  font-size: x-large;
+  font-size: 3em;
+  font-weight: bold;
+}
+.contact p{
+  text-align: center;
 }
 .intro{
 position: absolute;
@@ -1017,7 +1021,11 @@ height: 20%;
 font-size: 2em;
 justify-content: center;
 cursor: pointer;
+font-weight: bolder;
+border-width: 1px;
+border-color: blue;
 }
+
 .stripeimg{
   width: 45%;
   height: 55px;
@@ -1363,6 +1371,7 @@ justify-content: space-around;
     width: 65%;
   left: 17.5%;
     font-size: 8px;
+    height: 60%;
   }
   .dialog .button-container button{
     width: 19%;
@@ -1475,7 +1484,7 @@ justify-content: space-around;
   
   .dialog{
     font-size: 7px;
-    height: 50%;
+    height: 60%;
   }
   .dialog .button-container button{
     width: 25%;
@@ -1483,7 +1492,7 @@ justify-content: space-around;
   }
   .admin .logincontainer .login button{
     margin-left: 28%;
-    width: 22%;
+    width: 20%;
     font-size: 1.2em;
   }
   .dialog .button-container-cartitems button{

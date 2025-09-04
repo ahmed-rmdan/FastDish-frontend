@@ -12,11 +12,11 @@ export const Nav:React.FC<{}>=()=>{
     const {getorders}=use(Contextorders)
    useEffect(()=>{
     async function init(){
-         await gettoken()
-          console.log(token)
+        gettoken()
+         
           if(token==='') return;
-     await getfavourites(token)
-   await  getorders(token)
+   getfavourites(token)
+    getorders(token)
 
     }
    init()

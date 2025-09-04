@@ -20,11 +20,15 @@ export const Fourth:React.FC<{}>=()=>{
     const {setdialog}=use(Contextdialog)
     const{ref,inView}=useInView({threshold:0.5})
     const [className,setclassname]=useState('')
-
+ 
     viewanimistion(inView,setclassname,'fourthdisplay')
+    const numberofitems=favourites.length
 
-   useEffect(()=>{
-        window.addEventListener('resize',()=>{
+   function setslider(){
+         if(favourites.length!==0){
+   choosefavouritepg(1)
+         }
+        
           if(window.innerWidth<=1024&&window.innerWidth>768){
             console.log(window.innerWidth)
                setnuberslider(3)
@@ -40,14 +44,21 @@ export const Fourth:React.FC<{}>=()=>{
           }
             else{
               setnuberslider(4)
+                
             }
           
-        })
+        
+   }
+   useEffect(()=>{
+      setslider()
 
-   })
+        window.addEventListener('resize',setslider)
 
-    const numberofitems=favourites.length
+   },[window.innerWidth])
 
+
+
+ 
     let pagesarr:number[]=[]
 let numpages=0
 if(favourites!==null){

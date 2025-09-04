@@ -5,7 +5,7 @@ import { viewanimistion } from "../global/animistion";
 import { useState } from "react";
 export const Sixth:React.FC<{}>=()=>{
 const [className,setclassname]=useState('')
- const{ref,inView}=useInView({threshold:0.5})
+ const{ref,inView}=useInView({threshold:0.2})
     viewanimistion(inView,setclassname,'sixthdisplay')
     return(
          <section className={`sixth ${className}`} ref={ref}>

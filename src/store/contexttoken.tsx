@@ -9,25 +9,23 @@ export const Contexttokenprovider:React.FC<{children:React.ReactNode}>=(props)=>
 
 const [token,setthetoken]=useState<string>(inistialtoken)
 const [favourites,setfavourites]=useState<meal[]>([])
-let timeout=useRef<ReturnType<typeof setTimeout>>(null)
+
 
 
  function settoken(value:string){
    
   localStorage.setItem('token',value)
-  console.log(localStorage.getItem('token'))
- 
-  timeout.current=setTimeout(()=>{
-    
-   localStorage.clear()
-   setthetoken('')
-  },500000)
-      setthetoken(value)
+  
+   if(value===''){
+    return;
+   }
+ setthetoken(value)
+
 
 }
 
 async function gettoken(){
-const token=await localStorage.getItem('token')
+const token= localStorage.getItem('token')
 
 if(!token){
   setthetoken('') 
@@ -43,12 +41,12 @@ setthetoken(token)
 function cleartoken(){
     localStorage.clear();
      setthetoken('')
-    clearTimeout(timeout.current as number)
+    
 }
 
 
 async function getfavourites(tokenvalue:string){
-   console.log(tokenvalue)
+
     
     const res=await fetch('https://fastdish-backend.onrender.com/user/getfavourites',{ headers:{ 'Content-Type': 'application/json', 
                     'Accept': 'application/json',

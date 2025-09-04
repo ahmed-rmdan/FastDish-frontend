@@ -1,15 +1,16 @@
 import React from "react"
 import { use } from "react"
 import { Contextcart } from "../../store/contextcart"
-
+import { Contextpage } from "../../store/contextpages"
 import { useNavigate } from "react-router-dom"
 import { ShoppingCart } from 'lucide-react';
 import { Contexttoken } from "../../store/contexttoken"
 import { Contextdialog } from "../../store/dialogcontext"
+
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string,ingredients:string,typemeal?:string}>=(props)=>{
     const {dispatchcartitems}=use(Contextcart)
-    
-    const {token,gettoken,setfavourites}=use(Contexttoken)
+    const {choosefavouritepg,favouritepg}=use(Contextpage)
+    const {token,gettoken,setfavourites,favourites}=use(Contexttoken)
     const {setdialog}=use(Contextdialog)
 
 
@@ -54,9 +55,11 @@ if(!res.ok){
     const data=await res.json()
           if(data.message==='not loggedin'){
             setdialog('signin')
+            return;
           }
-          
-          setfavourites(data.favourites)
+   setfavourites(data.favourites)
+
+
     }catch(err){
     console.log(err)
 }
@@ -76,8 +79,35 @@ gettoken()
 if(!res.ok) return;
 console.log('deleted')
 const data=await res.json()
-setfavourites(data.favourites)
 
+     setfavourites(data.favourites)
+    
+   
+    
+          let width :number=window.innerWidth
+          let slideritems:number=4
+          
+          if(width <= 1024) slideritems=3;
+            
+          if(width <= 768 ) slideritems=2
+          if(width <= 425)  slideritems=1;
+          if(slideritems===1){
+            console.log(favourites.length)
+            if(favouritepg===favourites.length){
+                 choosefavouritepg(favourites.length-1)
+            return
+            }
+            
+           
+          }
+           console.log(slideritems,width,favourites.length)
+          if (data.favourites.length===1 ) return;
+           
+          if(favourites.length % slideritems ===1){
+            console.log(Math.round(favourites.length/slideritems))
+            console.log(favourites.length,slideritems)
+            choosefavouritepg(Math.floor(favourites.length/slideritems))
+          }
 
 }
 

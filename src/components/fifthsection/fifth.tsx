@@ -8,7 +8,7 @@ import { useState } from "react";
 export const Fifth:React.FC<{}>=()=>{
  
 const [className,setclassname]=useState('')
- const{ref,inView}=useInView({threshold:0.3})
+ const{ref,inView}=useInView({threshold:0.2})
     viewanimistion(inView,setclassname,'fifthdisplay')
     return(
          <section className={`fifth ${className}`}  ref={ref}>
