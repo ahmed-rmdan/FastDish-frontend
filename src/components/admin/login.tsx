@@ -12,7 +12,7 @@ async function handlesignin(e:React.FormEvent<HTMLFormElement>){
       const data = new FormData(e.currentTarget);
 const formdata=Object.fromEntries(data.entries())
 
- fetch('https://fastdish-backend-production.up.railway.app/admin/signin',{
+ fetch('https://fastdish-backend.onrender.com/admin/signin',{
     method:'POST',
      headers:{ 'Content-Type': 'application/json', 
                     'Accept': 'application/json',

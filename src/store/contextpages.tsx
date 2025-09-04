@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 
-export const Contextpage=React.createContext<{menupg:number,searchpg:number,favouritepg:number,choosemenupg:(num:number)=>void,choosesearchpg:(num:number)=>void ,choosefavouritepg:(num:number)=>void}>
+export const Contextpage=React.createContext<{menupg:number,searchpg:number,favouritepg:number,choosemenupg:(num:number)=>void,choosesearchpg:(num:number)=>void
+     ,choosefavouritepg:(num:number)=>void}>
 ({menupg:1,searchpg:1,favouritepg:1,choosemenupg:()=>{},choosesearchpg:()=>{} ,choosefavouritepg:()=>{} 
 })
 

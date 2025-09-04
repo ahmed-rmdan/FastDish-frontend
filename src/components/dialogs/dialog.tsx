@@ -51,7 +51,7 @@ if(formdata.password!==formdata.confirmpassword){
 return;
 }
 
- fetch('https://fastdish-backend-production.up.railway.app/user/signup',{
+ fetch('https://fastdish-backend.onrender.com/user/signup',{
     method:'POST',
      headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json'},
@@ -83,7 +83,7 @@ const formdata=Object.fromEntries(data.entries())
 
 
 
- fetch('https://fastdish-backend-production.up.railway.app/user/signin',{
+ fetch('https://fastdish-backend.onrender.com/user/signin',{
     method:'POST',
      headers:{ 'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -113,7 +113,7 @@ async function topayment(){
     if(!address.current?.value) return;
 gettoken()
 
-const res=await fetch('https://fastdish-backend-production.up.railway.app/user/continuepayment',{
+const res=await fetch('https://fastdish-backend.onrender.com/user/continuepayment',{
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + token
@@ -137,7 +137,7 @@ setdialog('payment')
 
 async function ondeliveryhandle(){
    gettoken()
-const res=await fetch('https://fastdish-backend-production.up.railway.app/user/createorder',{
+const res=await fetch('https://fastdish-backend.onrender.com/user/createorder',{
           method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -156,7 +156,7 @@ const res=await fetch('https://fastdish-backend-production.up.railway.app/user/c
 
 }
 async function handlestripechecout(){
-    const res=await fetch('https://fastdish-backend-production.up.railway.app/user/stripecheckout',{
+    const res=await fetch('https://fastdish-backend.onrender.com/user/stripecheckout',{
           method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',

@@ -15,7 +15,7 @@ useEffect(()=>{
     async function adminloader(){
        await gettoken()
        console.log(token)
-const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/isadmin',{
+const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',

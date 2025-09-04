@@ -25,7 +25,7 @@ useEffect(()=>{
           console.log('start')
           setisloading(true)
           try{
-const featchmeals=await fetch('https://fastdish-backend-production.up.railway.app/admin/products')
+const featchmeals=await fetch('https://fastdish-backend.onrender.com/admin/products')
 if(!featchmeals.ok){
      throw new Error('error');
 }
@@ -52,7 +52,7 @@ if(!featchmeals.ok){
           setisloading(true)
           seclicked(meal)
           try{
-const res=await fetch(`https://fastdish-backend-production.up.railway.app/admin/selectproducts?type=${meal}`)  
+const res=await fetch(`https://fastdish-backend.onrender.com/admin/selectproducts?type=${meal}`)  
         if(!res.ok){
   throw new Error('somthing went wrong')
         }

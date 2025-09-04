@@ -50,7 +50,7 @@ function cleartoken(){
 async function getfavourites(tokenvalue:string){
    console.log(tokenvalue)
     
-    const res=await fetch('https://fastdish-backend-production.up.railway.app/user/getfavourites',{ headers:{ 'Content-Type': 'application/json', 
+    const res=await fetch('https://fastdish-backend.onrender.com/user/getfavourites',{ headers:{ 'Content-Type': 'application/json', 
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + tokenvalue
                 }                       

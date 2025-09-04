@@ -722,6 +722,7 @@ width: 100%;
   color: orange;
   font-size: 5em;
   align-self: center;
+  text-align: center;
 }
 .loading{
    border: none;
@@ -1701,7 +1702,8 @@ font-size: 1.2em;
     width: 150px;
   }
   .contact{
-    font-size: 10px;
+    font-size: 2.5em;
+    font-weight: bold;
   }
   .dialog .button-container button{
     
@@ -1714,7 +1716,7 @@ font-size: 1.2em;
    .dialog{
     font-size: 7px;
     width: 90%;
-    height: 50%;
+    height: 60%;
     left: 5%;
   }
   .dialog .totalprice{

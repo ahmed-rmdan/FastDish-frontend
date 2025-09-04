@@ -11,7 +11,7 @@ const [adminorders,setadminorders]=useState<oderadmin[]>([])
 useEffect(()=>{
     async function adminloader(){
        await gettoken()
-const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/isadmin',{
+const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -28,7 +28,7 @@ if (!res.ok){
 
 async function getadminorders(){
    await gettoken()
-   const res=await fetch('https://fastdish-backend-production.up.railway.app/admin/getadminorders',{
+   const res=await fetch('https://fastdish-backend.onrender.com/admin/getadminorders',{
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
                       Authorization:'Beraer ' + token
