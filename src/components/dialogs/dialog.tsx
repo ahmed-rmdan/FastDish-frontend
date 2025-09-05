@@ -7,7 +7,9 @@ import stripelogo from '../../images/stripeLogo.svg'
 import { Contexttoken } from "../../store/contexttoken";
 import { Contextorders } from "../../store/contextorders";
 
+
 export const Dialog:React.FC<{open:string}>=(props)=>{
+  
     const [classname,setclassname]=useState('')
     console.log(classname)
    const{cartitems} =use(Contextcart)
@@ -245,6 +247,11 @@ if(props.open==='contact'){
 }
 if(props.open==='signin'){
 
+    function handletosignup(){
+        setsignuperr('')
+        setdialog('signup')
+    }
+
 
  return(
        <dialog open={props.open==='signin'} >
@@ -268,7 +275,7 @@ if(props.open==='signin'){
                            
                     </form>
                     <div className="button-container">
-                        <button onClick={()=>setdialog('signup')}> SignUp </button>
+                        <button onClick={handletosignup}> SignUp </button>
                         <button onClick={()=>setdialog('')}> close</button>
                     </div>
 
@@ -281,6 +288,7 @@ if(props.open==='signin'){
 
 }
    if(props.open==='signup'){
+
 
 
  return(

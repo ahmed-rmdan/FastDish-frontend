@@ -706,18 +706,57 @@ width: 100%;
 }
 .sixth{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: rgb(53, 53, 53);
   width: 100%;
-  height: 50px;
+  height: 200px;
   opacity: 0;
   transition: all 2s 0s ease-in-out;
+}
+.sixth h3{
+  font-weight: bolder;
+  font-size: 2.5em;
+  text-decoration: underline;
+  
+}
+
+.contactme{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  gap: 5%;
+
+}
+.contactme a{
+  width: 6%;
+  height: 40%;
+  cursor: pointer;
+}
+.contactme img{
+  width: 100%;
+ height: 100%;
+}
+.footer{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 28%;
+  background-color: black;
+  height: 20%;
+  font-weight: bold;
 }
 .sixthdisplay{
   opacity: 100;
 }
+
+
 .list p{
   color: orange;
   font-size: 5em;
@@ -1522,6 +1561,15 @@ justify-content: space-around;
 .myorders-list .orderitem{
   font-size: 1.6em;
   height: 150px;
+}
+.sixth{
+  height: 150px;
+}
+.sixth h3{
+  font-size: 1.9em;
+}
+.footer{
+  gap: 20%;
 }
 }
 @media only screen and (max-width: 425px) {

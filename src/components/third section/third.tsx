@@ -16,10 +16,6 @@ const{ref,inView}=useInView({threshold:0.5})
 
 viewanimistion(inView,setclassname,'thirddisplay')
 
-
-
-
-
 let pagesarr=[]
 let numpages=0
 if(searchmeals!==null){
@@ -36,7 +32,12 @@ pagesarr.push(i)
                    <div className="items">
                                       
                                        {isloading?<button className="loading"></button>: <>
-                                                                     <LIST error={error} meals={searchmeals}></LIST>
+                                                                      { searchmeals.length!==0?
+                                                                      <LIST error={error} meals={searchmeals}></LIST>:
+                                                                         <p >  Found No meals !  </p>
+                                                                      }
+                                                                     
+                                                                     
                                                       <PAGES meals={searchmeals} pagesarr={pagesarr} numpaes={numpages}></PAGES>
                                                            </>     }  
                                           
