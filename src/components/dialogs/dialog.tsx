@@ -11,13 +11,13 @@ import { Contextorders } from "../../store/contextorders";
 export const Dialog:React.FC<{open:string}>=(props)=>{
   
     const [classname,setclassname]=useState('')
-    console.log(classname)
+   
    const{cartitems} =use(Contextcart)
    const{setdialog}=use(Contextdialog)
    const {settoken,getfavourites,gettoken,token}=use(Contexttoken)
    const [signuperr,setsignuperr]=useState('')
    const [deliveryaddress,setdeliveryaddress]=useState('')
-    const {getorders}=use(Contextorders)
+    const {getorders,initSocket}=use(Contextorders)
 
 
    const address=React.useRef<null|HTMLInputElement>(null)
@@ -39,11 +39,11 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
     }
    },[props.open])
    
-   console.log(classname)
+ 
    
 
   
-console.log(classname)
+
 async function handlesignup(e:React.FormEvent<HTMLFormElement>){
          e.preventDefault()
       const data = new FormData(e.currentTarget);
@@ -64,6 +64,7 @@ return;
     if(data.message=='signup succed'){
            settoken(data.token)
            getfavourites(data.token)
+           initSocket(data.token)
            getorders(data.token)
            setdialog('')
            return;
@@ -100,6 +101,7 @@ const formdata=Object.fromEntries(data.entries())
            settoken(data.token)
            
            getfavourites(data.token)
+           initSocket(data.token)
            getorders(data.token)
            setdialog('')
            return;

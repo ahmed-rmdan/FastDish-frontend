@@ -6,7 +6,7 @@ import { Orderitem } from "./orderitem";
 export const Myorders:React.FC= ()=> {
   const {orders}=use(Contextorders)
   const [isOpen, setIsOpen] = useState(false);
-  console.log(orders)
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -34,7 +34,7 @@ const empty=<p>no requested Orders </p>
         padding: 0,
         zIndex: 100,
         gap:5,
-        maxHeight:'800px',
+        maxHeight:'600px',
         overflow:'auto',
         
       }}>

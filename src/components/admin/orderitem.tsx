@@ -19,6 +19,8 @@ export const Orderitem:React.FC<{name:string,details:string,price:number,address
        
 
     async function deleteorder(){
+       const confirm=window.confirm(`you are deleting " ${props.name} " from Database are you sure ? `)
+    if(!confirm) return;
       gettoken()
       const res=await fetch(`https://fastdish-backend.onrender.com/admin/deleteorder/${props.id}`,{
             method:'DELETE',
@@ -76,7 +78,7 @@ return (<li className="listitem orderitem" key={props.id}>
              </div>
               <div className="itembuttons">
                          <button onClick={()=>{updateorder('Done')}} >Done</button>
-                         <button style={{fontSize:'1.1em'}} onClick={()=>{updateorder('On Delivery')} }  >On Delivery</button>
+                         <button style={{fontSize:'1.1em' , fontWeight:'bolder'}} onClick={()=>{updateorder('On Delivery')} }  >On Delivery</button>
                         <button onClick={()=>{updateorder('Canceled')} }  >Cancel</button>
 
                     </div>

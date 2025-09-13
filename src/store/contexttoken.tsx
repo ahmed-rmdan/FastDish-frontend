@@ -1,4 +1,4 @@
-import React, {  useState,useRef } from "react";
+import React, {  useState} from "react";
 import type { meal } from "../components/global/type";
 
 export const Contexttoken=React.createContext<{token:string,cleartoken():void,gettoken():void,settoken(value:string):void,getfavourites(value:string):void,favourites:meal[],setfavourites(items:meal[]):void}>
@@ -20,7 +20,6 @@ const [favourites,setfavourites]=useState<meal[]>([])
     return;
    }
  setthetoken(value)
-
 
 }
 

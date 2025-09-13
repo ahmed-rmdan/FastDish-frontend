@@ -9,13 +9,14 @@ import { Contextorders } from "../../store/contextorders"
 export const Nav:React.FC<{}>=()=>{
     const {setdialog}=use(Contextdialog)
     const {token,cleartoken,gettoken,getfavourites}=use(Contexttoken)
-    const {getorders}=use(Contextorders)
+    const {getorders,initSocket}=use(Contextorders)
    useEffect(()=>{
     async function init(){
         gettoken()
          
           if(token==='') return;
    getfavourites(token)
+      initSocket(token)
     getorders(token)
 
     }
@@ -31,7 +32,7 @@ export const Nav:React.FC<{}>=()=>{
     }
 
    async function signouthandle(){
-   const alert=await window.confirm('you are loggingOut are you sure')
+   const alert=window.confirm('you are loggingOut are you sure')
     if(alert)
    cleartoken()
  

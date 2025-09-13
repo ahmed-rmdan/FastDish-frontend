@@ -14,7 +14,7 @@ type meal={
 }
 export const AdminProducts:React.FC<{}>=()=>{
   const [meals,setmeals]=useState<meal[]>([])
-  console.log(meals)
+  
     const navigate=useNavigate()
 const {gettoken,token}=use(Contexttoken)
 
@@ -22,7 +22,7 @@ const {gettoken,token}=use(Contexttoken)
 useEffect(()=>{
       async function adminloader(){
         gettoken()
-        console.log(token)
+       
 const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
           method:'POST',
        headers:{    'Content-Type': 'application/json', 

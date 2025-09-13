@@ -1,9 +1,40 @@
-import React from "react"
-import { NavLink } from "react-router"
+import React, { useState } from "react"
+
 import { use } from "react"
 import { Contexttoken } from "../../store/contexttoken"
+import { useNavigate } from "react-router"
+import { useEffect } from "react"
+import { useLocation } from "react-router"
 export const Dashboard:React.FC<{}>=()=>{
+    const path=useLocation()
+
+    const navigate=useNavigate()
+    const [pathname,setpathname]=useState<string>(path.pathname)
     const {cleartoken,gettoken,token}=use(Contexttoken)
+    const [adminglogin,setadminlogin]=useState<boolean>(false)
+
+useEffect( ()=>{
+    async function iflogin(){
+         const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
+    
+    method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }   
+               })  
+               if(!res.ok){
+                setadminlogin(false)
+                return;
+               }
+               setadminlogin(true)
+    }
+    iflogin()
+    setpathname(path.pathname)
+},[path.pathname])
+
+
+
 async function logouthandle(){
    gettoken()
 const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
@@ -23,14 +54,37 @@ if (!res.ok){
 cleartoken()
  else return;
 }
+
+async function handelnavigate(url:string){
+   gettoken()
+const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
+    
+    method:'POST',
+       headers:{    'Content-Type': 'application/json', 
+                    'Accept': 'application/json',
+                      Authorization:'Beraer ' + token
+                }   
+})  
+
+if(!res.ok){
+    return;
+}
+ navigate(url)
+
+
+
+}
+
+
+
     return(
         <div className="dashboard">
          
-                  <NavLink to={'/admin/products'} className={({isActive})=>{return isActive?'clicked':''}} > <button >Products</button></NavLink> 
-                  <NavLink to={'/admin/addproduct'} className={({isActive})=>{return isActive?'clicked':''}}><button > AddProduct</button></NavLink>  
-                <NavLink to={'/admin/orders'} className={({isActive})=>{return isActive?'clicked':''}}> <button > Orders</button></NavLink>  
+                  <button onClick={()=>handelnavigate('/admin/products')} className={pathname==='/admin/products'?'clicked':''} >Products</button>
+                 <button  onClick={()=>handelnavigate('/admin/addproduct')} className={pathname==='/admin/addproduct'?'clicked':''} > AddProduct</button>
+                 <button onClick={()=>handelnavigate('/admin/orders')} className={pathname==='/admin/orders'?'clicked':''} > Orders</button>
                  
-                 <button onClick={logouthandle} style={{color:'red'}}>LogOut</button>
+                 {adminglogin?<button onClick={logouthandle} style={{color:'red'}}>LogOut</button>:''}
         </div>
     )
 }

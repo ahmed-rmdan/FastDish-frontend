@@ -35,7 +35,6 @@ async function onsubmit(e:React.FormEvent<HTMLFormElement>){
      e.preventDefault()
       const data = new FormData(e.currentTarget);
 const formdata=Object.fromEntries(data.entries())
-
 let url:string;
 if(props.type==='add'){
      url='https://fastdish-backend.onrender.com/admin/addproduct'
@@ -73,7 +72,7 @@ navigate('/admin/products')
                         </div>
                         <div>
                               <p>Type meal</p>
-                             <select name="type" required={props.type==='add'}>
+                             <select name="type" style={{width:'27%',fontSize:'1.5em'}} required={props.type==='add'}>
                             <option>burger</option>
                             <option>pizzza</option>
                             <option>rice</option>
@@ -91,7 +90,7 @@ navigate('/admin/products')
                         </div>
                         <div>
                              <p>img url</p>
-                        <input type="string" name="imgeurl" placeholder="https://i0.wp.com/saturdayswithfrank.com/wp-content/uploads/marg-pizza-new-1.jpg?resize=1200%2C901&ssl=1" ></input>
+                        <input type="string" name="imgeurl" placeholder="https://i0.wp.com/saturdayswithfrank.com/wp-content" ></input>
                         </div>
                               
                               <button className="login" >{props.type==='add'?'Add':'Edit'}</button>

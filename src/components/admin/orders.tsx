@@ -4,13 +4,23 @@ import { useEffect } from "react"
 import { Contexttoken } from "../../store/contexttoken"
 import { useNavigate } from "react-router"
 import type  {oderadmin} from '../global/type'
+ type user={username:string,
+    password:string,
+    email:string,
+    adress:string,
+    telphone:number,_id:string, favourites:string[],orders:string[]}
+
+    type order={user:user,address:string,details:string,totalprice:number,
+      updatedAt:string,createdAt:string
+      ,state:string,_id:string ,payment:string
+      ,meals:{quantity:number,meal:string}}
 export const Orders:React.FC<{}>=()=>{
     const navigate=useNavigate()
 const {gettoken,token}=use(Contexttoken)
 const [adminorders,setadminorders]=useState<oderadmin[]>([])
 useEffect(()=>{
     async function adminloader(){
-       await gettoken()
+        gettoken()
 const res=await fetch('https://fastdish-backend.onrender.com/admin/isadmin',{
     method:'POST',
        headers:{    'Content-Type': 'application/json', 
@@ -27,7 +37,8 @@ if (!res.ok){
  
 
 async function getadminorders(){
-   await gettoken()
+  gettoken()
+  console.log(token)
    const res=await fetch('https://fastdish-backend.onrender.com/admin/getadminorders',{
        headers:{    'Content-Type': 'application/json', 
                     'Accept': 'application/json',
@@ -38,8 +49,18 @@ async function getadminorders(){
 if (!res.ok){
       return;
 }
-const {data}= await res.json()
-setadminorders(data)
+const {data }= await res.json()
+
+const orders=data as order[]
+console.log(orders)
+ const filterorders=orders.map(order=>{
+    
+  return {username:order.user.username,details:order.details,address:order.address
+    ,_id:order._id,telphone:order.user.telphone,state:order.state,totalprice:order.totalprice,
+    payment:order.payment
+   }
+ })
+setadminorders(filterorders)
 console.log(adminorders)
 
 }

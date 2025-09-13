@@ -23,11 +23,11 @@ const formdata=Object.fromEntries(data.entries())
     return res.json()
 }).then(data=>{
     if(data.message=='signin succed'){
-           console.log('sign in')
+          
            settoken(data.token)
-           navigate('/admin/products')
+           return navigate('/admin/products');
 
-           return;
+          
     }
     console.log('failed')
      seterrors(data.message) 
@@ -48,8 +48,8 @@ const formdata=Object.fromEntries(data.entries())
                               <p> PassWord</p>
                         <input type='password' name='password'></input>
                         </div>
-                           <p style={{height:'25px',alignSelf:'start',color:'red',fontSize:'0.8em'}}>{errors}</p>
-                              <button type="submit" className="login">login</button>
+                           <p className="loginadminerr" style={{alignSelf:'start',color:'red',fontSize:'0.8em'}}>{errors}</p>
+                              <button type="submit"  style={{fontSize:'1.2em'}} className="login">login</button>
                               
                            
                     </form>

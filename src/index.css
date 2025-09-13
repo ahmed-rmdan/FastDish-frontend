@@ -126,6 +126,7 @@ height:25px;
 }
 .search-form input:focus{
  border: 1px solid orange;
+ border-color: orange;
 }
 
 .cartlist p{
@@ -538,6 +539,7 @@ margin-left: 5%;
   gap:40px;
   width: 100%;
   align-items: center;
+  justify-content: space-evenly;
   overflow-x: hidden;
    transition: all 0s 1s ease-in-out;
 }
@@ -1113,7 +1115,7 @@ text-decoration: underline;
 .admin .dashboard button:hover{
   text-decoration: underline;
 }
-.admin .dashboard .clicked button{
+.admin .dashboard .clicked {
   text-decoration: underline;
 }
 .admin .outlet{
@@ -1144,19 +1146,29 @@ align-items: center;
 }
 .admin .logincontainer .login input{
   width: 65%;
-  height: 30px;
-  font-size: 1em;
+  height: 40px;
+  font-size: 1.3em;
 }
 .admin .logincontainer .login p{
   font-size: 1.2em;
 }
+  .loginadminerr{
+    height: 20px;
+    text-align: center;
+    width: 65%;
+   }
 .admin .logincontainer .login button{
-  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
   border: 1px solid orange;
-  width: 13%;
-  height: 1.2em;
+  width: 14%;
+  height: 1.8em;
   margin-left: 25%;
   cursor: pointer;
+  font-weight: bold;
+  
 }
 .admin .logincontainer .login button:hover{
   border: 1px solid gray;
@@ -1316,6 +1328,7 @@ justify-content: space-around;
   min-height: 350px;
 }
 
+
 @media only screen and (max-width: 1440px) {
  nav{
     font-size: 8px;
@@ -1351,6 +1364,22 @@ justify-content: space-around;
     .myorders-list .orderitem{
       font-size: 1.2em;
     }
+    .signindialog {
+      gap: 1%;
+    }
+    .admin .logincontainer .login input{
+      width: 85%;
+    }
+    .admin .logincontainer .login button{
+       margin-left: 35%;
+       width: 19%;
+    }
+    .loginadminerr {
+
+    width: 85%;
+}
+
+   
 }
 @media only screen and (max-width: 1024px) {
  nav{
@@ -1412,8 +1441,12 @@ justify-content: space-around;
     font-size: 8px;
     height: 60%;
   }
+  .signindialog{
+    width: 80%;
+  }
   .dialog .button-container button{
-    width: 19%;
+    width: 26%;
+    font-size: 2.5em;
   }
    .dialog .button-container-cartitems button{
     width: 25%;
@@ -1430,6 +1463,10 @@ justify-content: space-around;
    .admin .logincontainer .login input{
     width: 70%;
    }
+    .loginadminerr{
+
+    width: 100%;
+   }
   .myorders-list .orderitem{
     min-height: 160px;
     font-size: 1.35em;
@@ -1438,7 +1475,16 @@ justify-content: space-around;
   width: 25%;
   font-size: 2.2em;
  }
+   .admin .logincontainer .login input{
+      width: 95%;
+    }
+     .admin .logincontainer .login button{
+      width: 23%;
+      height: 1.5em ;
+    }
 }
+
+
 @media only screen and (max-width: 768px) {
  nav{
     font-size: 4.6px;
@@ -1461,6 +1507,7 @@ justify-content: space-around;
     width: 55%;
       font-size: 1.2em;
   }
+  
   .first p{
     top:27%;
     font-size: 2.5rem;
@@ -1534,6 +1581,9 @@ justify-content: space-around;
     width: 20%;
     font-size: 1.2em;
   }
+  .login{
+    height: 37px;
+  }
   .dialog .button-container-cartitems button{
     width: 27%;
   }
@@ -1571,6 +1621,18 @@ justify-content: space-around;
 .footer{
   gap: 20%;
 }
+  .admin .logincontainer .login input{
+    height: 35px;
+    }
+    .admin .logincontainer .login button{
+    margin-left: 35%;
+    width: 25%;
+    height: 2em;
+    font-size: 1.6em;
+    }
+    .admin .dashboard{
+      margin-top: 18%;
+    }
 }
 @media only screen and (max-width: 425px) {
  nav{
@@ -1831,13 +1893,29 @@ height: 25px;
 .admin .body{
   font-size: 6px;
 }
+.admin .outlet{
+  height: 700px;
+}
     .admin .logincontainer .login input{
       width: 100%;
     }
-    .admin .logincontainer .login button{
-      width: 32%;
-      margin-left: 35%;
+    .admin .logincontainer .login{
+      width: 85%;
     }
+            
+    .admin .logincontainer .login button{
+      width: 30%;
+      margin-left: 35%;
+      font-size: 1.5em;
+    }
+   .loginadminerr{
+    height: 10px;
+    text-align: center;
+    width: 100%;
+   }
+   .admin .dashboard{
+    margin-top: 17%;
+   }
 .admin .products .listitem button{
   width: 32%;
 }

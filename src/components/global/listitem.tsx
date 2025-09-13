@@ -19,6 +19,8 @@ function editproduct(){
     navigate(`/admin/editproduct/${props.id}`)
 }
 async function deletemeal(){
+    const confirm=window.confirm(`you are deleting " ${props.name} " from Database are you sure ? `)
+    if(!confirm) return;
 fetch(`https://fastdish-backend.onrender.com/admin/deleteproduct/${props.id}`,{
     method:'DELETE',
        headers:{    'Content-Type': 'application/json', 
@@ -100,20 +102,15 @@ const data=await res.json()
             
            
           }
-           console.log(slideritems,width,favourites.length)
+           
           if (data.favourites.length===1 ) return;
            
           if(favourites.length % slideritems ===1){
-            console.log(Math.round(favourites.length/slideritems))
-            console.log(favourites.length,slideritems)
+           
             choosefavouritepg(Math.floor(favourites.length/slideritems))
           }
 
 }
-
-
-
-
 
 
 const mealdata={_id:props.id,name:props.name,imgeurl:props.imgeurl,price:props.price,ingredients:props.ingredients,type:props.type,quantity:1}
