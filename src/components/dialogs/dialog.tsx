@@ -40,10 +40,6 @@ export const Dialog:React.FC<{open:string}>=(props)=>{
    },[props.open])
    
  
-   
-
-  
-
 async function handlesignup(e:React.FormEvent<HTMLFormElement>){
          e.preventDefault()
       const data = new FormData(e.currentTarget);
